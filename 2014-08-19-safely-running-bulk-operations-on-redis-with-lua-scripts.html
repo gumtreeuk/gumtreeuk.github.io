@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Safely running bulk operations on Redis with lua scripts - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Aug 19th, 2014</span>
+				<h1>Safely running bulk operations on Redis with lua scripts</h1>
+				<span class="author">By Alex Forbes</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>If there was one golden rule when working with redis in production, it would be</p>
+<p><blockquote>&quot;Don&#39;t use KEYS&quot;</blockquote>
+The reason for this is that it blocks the redis event loop until it completes, i.e. while it&#39;s busy scanning its entire keyspace, it can&#39;t serve any other clients.</p>
+<p>Recently, we had a situation where code was storing keys in redis without setting an expiry time, with the result that our keyspace started to grow:</p>
+<p><!-- Read more -->
+<img src="./redis-lua/redis-memory.png" alt="Redis Memory" title="Redis memory"></p>
+<p>Now 250Mb isn&#39;t a lot of data, but it still represents about a million keys to expire, and it made sense to clean it out given that our normal daily cycle was about 30-50Mb.</p>
+<p>Once we released a code fix on the 19th, the keyspace stopped growing, but because the keys had no TTL set, we would never get the memory back unless we flushed the entire database, or expired them manually.</p>
+<p>Obviously, we preferred the latter option.</p>
+<p>Knowing that you shouldn&#39;t use KEYS (did I mention you shouldn&#39;t use KEYS?), my first attempt used the SCAN command to obtain a list of keys and iterated over them with the EXPIRE command. I started with a script from <a href="http://stackoverflow.com/questions/4006324/how-to-atomically-delete-keys-matching-a-pattern-using-redis" target="_blank">this stackoverflow post</a>, and modified it because the output didn&#39;t seem to be what it was expecting.</p>
+<p>The result, was <a href="https://github.com/al4/redis-expire-scripts/blob/master/expire-attempt1.sh" target="_blank">this script</a>:</p>
+<pre class="highlight"><code class="bash"><span class="shebang">#!/bin/bash
+</span>
+<span class="keyword">if</span> [ <span class="variable">$#</span> <span class="operator">-ne</span> <span class="number">3</span> ]
+<span class="keyword">then</span>
+  <span class="built_in">echo</span> <span class="string">"Expire keys from Redis matching a pattern using SCAN &amp; EXPIRE"</span>
+  <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> &lt;host&gt; &lt;port&gt; &lt;pattern&gt;"</span>
+  <span class="keyword">exit</span> <span class="number">1</span>
+<span class="keyword">fi</span>
+
+cursor=-<span class="number">1</span>
+keys=<span class="string">""</span>
+
+<span class="keyword">while</span> [ <span class="variable">$cursor</span> <span class="operator">-ne</span> <span class="number">0</span> ]; <span class="keyword">do</span>
+  <span class="keyword">if</span> [ <span class="variable">$cursor</span> <span class="operator">-eq</span> -<span class="number">1</span> ]
+  <span class="keyword">then</span>
+    cursor=<span class="number">0</span>
+  <span class="keyword">fi</span>
+
+  reply=$(redis-cli -h <span class="variable">$1</span> -p <span class="variable">$2</span> SCAN <span class="variable">$cursor</span> MATCH <span class="variable">$3</span>)
+  cursor=$(expr <span class="string">"<span class="variable">$reply</span>"</span> : <span class="string">'\([0-9]*[0-9 ]\)'</span>)
+
+  keys=$(<span class="built_in">echo</span> <span class="variable">$reply</span> | awk <span class="string">'{for (i=2; i&lt;NF; i++) print $i}'</span>)
+  [ -z <span class="string">"<span class="variable">$keys</span>"</span> ] &amp;&amp; <span class="keyword">continue</span>
+
+  <span class="keyword">for</span> key <span class="keyword">in</span> <span class="variable">$keys</span>; <span class="keyword">do</span>
+    redis-cli -h <span class="variable">$1</span> -p <span class="variable">$2</span> EXPIRE <span class="variable">$key</span> <span class="number">60</span>
+  <span class="keyword">done</span>
+<span class="keyword">done</span>
+</code></pre>
+<p>The <a href="http://redis.io/commands/scan" target="_blank">SCAN command</a> returns a cursor, followed by a list of keys. Or it might return no keys at all. So the script has to separate the keys and cursor from the output (lines 19-22). For each key, we run an expire command (lines 25-27).</p>
+<p>After the first set of keys, we return to the start of the loop and call the scan command again, this time using the cursor that was returned last time. In this way, Redis knows where you were up to and carries on where it left off.</p>
+<p>Redis returns a cursor of 0 when it has iterated over all keys, so when this happens the while loop ends.</p>
+<h2 id="it-s-a-bit-slow-">It&#39;s a bit slow...</h2>
+<p>While it worked well, it processed at a rate of about 100 keys per second. With a very small database, this might be fine, and left to its own devices, it would have taken just under 3 hours in our case. I figured we could do better.</p>
+<p>Redis supports server-side scripting in the lua language. Lua is not a language I&#39;ve used much before, but its syntax seems fairly logical.</p>
+<p>To call a server-side script, you basically pass it to the redis EVAL command, along with the number of keys, the keys themselves, and any other arguments. A basic example (stolen from the <a href="http://redis.io/commands/EVAL" target="_blank">redis documentation</a>), looks like:</p>
+<pre class="highlight"><code class="bash">&gt; <span class="built_in">eval</span> <span class="string">"return {KEYS[1],KEYS[2],ARGV[1],ARGV[2]}"</span> <span class="number">2</span> key1 key2 first second
+<span class="number">1</span>) <span class="string">"key1"</span>
+<span class="number">2</span>) <span class="string">"key2"</span>
+<span class="number">3</span>) <span class="string">"first"</span>
+<span class="number">4</span>) <span class="string">"second"</span>
+</code></pre>
+<p>Thus if myscript.lua contained:</p>
+<pre class="highlight"><code class="lua"><span class="keyword">return</span> {KEYS[<span class="number">1</span>],KEYS[<span class="number">2</span>],ARGV[<span class="number">1</span>],ARGV[<span class="number">2</span>]}
+</code></pre>
+<p>We could call it with:</p>
+<pre class="highlight"><code class="bash">redis-cli EVAL <span class="string">"<span class="variable">$(cat ./myscript.lua)</span>"</span> <span class="number">2</span> key1 key2 first second
+</code></pre>
+<p>(quotes around the cat command are essential)</p>
+<p>So building on my first attempt, I modified the bash script to call <a href="http://redis.io/commands/EVAL" target="_blank">EVAL</a> with a lua script instead:</p>
+<pre class="highlight"><code class="bash"><span class="shebang">#!/bin/bash
+</span>
+<span class="keyword">if</span> [ <span class="variable">$#</span> <span class="operator">-ne</span> <span class="number">3</span> ]
+<span class="keyword">then</span>
+  <span class="built_in">echo</span> <span class="string">"Expire keys from Redis matching a pattern using SCAN &amp; EXPIRE"</span>
+  <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> &lt;host&gt; &lt;port&gt; &lt;pattern&gt;"</span>
+  <span class="keyword">exit</span> <span class="number">1</span>
+<span class="keyword">fi</span>
+
+cursor=-<span class="number">1</span>
+keys=<span class="string">""</span>
+
+<span class="keyword">while</span> [[ <span class="variable">$cursor</span> <span class="operator">-ne</span> <span class="number">0</span> ]]; <span class="keyword">do</span>
+  <span class="keyword">if</span> [[ <span class="variable">$cursor</span> <span class="operator">-eq</span> -<span class="number">1</span> ]]
+  <span class="keyword">then</span>
+    cursor=<span class="number">0</span>
+  <span class="keyword">fi</span>
+
+  reply=$(redis-cli -h <span class="variable">$1</span> -p <span class="variable">$2</span> SCAN <span class="variable">$cursor</span> MATCH <span class="variable">$3</span> COUNT <span class="number">100</span>)
+  cursor=$(expr <span class="string">"<span class="variable">$reply</span>"</span> : <span class="string">'\([0-9]*[0-9 ]\)'</span>)
+  <span class="built_in">echo</span> <span class="string">"Cursor: <span class="variable">$cursor</span>"</span>
+
+  keys=$(<span class="built_in">echo</span> <span class="variable">$reply</span> | awk <span class="string">'{for (i=2; i&lt;NF; i++) print $i}'</span>)
+  [ -z <span class="string">"<span class="variable">$keys</span>"</span> ] &amp;&amp; <span class="keyword">continue</span>
+
+  keya=( <span class="variable">$keys</span> )
+  count=$(<span class="built_in">echo</span> <span class="variable">${#keya[@]}</span>)
+  redis-cli -h <span class="variable">$1</span> -p <span class="variable">$2</span> EVAL <span class="string">"<span class="variable">$(cat expire.lua)</span>"</span> <span class="variable">$count</span> <span class="variable">$keys</span>
+<span class="keyword">done</span>
+</code></pre>
+<p>(<a href="https://github.com/al4/redis-expire-scripts/blob/master/expire-lua.sh" target="_blank">github link</a>)</p>
+<p>It requires some extra logic because we need to know the number of keys we&#39;re operating on, so we can feed that to the EVAL command. And scan doesn&#39;t return a consistent number of keys. Thus I convert keys to an array, and count the number of elements. I also added the COUNT parameter to the SCAN command, to increase the number of keys we operated on at a time. The default of 10 doesn&#39;t matter when you&#39;re calling redis-cli for each key, but when each scan is only one eval, multiplying the count by 10 means doing 1/10th the number of round-trips.</p>
+<p><h2>The Lua script</h2>
+The lua script has to iterate over the keys given, check whether the TTL is -1 and if so, run EXPIRE. You could also just run expire anyway if you don&#39;t care about resetting all ttls.</p>
+<p>Redis stores the keys given in the var KEYS, and arguments in ARGS, but we don&#39;t care about ARGS in this case. So we can just iterate over KEYS:</p>
+<pre class="highlight"><code class="lua"><span class="keyword">local</span> modified={};
+
+<span class="keyword">for</span> i,k <span class="keyword">in</span> <span class="built_in">ipairs</span>(KEYS) <span class="keyword">do</span>
+    <span class="keyword">local</span> ttl=redis.call(<span class="string">'ttl'</span>, k);
+    <span class="keyword">if</span> ttl == -<span class="number">1</span> <span class="keyword">then</span>
+        redis.call(<span class="string">'EXPIRE'</span>, k, <span class="number">60</span>)
+        modified[#modified + <span class="number">1</span>] = k;
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> modified;
+</code></pre>
+<p>(<a href="https://github.com/al4/redis-expire-scripts/blob/master/expire.lua" target="_blank">github link</a>)</p>
+<p>I then called the bash script with (ensure the lua script is in the same directory):</p>
+<pre class="highlight"><code class="bash">bash ./expire-lua.sh <span class="number">127.0</span>.<span class="number">0.1</span> <span class="number">6379</span> <span class="string">'flashMap_*'</span>
+</code></pre>
+<p>Where flashMap_* is the prefix we&#39;re searching on.</p>
+<p>With this simple lua script, and operating on blocks of keys courtesy of SCAN, we greatly reduced the number of round trips to redis and processed the keyspace much faster than before (about 3500 keys per second in this case). Or in practical terms, what would have taken 3 hours took less than a minute.</p>
+<p>You can modify the &quot;block size&quot; (the number of keys processed on each EVAL), by altering the input to the SCAN command - the last parameter is a hint to tell redis how many keys it should return each time. e.g. to process 500 keys at a time you could change the line to:</p>
+<pre class="highlight"><code class="bash">reply=$(redis-cli -h <span class="variable">$1</span> -p <span class="variable">$2</span> SCAN <span class="variable">$cursor</span> MATCH <span class="variable">$3</span> COUNT <span class="number">500</span>)
+</code></pre>
+<p>The first few scans might not return anything close to your hint. With a value of 100 I noticed it took quite a few iterations before it started returning large blocks, but it quickly ramps up.</p>
+<p>Some refinements could be made here. We could combine the shell and lua scripts into one file, and take the block size and TTL to be set as parameters. As it is, usage is a little cumbersome.</p>
+<p>Please feel free to fork and improve, and if you do, post the link in the comments.</p>
+<p>As a final word, I would suggest you don&#39;t use block sizes that are too large. Firstly, you might run into the limits of the number of arguments that lua can process, and secondly, lua scripts in redis are atomic operations and <em>will</em> block while they run. Thus, you should only run lua scripts that are very fast. In my case, a block size of 100 offered great performance without blocking anything for too long.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html';
+		window.disqus_identifier = '2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts';
+		window.disqus_title = 'Safely running bulk operations on Redis with lua scripts';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="active">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Enabling MongoDB replica set - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Jun 4th, 2014</span>
+				<h1>Enabling MongoDB replica set</h1>
+				<span class="author">By Javier Rivas Rodriguez</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-06-04-enabling-mongodb-replica-set.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-06-04-enabling-mongodb-replica-set.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>Lately some of us have been working on a few projects with MongoDB. 
+In this article, I am going to give some tips on how to enable replicas from a MongoDB instance in a Java web application. </p>
+<p>In this example, I will be using the module <a target="_blank" href="http://projects.spring.io/spring-data-mongodb/">Spring Data Mongo</a> to help me to communicate from the application to the MongoDB database. 
+<!-- Read more -->
+As you know in Spring you can declare Application Contexts based on an XML config file or a Java implementation config class. Here I am going to give an example on how to do both, as the approach changes slightly depending on the Application Context strategy used for implementation.</p>
+<p>As usual, <a target="_blank" href="http://spring.io/guides/tutorials/data/">Spring documentation</a> has been extremely helpful, so I would recommend having an in depth look at some of the concepts discussed here for a better understanding.</p>
+<h2 id="problem-context">Problem Context</h2>
+<p>I have decided to write this short guide since I have not found much online, related to the differences in implementation between an XML based Application Context and a Java Class based Application Context in regards to enabling replica hosts in order to implement a failover strategy.</p>
+<p>If you are happy with having only one MongoDB instance on your production system, then these recipes do not apply well, so feel free to leave now. However, if your DevOps team comes to you saying, “Eh, you! developer! - you know how they talk - we need several instances of that MongoDB database you are using, since we want to be able to replicate the data and enable a failover strategy!” then you are in the right place, please stay.</p>
+<p>For those who do not know <em>what</em> I am talking about, generally the MongoDB failover strategy consists of pinging all the hosts specified in the mongo bean definition in order to determine:</p>
+<ul>
+<li>Which one is the primary host (the one receiving the write operations) and whether it is up and running.</li>
+<li>Which ones are the replicas (the ones receiving read operations and replicating the primary) and whether they are up and running.</li>
+</ul>
+<p>If something unexpected happens with the primary host, the connections with the repository can gracefully failover to any of the replica hosts specified, renaming a new primary between all the replica candidates.</p>
+<p>The concept is not complex to understand but if you want more information about the way replication works on MongoDB I recommend this <a target="_blank" href="http://docs.mongodb.org/master/MongoDB-replication-guide.pdf">article</a>.</p>
+<h2 id="problem-solution">Problem Solution</h2>
+<h3 id="xml-configuration">XML Configuration</h3>
+<p>So, let’s say our  config file looks like this:</p>
+<pre class="highlight"><code class="xml"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span>
+
+<span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       <span class="attribute">xmlns:mongo</span>=<span class="value">"http://www.springframework.org/schema/data/mongo"</span>
+       <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                           http://www.springframework.org/schema/data/mongo
+                           http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd"</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">mongo:mongo</span> <span class="attribute">id</span>=<span class="value">"mongo"</span> <span class="attribute">replica-set</span>=<span class="value">"localhost:27017,localhost:27018,192.156.93:27017"</span> &gt;</span>
+        <span class="tag">&lt;<span class="title">mongo:options
+</span>                <span class="attribute">connections-per-host</span>=<span class="value">"20"</span>
+                <span class="attribute">threads-allowed-to-block-for-connection-multiplier</span>=<span class="value">"5"</span>
+                <span class="attribute">slave-ok</span>=<span class="value">"true"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">mongo:mongo</span>&gt;</span>
+</code></pre>
+<p>Two things to notice here:</p>
+<ul>
+<li>The mandatory properties host and port declared for a single MongoDB instance disappear. We need to add the attribute replica-set instead.</li>
+<li>We also need to specify the host followed by the port separated by a colon. We add the secondary hosts separated by commas.</li>
+</ul>
+<p>And that is really it! We have our MongoDB instance ready to test the replication system.</p>
+<h3 id="java-class-configuration">Java Class Configuration</h3>
+<p>So let’s say our Java Config class looks like this:</p>
+<pre class="highlight"><code class="java"><span class="annotation">@Configuration</span>
+<span class="annotation">@EnableMongoRepositories</span>({<span class="string">"com.foo.repository"</span>})
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MongoRepositoryConfig</span></span>{
+
+    <span class="annotation">@Value</span>(<span class="string">"localhost:27017, localhost:27018"</span>)
+    <span class="keyword">private</span> ServerAddress[] serverAddressList;
+
+<span class="annotation">@Bean</span>
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> Mongo mongo() <span class="keyword">throws</span> Exception {
+         <span class="keyword">return</span> <span class="keyword">new</span> Mongo(Arrays.asList(serverAddressList));
+    }
+
+<span class="annotation">@Bean</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> CustomEditorConfigurer customEditorConfigurer(){
+        CustomEditorConfigurer configurer = <span class="keyword">new</span> CustomEditorConfigurer();
+        configurer.setPropertyEditorRegistrars(
+                <span class="keyword">new</span> PropertyEditorRegistrar[]{<span class="keyword">new</span> ServerAddressPropertyEditorRegistrar()});
+        <span class="keyword">return</span> configurer;
+    }
+</code></pre>
+<p>We will also need the class:</p>
+<pre class="highlight"><code class="java"><span class="keyword">import</span> org.springframework.data.mongodb.config;
+
+<span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ServerAddressPropertyEditorRegistrar</span> <span class="keyword">implements</span> <span class="title">PropertyEditorRegistrar</span> </span>{
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> <span class="keyword">void</span> registerCustomEditors(PropertyEditorRegistry registry) {
+        registry.registerCustomEditor(ServerAddress[].<span class="class"><span class="keyword">class</span>, <span class="title">new</span> <span class="title">ServerAddressPropertyEditor</span>());
+    }
+}
+</span></code></pre>
+<p>This is a bit more complex than the XML config, so there are several things to take note of here.</p>
+<p>In this case we need to create a Spring custom property editor so that Spring can convert from a comma separated String to an array of ServerAddress objects. </p>
+<p>As it can be noticed, we are using a ServerAddressPropertyEditor instance provided by the Spring Data MongoDB library. If you don&#39;t like or have some restrictions about using that library, don&#39;t worry, you can always implement your own CustomPropertyEditor. You would only have to implement the interface PropertyEditorSupport and register it in your CustomPropertyEditorRegistrar. More info about how to do that can be found <a target="_blank" href="http://docs.spring.io/spring/docs/3.2.x/spring-framework-reference/html/validation.html">here</a>.</p>
+<p>That should be it! After applying these changes to your code your application will be aware of the existence of a primary MongoDB instance and of the different replicas you have installed so it will start using them straight away.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-06-04-enabling-mongodb-replica-set.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-06-04-enabling-mongodb-replica-set.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-06-04-enabling-mongodb-replica-set.html';
+		window.disqus_identifier = '2014-06-04-enabling-mongodb-replica-set';
+		window.disqus_title = 'Enabling MongoDB replica set';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

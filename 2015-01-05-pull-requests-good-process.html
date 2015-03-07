@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Pull Requests (what could be a good process) - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Jan 5th, 2015</span>
+				<h1>Pull Requests (what could be a good process)</h1>
+				<span class="author">By Esther Saimpou</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<blockquote>
+<p>I hear people saying it and I say it my self very often lately...
+Nothing should be released without a Pull Request!
+The thing is that even I don’t raise them anymore
+And yes, I say that with shame...</p>
+<p>-- myself :)
+<!-- Read more --></p>
+</blockquote>
+<p>I found myself constantly saying we should enforce them, but the truth is no one can force us to do anything. Thinking about it though made me realise that it is our responsibility to make sure we have a Code Quality Assurance, as we have a Product Quality Assurance. We wouldn’t add features or bug fixes in stable and release it without going through QA. So how and why do we accept going through without Code QA? (yes I am referring to a Code Review)  :)</p>
+<p>Apart from code quality though there’s another great benefit in Pull Requests. They are a great way of sharing knowledge in the team of what’s going on in our code base. I have found myself going through a merged and closed PR, just because I wanted to know what is the new feature and how is it achieved. Saying that, expanding our knowledge is another benefit from PRs. </p>
+<p>I do expect some booing here but I’ll say it anyway. These are some of the benefits you can achieve with pair programming and perhaps with more freedom. I am not suggesting it’s equivalent or should replace pair programming! Just stating some of high level reasons that came to mind of why we want to do and we like Code Reviews.</p>
+<p>Being a member till recently of a very big team of 6 FE developers and we had to have a good system. (Here I have to say we were very lucky our FE lead introduced them and had implemented a mergeable through Github Pull Request that made the process very easy and automated)  We were all doing so much work in the exact same files and we were changing the codebase so fast and so often, that I don’t think we could have achieved so much without Pull Requests and Code Reviews. We prevented wrong methods to be used and we were able to maintain our code neat and and with minimal duplication.</p>
+<p>The next question now is what are the reasons that even though we want to we do not actually do them? (At least not always).</p>
+<p>Well my experience in the team was that the process yes it is great BUT it has it’s own challenges. So when the team was later divided in to smaller teams we just stopped doing them with a feeling that now we can sneak code in production without any criticism.</p>
+<p>Some of the challenges to list:</p>
+<ul>
+<li>Pull Requests were raised and they were not reviewed and merged for days even weeks in some cases.</li>
+<li>The above resulting in the developer responsible for the branch to have to maintain the branch and going through the pain of conflicts again again.</li>
+<li>To lose his/her code at the end cause the main codebase has changed so much that the conflicts wire not making any sense anymore.</li>
+<li>Huge Pull Requests with hundreds lines of code to review that no one could actually be bothered to review.</li>
+<li>Code Reviews that were leading to an unresolvable argument of the approach resulting again in non merged branches that remained there for ages.</li>
+</ul>
+<p>These are only a few reasons just on the top of my head that we do not like Pull Requests and Code Reviews. Now these reason’s can be solved perhaps by setting some rules. I will make a few suggestions and I would love to hear more, or better solutions.</p>
+<ul>
+<li>In our current way of workflow small branches should be opened for each ticket raised against an Epic branch that is to be released.</li>
+<li>The developer’s raising the PR should have the responsibility to create a small request easy for colleagues to check.</li>
+<li>Small single tickets in small single branches. That’s why we have small tickets to divide the workflow properly! Even tiny changes can go in as a separate branch (meaning a separate PR). Perhaps there could be an exclusion where in one PR there are a couple 4 max, tiny, like single line changes, each very clearly stated in the raised PR. On the other hand perhaps even that should be avoided, if it&#39;s proven people don’t know where to draw a line.</li>
+<li>The developer’s raising the PR should have the responsibility to find a person to review his/her code. If no one prompts to do it, the developer could nominate someone and ask them to!</li>
+<li>Then the person nominated would have the responsibility to do the Code Review within the day or the latest early the next day if the PR is raised late in the afternoon.</li>
+<li>If the person nominated is extremely busy should still have the responsibility to find someone else to the Code Review instead.</li>
+<li>In the worst case if it can’t be done by no one soon, communicate, coordinate and come to an agreement for when it can be done. In any case do not leave it for more than a day or two, it’s supposed to be a small Pull Request in the first place.</li>
+<li>If the Pull request is too complex and has more that one features/bugfixes implemented, the person nominated could deny to do it, and the developer should cherry pick and divide it’s branch into two or more, as needed.</li>
+</ul>
+<p>Perhaps at some point we should try finding a way to merge from a raised PR with a fast forward so that we can cherry pick easily, remove and leave for later each small ticket. Otherwise do a manual merge and achieve the same.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html';
+		window.disqus_identifier = '2015-01-05-pull-requests-good-process';
+		window.disqus_title = 'Pull Requests (what could be a good process)';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="active">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

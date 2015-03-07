@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Using Twilio from within Play Framework - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Jan 3rd, 2014</span>
+				<h1>Using Twilio from within Play Framework</h1>
+				<span class="author">By Pere Villega</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-01-03-using-twilio-from-within-play-framework-scala.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-01-03-using-twilio-from-within-play-framework-scala.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>One of the advantages of working at <a target="_blank" href="http://www.gumtree.com/">Gumtree</a> is being able to experiment. We are committed to deliver the best experience possible to our users, and evaluating both tools and processes that helps us to achieve that aim is a must. Not all of them will be used, but without evaluating something you can&#39;t form a valid opinion and see if it will fit your use cases. And you get to justify play time with new technologies as work ;)</p>
+<p>I explain all this to make you a bit jealous (want to join us? <a target="_blank" href="https://www.linkedin.com/company/gumtree.com/careers">We are hiring</a>!). No, seriously, I explain this as you may be wondering why are we talking about <a target="_blank" href="https://www.twilio.com/">Twilio</a> in our blog. In fact, you may even be wondering what is Twilio. Let&#39;s start there.
+<!-- Read more --></p>
+<h2 id="twilio-what-s-that-">Twilio? What&#39;s that?</h2>
+<p>Unfortunately that&#39;s a common question. Given the amount of SaaS appearing every month, it is easy to miss some interesting ones. This may be one of them, and it provides a quite interesting service.</p>
+<p><a target="_blank" href="https://www.twilio.com/">Twilio</a> is a SaaS that provides telephony services, from SMS to VoiceIP. Boring as it seems at first, with their API you can do things like adding 2-factor authentication via SMS to your application, sending SMS to a customers or calling a client from your browser, without requiring any additional plugin.</p>
+<p>It is a really flexible service and it opens many interesting possibilities. It has SDK to use it from Android, iPhone or with many of the mainstream programming languages (Java, Javascript, Python, etc). To test it we created a small sample app using <a target="_blank" href="http://www.playframework.com/">Play Framework</a> and <a target="_blank" href="http://www.scala-lang.org/">Scala</a>, available in our <a target="_blank" href="https://github.com/gumtreeuk/Twilio-Play-Test">Github repository</a>. Please be aware that this is an internal test application, to try Twilio, and safety wasn&#39;t a concern when developing it. So be careful when reusing the code.</p>
+<p>The <a target="_blank" href="https://github.com/gumtreeuk/Twilio-Play-Test">application</a> is a simple one. The main page asks for some Twilio API credentials, as seen below. </p>
+<p><img src="./twilio-play/main_page.png" alt="Main page of the sample app" title="Main page of the sample app"></p>
+<p>These credentials are stored in the user session and then the user is redirected to the test page. In the test page (shown below) the user can select one of several options:</p>
+<p><img src="./twilio-play/sample_page.png" alt="Test page of the sample app" title="Test page of the sample app"></p>
+<ul>
+<li><p>Send a SMS to a number</p>
+</li>
+<li><p>Call a number from the browser</p>
+</li>
+<li><p>See a list of the calls done via the functionality above and retrieve an mp3 with the contents of the call</p>
+</li>
+</ul>
+<p>Going back to the main page will erase the credentials from the session, allowing the user to connect with a different set of credentials.</p>
+<p>This provides a taste of what Twilio can do, and the app can be easily extended to add more sample cases for other Twilio functionality. </p>
+<h2 id="hold-your-horses">Hold your horses</h2>
+<p>Before we start playing with the code, we have to register an account with <a target="_blank" href="https://www.twilio.com/">Twilio</a>. I won&#39;t go through the steps in this post, as they are quite straightforward. When you create the account you can keep a development account or go for the full account (paid). A development account in Twilio allows you to test just a subset of the functionality. You will be able to send SMS and do some calls, but only to specific numbers. This can be a bit frustrating when working code is failing due to the limitations in development accounts. Given the low cost of the Twilio services, you may want to upgrade the account and pay the initial $20 of credit so you have full access to all the Twilio API for quite a long time (if only used for development). </p>
+<p>Once you have created the account your <a target="_blank" href="https://www.twilio.com/user/account">dashboard</a> shows both the <strong>SID</strong> and <strong>AUTH TOKEN</strong> you need to access some of the Twilio API and that the sample app requests in the main page (as seen in the previous section). There is another key required for some API calls, like calling from a browser, but before we enable that we have to talk a bit about the Twilio execution flow.</p>
+<p>In our sample application we have 2 types of execution flow when calling Twilio API. The first one, when sending an SMS, is shown below.</p>
+<p><img src="./twilio-play/flow_1.png" alt="Send SMS flow" title="Send SMS flow"></p>
+<p>In this scenario our server uses the API to send an SMS. The server feeds the API with the necessary keys and parameters, connects with Twilio servers and the SMS is sent. We may get back some information as a response from the call, but that is it. More importantly, the browser in here behaves as a transport layer, providing the relevant information (destination number and content of the message) to the server, which does the heavy lifting.</p>
+<p>Sometimes the flow gets a bit more complicated. For example, let&#39;s say that we want to call to a phone from our browser. Thinking about it, one can guess that we have to connect the phone back to our browser, at the very least, which can imply additional steps. The Twilio flow in this scenario is as follows:</p>
+<p><img src="./twilio-play/flow_2.png" alt="Call from browser flow" title="Call from browser flow"></p>
+<p>A bit more convoluted, isn&#39;t it? What is happening here is that Twilio is acting as a mediator to connect the browser and the phone. The browser connects to an app defined in the Twilio servers, which then asks our server how to act. The server replies telling Twilio to call to the provided phone number, and Twilio manages the connection between phone and server. </p>
+<p>These extra steps, unnecessary as they may seem, are there to give extra flexibility and allow you to manage the call properly by rerouting and reacting as needed. To do this Twilio has the concept of <a target="_blank" href="https://www.twilio.com/docs/api/twiml">TwiML apps</a>, XML files using a specific set of tags which tell Twilio which action should happen at that moment. Below you can see a snapshot of the dashboard of Twilio showing our sample TwiML app:</p>
+<p><img src="./twilio-play/twiml_app.png" alt="TwiML app dashboard" title="TwiML app dashboard"></p>
+<p>You need to create one TwiML app for your project to be able to call from the browser. The application will provide a key, which is the last authentication key we need to run the sample application.</p>
+<p>Creating the TwiML app brings us to <a target="_blank" href="https://ngrok.com/">Ngrok</a>. When developing the sample app we got somehow confused by the flow and the calls where not going through. The eureka moment (obvious as it is) was when we realised that Twilio wanted to connect back to our development application to proceed, but the application was not available to the internet as it was running in localhost. <a target="_blank" href="https://ngrok.com/">Ngrok</a> solves this issue by allowing you to expose applications running in your development machine to the world. If you look at the snapshot above you may notice that the url associated to the voice <em>voice</em> component of the application uses a <em>ngrok</em> url, that way the connection between TwiML app and our development server works. Be sure to do the same when creating your TwiML application.</p>
+<h2 id="using-twilio-inside-play-framework">Using Twilio inside Play Framework</h2>
+<p>At this stage we have all the tools we need to run the application. Let&#39;s see how did we build it. Remember that the code is available in our <a target="_blank" href="https://github.com/gumtreeuk/Twilio-Play-Test">Github repository</a>, some things like the contents of the <em>routes</em> file or the <em>views</em> won&#39;t be explained as they are trivial and can be seen in there.</p>
+<p>The first step is to create a <a target="_blank" href="http://www.playframework.com/">Play Framework</a> application (version 2.2.1) and then include into it the <a target="_blank" href="https://www.twilio.com/docs/java/install">Twilio Java</a> library. There is a Scala library available, but it is not a Twilio official one, and past experiences showed us that we better rely on the officially supported libraries. Thanks to the seamless integration between Java and Scala, this is not an issue.</p>
+<p>To do this edit <em>build.sbt</em> and add:</p>
+<pre class="highlight"><code class="scala">libraryDependencies ++= Seq(
+ cache,
+ <span class="string">"com.twilio.sdk"</span> % <span class="string">"twilio-java-sdk"</span> % <span class="string">"3.4.1"</span>
+)
+</code></pre>
+<h3 id="twilio-and-credentials">Twilio and Credentials</h3>
+<p>As we have seen, Twilio uses 3 different keys to authorise API execution: SID, authentication token and application SID. We have created a model class to store these credentials:</p>
+<pre class="highlight"><code class="scala"><span class="class"><span class="keyword">case</span> <span class="keyword">class</span> <span class="title">TwilioCredentials</span> <span class="params">(sid: String, token: String, appSID: String)</span></span>
+</code></pre>
+<p>Our application forbids access to the test page if the credentials are not present in the session. This avoids issues when doing the calls, and ensures a predictable navigation flow. The way we achieve this is via a trait <em>TwilioAccess</em> that contains some helper methods to check if the keys are present in the user session, as seen below (some support code not shown to reduce clutter): </p>
+<pre class="highlight"><code class="scala"><span class="class"><span class="keyword">trait</span> <span class="title">TwilioAccess</span> {</span>
+
+ <span class="keyword">private</span> <span class="keyword">def</span> onUnauthorized(request: RequestHeader) = 
+   Results.Redirect(routes.Application.index)
+    .flashing(<span class="string">"warning"</span> -&gt; <span class="string">"SID, App SID or Auth token missing in session"</span>)
+
+ <span class="keyword">def</span> hasCredentials(f: =&gt; (String, String, String) =&gt; Request[AnyContent] =&gt; Result) = 
+  credentialsPresent(onUnauthorized) {
+   (sid, token, appSID) =&gt;
+    Action(request =&gt; f(sid, token, appSID)(request))
+  }
+
+ <span class="keyword">private</span> <span class="keyword">def</span> credentialsPresent[A](onUnauthorized: RequestHeader =&gt; SimpleResult)
+  (action: (String, String, String) =&gt; EssentialAction): EssentialAction = {
+   EssentialAction {
+    request =&gt;
+
+     <span class="keyword">val</span> mySid = sid(request)
+     <span class="keyword">val</span> myToken = auth(request)
+     <span class="keyword">val</span> myAppSID = appSID(request)
+
+     <span class="keyword">if</span> (mySid.isEmpty || myToken.isEmpty || myAppSID.isEmpty)
+      Done(onUnauthorized(request), Input.Empty)
+     <span class="keyword">else</span>
+      action(mySid.get, myToken.get, myAppSID.get)(request)
+
+   }
+  }
+}
+</code></pre>
+<p>The relevant methods in the trait are:</p>
+<ul>
+<li><p><strong>credentialsPresent:</strong> this method gets an essential action and a method to execute if the user is not authorised. The code checks that the three keys are present in the session and if they are proceeds by executing the essential action, otherwise it runs the <em>onUnauthorized</em> method and prevents the user from accessing the page. </p>
+</li>
+<li><p><strong>hasCredentials:</strong> uses the support method <em>credentialsPresent</em> to give or forbid access to a specific action</p>
+</li>
+</ul>
+<p>The fragment below shows how we use the trait to restrict user access:</p>
+<pre class="highlight"><code class="scala"><span class="class"><span class="keyword">object</span> <span class="title">Application</span> <span class="keyword">extends</span> <span class="title">Controller</span> <span class="keyword">with</span> <span class="title">TwilioAccess</span> {</span>
+
+ <span class="keyword">def</span> index = Action {
+  implicit request =&gt;
+   Ok(views.html.index(credentialsForm)).withNewSession
+ }
+
+ <span class="keyword">def</span> getCredentials = Action {
+  implicit request =&gt;
+
+   credentialsForm.bindFromRequest.fold(
+    errors =&gt; BadRequest(views.html.index(errors)),
+
+    credentials =&gt; Redirect(routes.Application.testTwilio)
+      .withSession(setSessionCredentials(credentials.sid, 
+          credentials.token, credentials.appSID))
+   )
+ }
+
+ <span class="keyword">def</span> testTwilio = hasCredentials {
+  (sid, token, appSID) =&gt;
+   implicit request =&gt;
+
+    <span class="keyword">val</span> callToken = TwilioAPI
+     .generateCallToken(sid, token, appSID) <span class="keyword">match</span> {
+
+      <span class="keyword">case</span> Failure(ex) =&gt; 
+       Logger.info(s<span class="string">"Couldn't generate the call token, error: ${ex.getMessage}"</span>);<span class="string">""</span>
+
+      <span class="keyword">case</span> Success(id) =&gt; 
+       Logger.info(s<span class="string">"Call token $id ready"</span>); id
+    }
+
+    Ok(views.html.twilio(sid, smsForm, callToken, callsReceived))
+  }
+}
+</code></pre>
+<p>The method <em>index</em> loads the main page and clears the session, removing any key stored in it. When we submit the form in the main page we hit <em>getCredentials</em>, which (if the form validates) stores the credentials in the session and redirects to the test page.</p>
+<p>The method <em>testTwilio</em> manages the access to the test page. By using the support method <em>hasCredentials</em> from the included trait it ensures that if any of the credentials is missing the user won&#39;t be given access to the page. If the credentials are present, we execute some Twilio related code and then display the test page. </p>
+<p>We have wrapped the access to Twilio API in an object <em>TwilioAPI</em>, shown below:</p>
+<pre class="highlight"><code class="scala"><span class="class"><span class="keyword">object</span> <span class="title">TwilioAPI</span> {</span>
+
+ <span class="keyword">private</span> <span class="keyword">val</span> PHONE_FROM = <span class="string">"+441473379566"</span>
+
+ <span class="keyword">def</span> sendSMS(sid: String, token: String, to: String, msg: String) = Try {
+  Logger.info(s<span class="string">"Sending SMS to $to with text $msg"</span>)
+
+  <span class="keyword">val</span> client = <span class="keyword">new</span> TwilioRestClient(sid, token)
+
+  <span class="keyword">val</span> params= Map((<span class="string">"Body"</span>, msg), (<span class="string">"To"</span>, to), (<span class="string">"From"</span>, PHONE_FROM))
+
+  <span class="keyword">val</span> messageFactory: SmsFactory = client.getAccount.getSmsFactory
+  <span class="keyword">val</span> message: Sms = messageFactory.create(params)
+
+  message.getSid
+ }
+
+ <span class="keyword">def</span> generateCallToken(sid: String, token: String, appSID: String) = 
+  Try {
+   Logger.info(s<span class="string">"Generating call token for app $appSID"</span>)
+
+   <span class="keyword">val</span> capability = <span class="keyword">new</span> TwilioCapability(sid, token)
+   capability.allowClientOutgoing(appSID)
+
+   capability.generateToken
+  }
+}
+</code></pre>
+<p>The methods are quite self-explanatory, for example <em>sendSMS</em> gets some credential;s along a destination phone number and a message, and sends an SMS to that number using the API. It returns the unique id of the message as generated by the API, for future reference. </p>
+<p>The other method, <em>generateCallToken</em>, given the credentials generates a unique token that will be used by our browser to establish a call from browser to phone. More details on the process will be given in following sections.</p>
+<h3 id="sending-a-sms">Sending a SMS</h3>
+<p>Sending an SMS, as we saw when talking about the Twilio flows, is very simple. We assume the user has provided valid credentials and filled the form in the test page, by giving a destination mobile number and a text message to send. From a code point of view this means validating the form and calling the API method shown above:</p>
+<pre class="highlight"><code class="scala"><span class="keyword">def</span> sendSMS = hasCredentials {
+ (sid, token, appSID) =&gt;
+  implicit request =&gt;
+
+   smsForm.bindFromRequest.fold(
+    errors =&gt; 
+     BadRequest(views.html.twilio(sid, errors, <span class="string">""</span>, callsReceived)),
+
+    details =&gt; {
+
+     <span class="keyword">val</span> msg = TwilioAPI
+       .sendSMS(sid, token, details.phone, details.msg) <span class="keyword">match</span> {
+
+        <span class="keyword">case</span> Failure(ex) =&gt; 
+          Flash(Map(<span class="string">"danger"</span> -&gt; s<span class="string">"Couldn't send sms, error: ${ex.getMessage}"</span>))
+
+        <span class="keyword">case</span> Success(id) =&gt; 
+          Flash(Map(<span class="string">"success"</span> -&gt; s<span class="string">"SMS sent with id $id"</span>))
+       }
+
+     Redirect(routes.Application.testTwilio).flashing(msg)
+    }
+   )
+}
+</code></pre>
+<p>Once the message is sent we are sent back to the test page and we see a success message that includes the unique id of the message:</p>
+<p><img src="./twilio-play/sms_sent.png" alt="SMS sent" title="SMS sent"></p>
+<h3 id="call-from-your-browser">Call from your browser</h3>
+<p>Calling from the browser to a mobile phone is slightly more convoluted as we explained before. We need the following elements to be able to connect the call:</p>
+<ul>
+<li><p>a call token that will be generated by the Twilio server and used by the browser to establish the call</p>
+</li>
+<li><p>javascript code to start and finish the call</p>
+</li>
+<li><p>a REST endpoint that generates a valid TwiML file to tell Twilio how to react to the call</p>
+</li>
+<li><p>another REST endpoint to store relevant information about the call</p>
+</li>
+</ul>
+<p>Let&#39;s see the code for each component in order. Generating a call token is very simple, we saw the support method that does this in the <em>TwilioAPI</em> object. As we need this token in the test page to be able to start the call, each time we load that page we generate a new token. This is not the way you may want to act in production, but it works for this test application:</p>
+<pre class="highlight"><code class="scala"><span class="keyword">val</span> callToken = TwilioAPI
+ .generateCallToken(sid, token, appSID) <span class="keyword">match</span> {
+
+  <span class="keyword">case</span> Failure(ex) =&gt; 
+   Logger.info(s<span class="string">"Couldn't generate the call token, error: ${ex.getMessage}"</span>);<span class="string">""</span>
+
+  <span class="keyword">case</span> Success(id) =&gt; 
+   Logger.info(s<span class="string">"Call token $id ready"</span>);id
+}
+</code></pre>
+<p>The token is rendered in the test page, along some javascript that links the <em>call</em> button with the Twilio javascript SDK. The code, with comments to explain what each element does, is shown next:</p>
+<pre class="highlight"><code class="javascript"><span class="comment">/* Create the Client with a Capability Token */</span>
+Twilio.Device.setup(<span class="string">"@callToken"</span>, {debug: <span class="literal">true</span>});
+
+<span class="comment">/* Let us know when the client is ready. */</span>
+Twilio.Device.ready(<span class="function"><span class="keyword">function</span> <span class="params">(device)</span> {</span>
+ $(<span class="string">"#log"</span>).text(<span class="string">"Ready"</span>);
+});
+
+<span class="comment">/* Report any errors on the screen */</span>
+Twilio.Device.error(<span class="function"><span class="keyword">function</span> <span class="params">(error)</span> {</span>
+ $(<span class="string">"#log"</span>).text(<span class="string">"Error: "</span> + error.message);
+});
+
+<span class="comment">/* Log a message when a call disconnects. */</span>
+Twilio.Device.disconnect(<span class="function"><span class="keyword">function</span> <span class="params">(conn)</span> {</span>
+ $(<span class="string">"#log"</span>).text(<span class="string">"Call ended"</span>);
+});
+
+Twilio.Device.connect(<span class="function"><span class="keyword">function</span> <span class="params">(conn)</span> {</span>
+ $(<span class="string">"#log"</span>).text(<span class="string">"Successfully established call"</span>);
+});
+
+<span class="comment">/* Connect to Twilio when we call this function. */</span>
+<span class="function"><span class="keyword">function</span> <span class="title">call</span><span class="params">()</span> {</span>
+ <span class="comment">// get the phone number to connect the call to</span>
+ params = {<span class="string">"To"</span>: $(<span class="string">"#callTo"</span>).val()};
+ Twilio.Device.connect(params);
+}
+
+<span class="comment">/* A function to end a connection to Twilio. */</span>
+<span class="function"><span class="keyword">function</span> <span class="title">hangup</span><span class="params">()</span> {</span>
+ Twilio.Device.disconnectAll();
+}
+</code></pre>
+<p>Pressing the <em>call</em> or <em>hang up</em> buttons triggers a call to the corresponding javascript methods, which start or end the call. The other methods provide logging and could be used to react to different error scenarios as desired. Please note that the <em>params</em> value we pass to <em>Twilio.Device.connect</em> can contain any custom parameter we want, and it will be forwarded to our server in the next step.</p>
+<p>With this we have all the components we need to start the call, but we still need to indicate Twilio how to proceed after we it receives the call command. As you may remember, when creating the TwiML application you assigned a <em>voice</em> url, mapped via <em>Ngrok</em> to your local deployment. This call maps to a method in <em>Application</em> controller that returns a TwiML file with the action to execute.</p>
+<pre class="highlight"><code class="scala"><span class="keyword">def</span> serveCallConfig = Action {
+ implicit request =&gt;
+  Logger.info(s<span class="string">"Establishing a call form a browser"</span>)
+  Logger.debug(s<span class="string">"Request: ${request.queryString.toList}"</span>)
+
+  <span class="keyword">val</span> to = request.queryString.get(<span class="string">"To"</span>).getOrElse(mutable.Buffer()).mkString
+  Logger.info(s<span class="string">"Found target number $to"</span>)
+
+  <span class="keyword">val</span> action = routes.Application.callDone.absoluteURL()
+  Logger.info(s<span class="string">"Action for recording is $action"</span>)
+
+  <span class="keyword">val</span> xml = s<span class="string">"&lt;Response&gt;&lt;Dial callerId='+441473379566' method='GET' action='$action' record='true'&gt;&lt;Number&gt;$to&lt;/Number&gt;&lt;/Dial&gt;&lt;/Response&gt;"</span>
+  Ok(xml).as(<span class="string">"text/xml"</span>)
+}
+</code></pre>
+<p>Notice that in the method we only extract the value for the parameter <em>to</em> form the request, but we could get more values as mentioned above when showing the javascript code. The XML generated includes an action <em>Dial</em> to call a specific number (provided in the request). Once Twilio gets this document it will connect the browser with the number we provided in the XML file. </p>
+<p>Note that the XML also adds an <em>action</em>, an optional (but recommended) parameter of the TwiML. This action is called by Twilio once the call ends, and it allows us to get information about the call, including the length and status, and a MP3 recording of the call. We can see the code that manages that request here:</p>
+<pre class="highlight"><code class="scala"><span class="keyword">def</span> callDone = Action {
+ implicit request =&gt;
+  Logger.info(s<span class="string">"A call from a browser has ended, storing details"</span>)
+  Logger.debug(s<span class="string">"Request: ${request.queryString.toList}"</span>)
+
+  <span class="keyword">val</span> status = request.queryString.get(<span class="string">"DialCallStatus"</span>).getOrElse(mutable.Buffer()).mkString
+  <span class="keyword">val</span> sid = request.queryString.get(<span class="string">"DialCallSid"</span>).getOrElse(mutable.Buffer()).mkString
+  <span class="keyword">val</span> duration = request.queryString.get(<span class="string">"DialCallDuration"</span>).getOrElse(mutable.Buffer()).mkString
+  <span class="keyword">val</span> recording = request.queryString.get(<span class="string">"RecordingUrl"</span>).getOrElse(mutable.Buffer()).mkString
+
+  Logger.info(s<span class="string">"Call $sid terminated with status $status after $duration. Recording available at $recording"</span>)
+  callsReceived = recording :: callsReceived
+  Ok
+}
+</code></pre>
+<p>In the sample app we store all the call results in an in-memory array, but as you can see there is plenty of relevant information available about the call that may be of use in a production environment.</p>
+<p>And, with this, the system is working. Ensure that <em>Ngrok</em> is running, the TwiML application is properly configured and launch the Play server. You will be able to call from your browser to your own mobile phone (or anyone&#39;s) and get a link to the MP3 recording of the call.</p>
+<h1 id="that-s-all-folks">That&#39;s All Folks</h1>
+<p>And we are done. To summarise, we have seen how to use some Twilio services from within a Play Framework API, using Scala. This provides us with an extensible playground we can use to test and decide if the service fits the needs of our business. We have also talked about the Twilio flow and why we need to use Ngrok to expose our test environment to their systems.</p>
+<p>The nice part is that without being experts, as this was our first time testing the Twilio API, we could create the prototype in a couple of hours (including pitfalls with ngrok). It took longer to write the post that to write the code. This shows that the API is mature and intuitive, and you can achieve quite a lot with minimal effort. </p>
+<p>Another good thing about Twilio has been their customer support. We had a couple of requests and they were answered quickly, allowing us to test assumptions with a minimal delay. Any of you who has been testing a new API in a domain they are not experts knows sometimes it is easy to get stuck, and finding the solution (trivial as it may be) consumes a lot of time and energy. The fact we didn&#39;t have this pain with Twilio is something we, as developers, appreciate. It&#39;s not easy to build a good API :) </p>
+<p>I hope it has been useful and, as always, feel free to comment and to fork the code for your own purposes.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-01-03-using-twilio-from-within-play-framework-scala.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-01-03-using-twilio-from-within-play-framework-scala.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-01-03-using-twilio-from-within-play-framework-scala.html';
+		window.disqus_identifier = '2014-01-03-using-twilio-from-within-play-framework-scala';
+		window.disqus_title = 'Using Twilio from within Play Framework';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

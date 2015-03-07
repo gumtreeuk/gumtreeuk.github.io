@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Integrating Hystrix - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Jan 6th, 2015</span>
+				<h1>Integrating Hystrix</h1>
+				<span class="author">By Pere Villega</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>Last September Gumtree went <a target="_blank" href="http://blog.gumtree.com/your-new-look-gumtree/">responsive</a>. This has been a long project with a heavy Front-end component, as you could expect. But plenty of changes were done behind the scenes. One of them, as you can guess by the title, was integrating <a target="_blank" href="https://github.com/Netflix/Hystrix">Hystrix</a>. Let&#39;s see why and how.
+<!-- Read more --></p>
+<h2 id="what-we-had">What we had</h2>
+<p>Before I go into details let me explain our starting point. The service now running the responsive website is one of many we have. Originally this service&#39;s task was to serve our mobile traffic and it consisted of a minimalistic <a target="_blank" href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html">Spring MVC</a> application. Given that we wanted to move to responsive as soon as possible, using this existing codebase was ideal as it would save us time on component integration, monitoring and other tasks. So we built on top of it, enhancing as needed. </p>
+<p>While developing the project we looked at improving api call management. What may look simple, like a <a target="_blank" href="http://www.gumtree.com/search?q=&amp;search_category=cars-vans-motorbikes&amp;search_location=TW91EH&amp;tl=&amp;distance=0.5">search for cars</a>, becomes complex in the backend through several calls to other services. These extra calls mean that, as the <a target="_blank" href="http://en.wikipedia.org/wiki/Fallacies_of_distributed_computing">fallacies of distributed computing</a> explain, errors are inevitable. But, if possible, we don&#39;t want to serve &#39;500 error&#39; pages to our customers as that would make for a horrible user experience. So we needed a way to manage these errors in an elegant way. Enter <a target="_blank" href="https://github.com/Netflix/Hystrix">Hystrix</a>.</p>
+<h2 id="why-hystrix">Why Hystrix</h2>
+<p>Netflix has become the poster-boy of microservices and resilience, mostly through their <a target="_blank" href="http://netflix.github.io/#repo">open source contributions</a> which give developers access to the same tools they use in production. Hystrix can be defined as a compartmentation tool that isolates a service from errors coming form external sources. It implements patterns like <a target="_blank" href="http://en.wikipedia.org/wiki/Circuit_breaker_design_pattern">circuit breaker</a>, fallback mechanisms, and parallel execution. By grouping all this in one library, and providing exhaustive metrics on what&#39;s going on under the hood, you get a fantastic template you can build upon to manage calls to external services.</p>
+<p>You could argue that by using framework X or language Y we would get all this for free. And you may be right. But sometimes it doesn&#39;t make sense to rewrite something for the sake of rewriting if you have other valid options. We feel the big benefit of Hystrix is not only what it gives you (which is a lot) but the fact that, as a Java library with very few dependencies, you can integrate it with most of your JVM legacy applications. </p>
+<p>The immediate benefit of this integration is that your component becomes much more resilient, in exchange of a minimal amount of coding. Not only that, through the use of <a target="_blank" href="https://github.com/ReactiveX/RxJava/wiki/Observable">Observable</a> you can reduce blocking class in your system, thus increasing total throughput. These are not just empty words: we have implemented it, and we saw big benefits from that. That is why we want to share how we did it.</p>
+<h2 id="how-does-hystrix-work">How does Hystrix work</h2>
+<p>I won&#39;t replicate the great <a target="_blank" href="https://github.com/Netflix/Hystrix/wiki/How-it-Works">documentation</a> Hystrix provides on its internals. Suffice to say that, from the point of view of a developer, you only care about creating <em>Commands</em>. A Hystrix Command is a class that extends <em><a target="_blank" href="http://netflix.github.io/Hystrix/javadoc/index.html?com/netflix/hystrix/HystrixCommand.html">HystrixCommand</a></em> and implements the logic of your call plus some (optional) utility methods. Let&#39;s see an example:</p>
+<pre class="highlight"><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchAdsCommand</span> <span class="keyword">extends</span> <span class="title">HystrixCommand</span>&lt;<span class="title">SearchResult</span>&gt; </span>{
+
+    <span class="keyword">protected</span> SearchAdsCommand(String name, ...) {
+        <span class="comment">// Constructor code</span>
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">protected</span> SearchResult run() <span class="keyword">throws</span> Exception {
+        SearchBuilder builder = searchRequest.build(request);
+        <span class="keyword">return</span> builder.search();
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">protected</span> SearchResult getFallback() {
+        <span class="keyword">return</span> <span class="keyword">new</span> SearchResult();
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">protected</span> String getCacheKey() {
+        <span class="keyword">return</span> String.valueOf(searchRequest.hashCode());
+    }
+}
+</code></pre>
+<p>The code above is based on one of our commands, used to do a search in the system. I&#39;ve removed boilerplate and irrelevant code. </p>
+<p>As you can see, the class extends <em>HystrixCommand<T></em> and sets <em>T</em> to be <em>SearchResult</em>, which will be the result expected when running this Command. </p>
+<p>The class has 3 methods, of which only <em>run</em> is mandatory. This contains the call to a 3rd party service and is the method Hystrix manages when checking for circuit breaker status and all the other functionalities it provides.</p>
+<p>The method <em>getFallback</em> is an optional method which, if provided, gives a default value to return if there is an issue while executing the command, be it an exception, timeout or that the circuit breaker is open. If you don&#39;t provide a fallback method then the corresponding exception will propagate by the stack.</p>
+<p>The last method, <em>getCacheKey</em>, is used to provide a key to cache the result of the command during the request, so repeated calls don&#39;t go across the network again. It is important to remember this cache is only <strong>per request</strong>, that is, once the user receives the response the value will not be cached anymore.</p>
+<p>Once you have defined your command, using it is a simple as creating an instance of the class and calling <em>execute</em>:</p>
+<pre class="highlight"><code class="r">SearchAdsCommand command = new SearchAdsCommand(<span class="keyword">...</span>);
+SearchResult result = command.execute();
+</code></pre><p>Hystrix provides 3 methods to run a command:</p>
+<ul>
+<li><em>execute</em> runs the command synchronously, blocking until we receive the response</li>
+<li><em>queue</em> returns a Future<T> with the result. It can be sued for asynchronous calls to the command </li>
+<li><em>observe</em> returns an Observable<T>, doing asynchronous and reactive execution. <em>Observables</em> are a complex topic outside the scope of this post, but suffice to say they allow you to work with the response (filter, merge, map) in an asynchronous way, something that Futures lack (in Java). </li>
+</ul>
+<p>Simple, isn&#39;t it? Your command contains all the logic to interact with a 3rd party service, and provides some handy helpers to manage fallbacks and asynchronous calls.</p>
+<h2 id="benefits-of-hystrix">Benefits of Hystrix</h2>
+<p>We have seen implementing a Hystrix command is simple enough, but the question remains: is it worth it?</p>
+<p>Now that we have seen an example of a command we can evaluate some of the benefits mentioned above. For example, I mentioned in the introduction that Hystrix implements the <a target="_blank" href="http://en.wikipedia.org/wiki/Circuit_breaker_design_pattern">circuit breaker</a>. This pattern skips an expensive network call if we know the service will most likely fail. Implementing it correctly is not a simple feat, more so when you consider concurrency. By using a Hystrix Command, you focus on the logic (inside the <em>run</em> method) and forget about the complexities involved in circuit breaker. Hystrix will automatically wrap the <em>run</em> method and do all necessary checks for you.</p>
+<p>Another relevant question when calling an external service is what to do if there&#39;s an exception. In many cases you want to return a default value, which means checking the exceptions raised during execution and managing the error. By suing the command all this is simplified into the <em>fallback</em> method, which you can use to define the default value to return. Again, focussing in the logic not in the boilerplate of error management.</p>
+<p>But the most powerful tool Hystrix gives you is the execution methods. The same command you defined in one class can be called both synchronously or asynchronously, depending on your needs in a given context. This flexibility may not seem necessary at first, but promotes code reuse and you will find yourself using it more often than you would expect now.</p>
+<h2 id="adding-hystrix-to-your-existing-application">Adding Hystrix to your existing application</h2>
+<p>As I mentioned above, we integrated Hystrix into an existing codebase. More often than not integrating big libraries into existing codebases can be very painful. You may be glad to know that integrating Hystrix was quite painless, with most of the issues relating to when to use synchronous vs asynchronous calls due to the existing flow of the code.</p>
+<p>Given each codebase is a world in itself, I can&#39;t give you a generic template on how to integrate Hystrix, but there are some things you should consider hen doing so:</p>
+<ul>
+<li>limit what the <em>run</em> method does. Ideally it should only contain a call to an external service, nothing else. Any post-processing of that data should be done outside the command, to free the instance in the pool.</li>
+<li>do a call per command, don&#39;t chain calls to external services inside the same command. It may seem inefficient, but you will get more granular metrics and better understanding on what&#39;s going on under the hood.</li>
+<li>provide a fallback every time you can. It simplifies your code a lot (I get something, even if it is a 0 value) and reduces error management on your logic.</li>
+<li>don&#39;t abuse Observable. Although very powerful it can be hard to grasp, better start with synchronous calls and tweak as required.</li>
+</ul>
+<p>We followed these guidelines and we are very happy with the results, having more than 20 commands implemented in this particular service alone. </p>
+<h2 id="hystrix-and-memory">Hystrix and Memory</h2>
+<p>Sometimes even seasoned developers forget something about the JVM: threads use their own stacks in memory, which are allocated outside the Heap space reserved by the JVM. Usually this is not a big deal, as the default size of the stack goes from 256Kb to 1Mb, depending on your system. </p>
+<p>Hystrix can use a lot of threads for each command. And you can use many commands in an application, which compounds things quickly. If you have 20 Hystrix commands with an average of 10 threads each, we may be talking of another 200Mb of RAM usage, besides Heap. </p>
+<p>Yes, 200Mb doesn&#39;t seem like a lot until you start looking at it from a SiteOps point of view: if you are using virtual machines with tailored amounts of RAM and no swap space (to reduce the impact I/O has in these virtual environments) 200Mb become important, as it may cause issues in production. So speak to your SiteOps/DevOps team and let them know you are going to integrate Hystrix, as well as the calculated increase on RAM consumption. And, obviously, test it properly before moving to production.</p>
+<h2 id="success">Success</h2>
+<p>Yes, it was that simple. Granted, we have only scratched the surface of all Hystrix offers as I have not mentioned things like metrics, automatically provided to the delight of SiteOps, but at this stage I hope the benefits of using Hystrix are crystal clear. If you have legacy JVM code that does external calls, it is in your best interest to start using Hystrix. Once you try you will understand :)</p>
+<p>If you enjoyed the ideas or the post, please comment or send us feedback at <a target="_blank" href="https://twitter.com/GumtreeDevTeam">@gumtreeDevTeam</a>.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html';
+		window.disqus_identifier = '2015-01-06-integrating-hystrix';
+		window.disqus_title = 'Integrating Hystrix';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="active">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

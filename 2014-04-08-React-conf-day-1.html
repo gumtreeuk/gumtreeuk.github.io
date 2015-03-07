@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>React.conf - Day 1 - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Apr 8th, 2014</span>
+				<h1>React.conf - Day 1</h1>
+				<span class="author">By Pere Villega</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-04-08-React-conf-day-1.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-04-08-React-conf-day-1.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>And day 1 of <a target="_blank" href="http://reactconf.com/">React.conf</a> is over. It&#39;s been a great day, lived up to my expectations. Before getting ready for tomorrow, I&#39;d like to share some comments on the event and notes I took about the talks. The talks (according to <a target="_blank" href="https://twitter.com/monkchips/status/453177139576446976">ReactConf people</a>) will be available in Youtube in one week. In the meantime, let&#39;s talk React.</p>
+<!-- Read more -->
+
+<p>As I have quite a lot of things to comment about, I&#39;ll just summarise the main points. I know it will seem cryptic, I hope it is good enough to communicate the ideas :) I may have written down something wrong when taking notes, any errors are mine and only mine. Don&#39;t blame the speaker, blame the messenger!</p>
+<h2 id="the-good">The Good</h2>
+<p>There were plenty of good things, just highlighting some of them:</p>
+<ul>
+<li>The line up of speakers was great. You could see they are brilliant at what they do</li>
+<li>1 track. Not missing anything is great, I rather have a smaller 1 track conference than a big one where I feel I miss something.</li>
+<li>Friendly organisers, which is always good.</li>
+<li>Nice atmosphere, I don&#39;t think there was any incident (you know, sometimes it happens in conferences... dongle and all that)</li>
+<li>Shoreditch Hipster&#39;s coffee has lived up to its fame. Amazing coffee. I abused it, won&#39;t sleep :(</li>
+<li>Catering was nice, interesting choices but very tasty</li>
+</ul>
+<h2 id="the-bad">The Bad</h2>
+<p>Some areas need improvement for next edition:</p>
+<ul>
+<li>venue was a bit too small. Pretty hard to see slides from the back due to amount of people blocking view.</li>
+<li>the Q&amp;A session in the afternoon were all 3 happening in the same room at the same time, I couldn&#39;t follow at all the second one due to &quot;noise&quot; from the other talks. Pretty disappointing :(</li>
+<li>I feel making the workshops optional was not a good idea. I understand why it was done and I know it was in good faith, but some people will miss half the experience. Next one would be better as a unit. </li>
+</ul>
+<h2 id="the-talks">The Talks</h2>
+<p>This first day there were 5 talks and 3 Q&amp;A sessions in the afternoon, of which each developer could attend 2. Let&#39;s summarise main points about the talks.</p>
+<h3 id="talk-1">Talk 1</h3>
+<p>First talk was by <em>Erik Meijer</em> (@headinthebox), who did a very funny talk with a lot of energy. And interesting, too :) Some points:</p>
+<p>The talk was: What does it mean to be Reactive? </p>
+<p>He says he has no clue about what&#39;s reactive, the talk was aimed to find out. Developers should speak as developers, not as pointy haired bosses.</p>
+<p>There are 4 scenarios to consider:</p>
+<ul>
+<li>1 value with sync access: blocking code</li>
+<li>1 value with async access: Futures</li>
+<li>many values with sync access: Iterables</li>
+<li>many values with async access: Observables </li>
+</ul>
+<p>Let&#39;s inspect an object. Object likes to be mutated, it has getters, setters, etc.</p>
+<p>What&#39;s a getter? A function <code>() =&gt; A</code>. A lazy producer, where the consumer is in charge.</p>
+<ul>
+<li>A getter is covariant and a functor (can be mapped over).</li>
+<li>A getter can have side effects: exceptions, return nothing, etc. Real signature: <code>() =&gt; Try[Option[A]]</code>.</li>
+<li>Developer should make all side effects explicit on code</li>
+<li>A getter of getters is an Enumerator/Enumerable</li>
+<li>NOTE: Iterable/Iterator is a bad structure, its methods hasNext/next are bad for side effects</li>
+</ul>
+<p>If we reverse the arrow of the getter we get <code>A =&gt; ()</code> which is a setter. Now the producer is in charge, not the consumer. </p>
+<ul>
+<li>setter is automatically contravariant</li>
+<li>As with getter we have side effects: exceptions, returning an empty value, etc. Real type is <code>Try[Option[A]] =&gt; ()</code> </li>
+<li>Eric is not fond of pattern matching it seems :)</li>
+<li>Using pattern match for setters uses 3 functions: one to match Try, one for Some and one for None. Observable and Observer accept 3 functions (on complete, on error, on next)</li>
+</ul>
+<p>Observable, Enumerator, etc. are just setters and getters with the right signature, making all side effects explicit.</p>
+<ul>
+<li>They are just interfaces for pull/push systems. Interfaces as good as the implementation underneath</li>
+<li>Example: Iterable is implemented by millions of types which provide additional capabilities (buffers, random access, etc)</li>
+<li>Observable is an interface with many implementations: Event store, Firebase (a reactive db), etc</li>
+</ul>
+<p>There are more explicit effects we should show: latency</p>
+<ul>
+<li>Future type guards agains effects of latency</li>
+<li>you should account for it on getters: <code>() =&gt; Future[Try[Option[A]]]</code> </li>
+<li>On a setter type is <code>Try[Option[A]] =&gt; Future[Unit]</code> as latency is on the receiving end</li>
+</ul>
+<p>Let&#39;s declare reactive as dead, so we can protect its meaning. We are hackers, we should do what is right. Reactive is dead, long live side effects.</p>
+<p>There is an implementation example of the concepts at <a target="_blank" href="https://rx.codeplex.com">Codeplex Rx</a></p>
+<h3 id="talk-2">Talk 2</h3>
+<p>Second talk was by <em>Martin Thompson</em> (@mjpt777). I found it eye opening, as I do not usually consider most of these things when coding. We are too isolated from the lower layers, but this &#39;high level&#39; approach is a lie, as we are all dependent on low level dependent and this leaks onto us.</p>
+<p>The talk was: Responsive Trait - Responding in a Timely Manner.</p>
+<p>Definition of real time is relative. </p>
+<ul>
+<li>Hard real time: a defence systems on a warship. </li>
+<li>Soft real time: finance, failure is not catastrophic (relatively)</li>
+<li>Squiggly real time: typical user frustrated due to lack of responsiveness</li>
+</ul>
+<p>Sometimes you just need to not be the slowest as if you are then you can be picked up,</p>
+<p>There are things we are not aware of that can bring us to failure. 5 focus areas in the talk:</p>
+<ul>
+<li>test and measure</li>
+<li>theory</li>
+<li>practice</li>
+<li>common pitfalls</li>
+<li>useful algorithms and techniques</li>
+</ul>
+<p>On Testing and Measuring:</p>
+<ul>
+<li>you should use distributed load generation agents</li>
+<li>you need an external observer. This is critical to measure the system under test. You can&#39;t use load generators to measure.</li>
+<li>Pro tip: do continuous performance testing (as part of continuous delivery), this is critical on current generation of apps</li>
+<li>Pro tip: record everything about your app</li>
+</ul>
+<p>The average response time of a system is nonsense as response times don&#39;t follow standard distribution. Mode is more accurate than median or mean, move everything out of mode to mode. Histograms are a big help.</p>
+<ul>
+<li>Example: a system with 1000 transactions per second has a mean response time of 50 microseconds. If we add a 25 milliseconds GC pause each second, the average goes to 300 microseconds. Average is useless</li>
+<li>Forget averages, think about percentiles (90%, 99%, 99.99%) and which response time you have at that percentile. Like: 99% of responses are under 50 milliseconds.</li>
+</ul>
+<p>On Theory:</p>
+<ul>
+<li>Queueing theory is very important. </li>
+<li>Question: why the more simultaneous users a system has, the response time becomes slower? Queueing theory answers that. Note: this applies also to teams, projects and why projects fail! Math doesn&#39;t lie.</li>
+<li>Due to exponential growth of curve in queue theory, halving response time at 90% usage means system is 10x more efficient </li>
+<li>Pro tip: make sure you have enough capacity</li>
+<li>Bound queues are a requirement to meet SLA. Unbounded queues will never meet an SLA.</li>
+<li>Little&#39;s law: L = lambda*W  where L = queue length, lambda = arrival rate, w = mean time in system. Knowing 2 you can obtain the 3rd.</li>
+<li>Amdahl&#39;s law: Amdahl wanted to show how ugly parallel programming is. </li>
+<li>Sequential code is a bottleneck on performance. Even if only 5% of your code is serial you will never have more than 20x speedup, doesn;t matter how many processors you use..</li>
+<li>Amdahl&#39;s was an optimist! It&#39;s much worse in real life as Universal scalability law shows. There are more penalties in real systems: contention penalty and coherence penalty </li>
+<li>Example: system with contention 25%, 250ms coherence peaks at 64 processors, 12x speedup, from there on additional cpu slow the system</li>
+<li>Big O notation of your algorithm also matters, always chose logarithmic or better.</li>
+</ul>
+<p>On Practice:</p>
+<ul>
+<li>We were shown example apps (anonymous)</li>
+<li>One app had 50ms response, but with outliers of X00 ms</li>
+<li>The problems are always similar, just at different levels of scale (seconds, milliseconds, etc)</li>
+<li>Gc can cause spikes due to resizing of structures.</li>
+<li>Generation of temporary objects causes delays while we create them</li>
+<li>Thread affinity and cache misses improve performance a lot for outliers</li>
+</ul>
+<p>On Common Pitfalls</p>
+<ul>
+<li>Modern CPU do a lot, but also try to save energy. Coming back from &#39;sleepy&#39; states takes a lot of time</li>
+<li>SMI (system management interrupts) block processors</li>
+<li>Hyperthreading can reduce response rate by sharing resources across threads (contention)</li>
+<li>We have non uniform memory architectures, which may have an impact</li>
+<li>Virtual memory management in Linux is a problem sometimes. Page flushing, IO scheduling, transparent huge pages, swap, ...</li>
+<li>Safepoints in the JVM are worse than orcs. They include: GC stopping threads, de-optimization of code, biased locking, stack traces, etc. You get the drill. All them stop the world before doing anything, bad for performance.</li>
+<li>Virtualization causes slow system calls</li>
+<li>Notify in Java. Awakening a thread is a HUGE cost. Remember: a Future awakes threads!</li>
+</ul>
+<p><a target="_blank" href="http://www.joelonsoftware.com/articles/LeakyAbstractions.html">Law of leaky abstractions</a>: details of underlying complexity can&#39;t be ignored. They bite us back. Using underlying systems without knowing how they work is a failure.</p>
+<p>On responding in presence of failure (Algorithms and Techniques):</p>
+<ul>
+<li>do clean room experiments: sufficient cpu, intle_idle.max_cstate=0, cpufrq, isocpus, affinity, numctl, cgroups, washed ssd, network buffer sizing, <a target="_blank" href="http://www.azulsystems.com/jHiccup">jHiccup</a>, etc. Ensure the experiment has a clean environment. Tune the stack.</li>
+<li>Profilers lie. Usually. They profile the easy paths (very specific points),  which bad for cpu or memory intensive apps</li>
+<li>Manual profiling is better: create histograms from events you log in your code</li>
+<li>Pro tip: learn to use histograms</li>
+<li>Batching is a misunderstood technique. Batching can work in real time system via Smart Batching. Example: a DB with multiple producers that want to write to it. You add a batching thread in the middle (receives producers output, sends to db) which removes concurrency and optimises time, also being easier to reason about and more efficient in general</li>
+<li>Pro tip: amortise expensive costs</li>
+<li>Apply backpressure. Bound queues, limit buffers, disallow input once you are full (we are busy so come back later vs take too much input and crash)</li>
+<li>Do non-blocking designs: get out of your own way. Don&#39;t hog resources, try to make progress always in each step. Thinking this way enables smart batching</li>
+<li>Pro tip: beware of hogging resources in synchronous designs. Not only blocking, it may trigger GC, thread context switch, etc. Big no-no</li>
+<li>Use lock-free concurrent algorithms and agree protocols of interaction. Keep code on user space, don&#39;t allow 3rd party interaction (OS calls are expensive in a virtualised world)</li>
+<li>Use observable state machines. If you can observe the state machine without locks you can log it and see progress. Otherwise, they are black boxes in your system.</li>
+<li>Cluster apps for response and resilience. Hide differences between services (cpu, ram, etc) via sequencers (middle layers)</li>
+</ul>
+<p>On Data Structures and models: there is a world beyond map and list. And it is fundamental for your performance.</p>
+<p>Something is coming. There will be X connected devices by 2020, where X is 20 to 75 billion. That is the Internet of things. Volumes going up over and over. You have to think hard about improving service times, removing all contention, to be ready for that.</p>
+<h3 id="talk-3">Talk 3</h3>
+<p>Third talk was by <em>Jonas Bonér</em> (@jboner). The talk was good, although the 1st part seemed to overlap a bit with the previous talk. The second part was outstanding.</p>
+<p>The talk was: Scalable Trait - Reactive Supply to Changing Demand </p>
+<p>On Scalability:</p>
+<ul>
+<li>Scalability: the house in which Armhdal&#39;s wakes up each day and it&#39;s ruled by the iron fist</li>
+<li>Scalable system: capable of being easily expanded and upgraded on demand</li>
+<li>Scalable system: when we increase resources performance increases proportionally to resources added</li>
+</ul>
+<p>Scalability vs Performance, sometimes a blurry line:</p>
+<ul>
+<li>Performance: capability of a system to provide certain response time</li>
+<li>Scalability: capacity of a system to maintain that response time</li>
+</ul>
+<p>Scale on demand? What does it mean?</p>
+<ul>
+<li>React to increasing load over time, either unpredictable spikes or predictable increase in load. </li>
+<li>Deal with rapid growth from technical and business perspective (pay for what you use only, important in PaaS world)</li>
+</ul>
+<p>Rules of game have changed from 60s-2000 to today: </p>
+<ul>
+<li>Single machine vs clusters</li>
+<li>1 cpu vs multiple cpu</li>
+<li>Expensive ram vs cheap ram: in-memory db, etc</li>
+<li>Expensive disk vs cheap disk: no need to delete data, can keep history</li>
+<li>Slow network vs fast network: faster to write to network than disk</li>
+<li>Few users vs many users: orders of magnitude more users</li>
+<li>Small data sets vs massive data sets: moving data around is a new challenge</li>
+<li>Latency in seconds vs latency in milliseconds: users are extremely impatient, latency means less users keep around and you get less money</li>
+</ul>
+<p>A change is around the corner: Internet of things</p>
+<ul>
+<li>Health trackers, intelligent appliances, etc</li>
+<li>All of them produce a lot of data</li>
+<li>The change is coming fast. Cost gravity at work: technology getting exponentially advanced and cheaper</li>
+</ul>
+<p>Scale Up</p>
+<ul>
+<li>Scale vertically. </li>
+<li>Local data is fast. CPU cache: l1 and l2 are fast, l3 much slower, etc</li>
+<li>CPU is gambling, takes bets trying to beat the system. Assumes data close to each other, data present in cache, boolean paths in app (branch calculation)</li>
+<li>Critical: maximise locality reference, minimise contention in your app</li>
+<li>Common contention points: physical (network IO, db access, etc), app layer (synchronous code, concurrent locks, even optimistic concurrency)</li>
+<li>Never ever block, waking up a thread is slow, breaks scalability</li>
+<li>Fully embrace async message passing</li>
+</ul>
+<p>To scale: Divide and Conquer</p>
+<ul>
+<li>Use pipelining, paths through which events travel. Can be synchronous or asynchronous, but they are isolated so synchronous doesn&#39;t block other paths</li>
+<li>Use a single writer principle.When you have multiple producers writing to 1 IO device you have a contention point. 1 writer reduces contention, smart batching all again.</li>
+<li>Use &#39;final&#39; in Java (immutable). It gives you code that doesn&#39;t lie</li>
+</ul>
+<p>Immutable state</p>
+<ul>
+<li>Immutability is great for facts: events, DB snapshots</li>
+<li>It is less ideal for working data set as it can increase contention</li>
+<li>Better use a Share Nothing architecture with mutable state within each isolated unit</li>
+<li>Amdhal&#39;s law again: you need to be asynchronous and non-blocking all the way down, so Share Nothing</li>
+<li>Share Nothing gives great locality reference and reduces contention, which means better performance</li>
+</ul>
+<p>Scale on demand</p>
+<ul>
+<li>We need elasticity, to add resources on the fly. Scale out.</li>
+<li>Distributed computing is the new normal: mobile, cloud, rest, NoSQL, big data, ...</li>
+<li>Try to overcome inherent issues: information travels at speed of light, independent things fail independently</li>
+<li>Things fail at a higher rate on distributed system, we have to embrace that</li>
+<li>We have nodes, where each node is isolated and we need middleware to communicate across nodes. This in one server, we have many servers that communicate between them. Think a fractal system.</li>
+<li>Remember Peter Deutsch fallacies of distributed computing: network is reliable, latency is 0, bandwidth is infinite, network is secure, topology doesn&#39;t change, there is only 1 administrator, transport cost is 0, network is homogeneous. All false.</li>
+</ul>
+<p>Graveyard of distributed systems</p>
+<ul>
+<li>Distributed shared mutable state is evil^n where n is the number of nodes</li>
+<li>Guaranteed delivery doesn&#39;t exist</li>
+<li>Distributed objects are a lie</li>
+</ul>
+<p>Maximise locality, key in distributed system due to cost of failing to do so</p>
+<ul>
+<li>Use sticky load balancing and sharding</li>
+<li>Buddy replication: replicate data to buddies only, not everywhere. Buddies not on same node (nor rack)!</li>
+<li>Consistent hashing: distributed hashing that maps data across buckets evenly</li>
+<li>Coordination in the cluster (kind of)</li>
+</ul>
+<p>Strong consistency</p>
+<ul>
+<li>We want linearizability</li>
+<li>We have some protocols: viewstamped replication, RAFT consensus</li>
+<li>Don&#39;t use it if not needed</li>
+</ul>
+<p>CAP theorem</p>
+<ul>
+<li>Sparked NoSQL movement</li>
+<li>Based on linearizability which is not always needed, but CAP assumes it is needed. </li>
+<li>Instead of fully adopting CAP we can look at it, learn and adopt parts of it</li>
+<li>Use only those guarantees you need</li>
+<li>Pro tip: read paper <a target="_blank" href="http://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed">CAP 12 years later</a></li>
+</ul>
+<p>Eventual consistency</p>
+<ul>
+<li>Minimising coordination means better scalability</li>
+<li>Word &#39;eventually&#39; is the key: not well defined, depends on your scenario </li>
+<li><a target="_blank" href="http://highscalability.com/blog/2010/12/23/paper-crdts-consistency-without-concurrency-control.html">CRDT</a></li>
+<li>Keep history in data type, but it can be expensive (can&#39;t grow forever) </li>
+</ul>
+<p>Life beyond distributed transactions</p>
+<ul>
+<li>Do not implement large scalable apps assuming distributed transactions </li>
+<li>Solution: Domain events. Event: immutable fact that happened</li>
+<li>Database is a cache of a subset of the log (append only logging)</li>
+</ul>
+<p>Event log</p>
+<ul>
+<li>Append only log</li>
+<li>Is a DB of facts</li>
+<li>Never delete</li>
+<li>1 single event log: strong consistency</li>
+<li>Multiple event logs: strong + eventual consistency (used a lot in DDD and aggregate roots)</li>
+<li>An aggregate root works as a transactional integrity guardian in its bounded context</li>
+</ul>
+<p>Share Nothing</p>
+<ul>
+<li>Fully embrace it</li>
+<li>Shipping data around is expensive</li>
+</ul>
+<p>Location transparency</p>
+<ul>
+<li>Embrace the network</li>
+</ul>
+<p>Same principles can be applied to any level of the app: cluster to app to cpu. Scaling up and out are the same thing, the same concepts.</p>
+<p>Remember: minimise contention, maximise locality of reference, use share nothing designs</p>
+<h3 id="talk-4">Talk 4</h3>
+<p>Fourth talk was by <em>Joe Armstrong</em> (@joeerl), principal inventor of Erlang, which gave very interesting points of view on API and Protocols. His talk signalled crucial steps for service reliability. You could feel his years of experience talking. An honour.</p>
+<p>The talk was: Resilient Trait - K things I know about building resilient reactive systems, where K &gt;= 32 (renamed to Stuff I learned building reactive systems)</p>
+<p>He talked about systems that run forever, never fail.</p>
+<p>The ultimate reactive device is a telephone. </p>
+<ul>
+<li>Lots of people at once</li>
+<li>Decisions made in milliseconds</li>
+<li>Small latency between users</li>
+<li>Location transparent service (endpoints - phone number)</li>
+</ul>
+<p>Telecommunication switching service properties</p>
+<ul>
+<li>Has to be very resilient</li>
+<li>No downtime allowed</li>
+<li>Based on messages passed (request/response)</li>
+<li>Relevant paper: <a target="_blank" href="http://erlang.se/publications/bjarnelic.pdf">Concurrent functional programming for telecommunications: a case study of technology introduction (2000)</a></li>
+<li>Properties show some obvious overlap with <a target="_blank" href="http://www.reactivemanifesto.org/">Reactive Manifesto</a></li>
+</ul>
+<p>Erlang: 1985</p>
+<ul>
+<li>Share nothing - immutable</li>
+<li>Asynchronous message passing</li>
+<li>Event (message) driven</li>
+<li>Distributed</li>
+<li>Concurrent</li>
+<li>Soft real time</li>
+<li>Dynamic code upgrade</li>
+<li>Nothing new nowadays, all this existed before, just expanding now to more fields</li>
+</ul>
+<p>Ericsson systems for 3g/4g: 50% of world telecommunications. 1 rack serves 18 million users per node, 1152 million in pooled config </p>
+<p>EviL: Shared memory concurrency. Can&#39;t work unless you break laws of physics. Good: Message passing concurrency. </p>
+<p>Connecting things together</p>
+<ul>
+<li>Assume black boxes that contain programs, can be in any language. We are good at programming languages, there are a lot</li>
+<li>An arrow connects the boxes. What is inside the arrow that connects the boxes? Usually badly documented API for a library, and each library communicates via undocumented stuff</li>
+<li>Solution: read the code? Wireshark? NO! Use of Wireshark is an admission of failure</li>
+<li>Solution: describe what&#39;s in the wire. Inside the arrow there are protocols. There exist lots of protocols. We are very bad describing protocols.</li>
+<li>Protocols are contracts. Contracts assign blame</li>
+<li>Move from software that doesn&#39;t work and we don&#39;t know why to software that doesn&#39;t work but we know why</li>
+<li>Client and server are isolated by a socket. Should be easy to replace either of them. It isn&#39;t. Client is described by a state machine, server too is a state machine. What&#39;s in the wire?</li>
+<li>Contract checker: describes what&#39;s in the wire</li>
+</ul>
+<p>How do we describe contracts</p>
+<ul>
+<li>Often described in API, not a good idea. API are usually broken, badly described</li>
+<li>API doesn&#39;t say if a program is wrong (open file, close file, read is ok according to API but it fails on execution)</li>
+<li>Solution: state machine (FSM) associated to API so we can&#39;t do operations on wrong state. We are describing protocol!</li>
+<li><a target="_blank" href="http://www.sics.se/~joe/ubf">UBF</a>: dynamic session types </li>
+</ul>
+<p>RPC fail differently to PC</p>
+<ul>
+<li>Fails in remote server, you don&#39;t hear back</li>
+<li>Promises? people can break them </li>
+<li>One solution: request gets an ACK, later on receives the real response. How long should be wait? Specification defines that. Also defines what should you do on timeout (retry is an option or not, etc)</li>
+<li>ACK may contain estimated delay until response</li>
+<li>We can embed redirect into ACK if needed so client retries call on another endpoint</li>
+</ul>
+<p>Handle errors out of band</p>
+<ul>
+<li>By default we expect return of a value or an error</li>
+<li>But we should redirect errors to another manager (client gets normal replies, manager gets errors and acts on them)</li>
+<li>Example: Akka supervision. Handling errors at a level that has more information to decide</li>
+</ul>
+<p>Avoid impedance mismatch</p>
+<ul>
+<li>Some systems just don&#39;t blend</li>
+<li>Avoid having to reparse data all the time (js -&gt; json -&gt; php -&gt; sql ... wasting lots of time on conversion!)</li>
+</ul>
+<p>D (distributed) and ND systems behave differently </p>
+<ul>
+<li>Trivial problems in ND can be impossible in D</li>
+<li>Failure modes are different</li>
+<li>Debugging in D is hard</li>
+<li>System is never stable in D</li>
+<li>Start D programming early, not late, so you can find issues early</li>
+</ul>
+<p>Don&#39;t break the laws of physics</p>
+<ul>
+<li>You can&#39;t </li>
+<li>Information won&#39;t travel faster than speed of light</li>
+<li>Latency is there, you have to manage it, you can&#39;t erase it</li>
+</ul>
+<p>CAP theorem is a consequence of laws of physics</p>
+<ul>
+<li>Messages not delivered</li>
+<li>Machines fail</li>
+<li>Message propagation takes time</li>
+<li>Consistent | Available | Partition tolerant. Pick 2.</li>
+</ul>
+<p>Scale down, not up. Start with assuming millions of users when planning architecture, to avoid having to redo everything once you grow.</p>
+<p>Names</p>
+<ul>
+<li>One of the two difficult problems in programming</li>
+<li>We have data we want to store. In which file, which folder, which table, which db, where are they located?</li>
+<li>Git approach: name is the checksum of the file, no need of directory name, host found by distributed hash </li>
+<li>Use content hashes as names (like git)</li>
+<li>Use DHT for host discovery (like kademlia)</li>
+<li>Avoids having 2 files with the same name that do different things. System can select the proper file by using hash provided</li>
+</ul>
+<p>Measure, don&#39;t guess</p>
+<p>Get granularity of concurrency right</p>
+<p>Use a decent concurrency model</p>
+<ul>
+<li>Concurrent is NOT parallel</li>
+<li>Concurrent: 2 queues, 1 coffee machine</li>
+<li>Parallel: 2 queues, 2 coffee machine</li>
+<li>Storing state in DB is not a concurrency model</li>
+<li>Callback hell is not concurrency</li>
+<li>Asynchronous callbacks with everything in a main thread is not concurrency</li>
+<li>Locking the full machine to do something is not concurrency</li>
+<li>Mirror the concurrency implicit in the problem, if possible</li>
+</ul>
+<p>Postel&#39;s law: be conservative on sending, liberal in receiving</p>
+<ul>
+<li>Fail early</li>
+<li>Fail fast</li>
+<li>Never do defensive programming</li>
+<li>Don&#39;t send faulty data</li>
+</ul>
+<p>Joe&#39;s law: CRASH. And then recover.</p>
+<p>We can&#39;t avoid or stop FP, shared nothing, etc. It&#39;s a wave coming. We need to break systems to small, understandable, message passing systems. Otherwise, we can&#39;t understand them, they won&#39;t work. This year: 1024 cpu with 1mb memory each. Monolithic apps won&#39;t use them.</p>
+<h3 id="talk-5">Talk 5</h3>
+<p>The last talk of the day was by <em>Todd L. Montgomery</em> (@toddlmontgomery). The talk was interesting (as all the others!) specially due to it focussing on the issues from a slightly different point of view. </p>
+<p>The talk was: Event-Driven - The Only Way (It’s Gonna) Fly! </p>
+<p>The world is event driven, see Breaking news. Life is event driven, se the messages you get in Whatsapp, embarrassing photos sent by friends, etc.</p>
+<p>GUI development? All event driven, for all the same reasons why a service in Back End should be. It is still done poorly (modal dialogs, clicks that fires a blocking rest call, constant logging) but event driven. </p>
+<p>Event-driven</p>
+<ul>
+<li>Is all about reactivity, asynchrony</li>
+<li>Asynchrony: an event can happen while you process another event</li>
+<li>Decoupling: dependency comes into play when we need something specific. </li>
+<li>Coupling &amp; synchrony: reason why we can&#39;t have nice things. </li>
+</ul>
+<p>My code doesn&#39;t block? Many people say so but</p>
+<ul>
+<li>Logging appender to console (IO)</li>
+<li>Java 7 Try block with resource</li>
+<li>Launch a query on a db in a local file</li>
+<li>All the above block! Sometimes is easy to not realise something blocks</li>
+</ul>
+<p>Blocking has its place, but also serious limitations</p>
+<ul>
+<li>Request-Response cycle: a sequence of delay + processing + delay (delay - network latency). While you wait, you block. Nothing happens. </li>
+<li>Request-Eesponse is a serialisation point, Amdahl&#39;s comes after you and limits scalability</li>
+<li>All &quot;hidden&quot; serialised spots affect performance A LOT! 5% serialisable code is not common, Amdahl&#39;s penalties are usually much bigger </li>
+</ul>
+<p>Argument people say: blocking makes error handling easy</p>
+<ul>
+<li>Try-catch model, goto fail...</li>
+<li>Error handling has nothing to do with blocking</li>
+<li>Has to do with how you treat errors</li>
+</ul>
+<p>State machines rock</p>
+<ul>
+<li>Many different implementations in software: transition tables (like a graph table), java enums with methods, js prototypes, table with lambdas</li>
+<li>Implementation is a personal preference. But personally better to try making events explicit, don&#39;t hide behind abstractions, give info to developer (example: switch statement). Downside of this approach is performance, evaluate beforehand</li>
+<li>Pro tip: make events observable</li>
+</ul>
+<p>State machines are one of the most testable entities there are</p>
+<ul>
+<li>Does code implement SM correctly?</li>
+<li>Is design of SM safe, correct verifiable?</li>
+<li>Pro tip: use <a target="_blank" href="http://en.wikipedia.org/wiki/SPIN_model_checker http://spinroot.com/spin/whatispin.html">SPIN model checker</a></li>
+</ul>
+<p>State machines examples</p>
+<ul>
+<li>Hardware state machines are usually very resilient, we can learn from them</li>
+<li>TCP: active closing state is a mess. Works, resilient, but ugly as sin</li>
+<li>Cache states for intel processors: elegant, large amount of symmetry, transitions to same state. Works very well, extremely resilient. </li>
+</ul>
+<p>Evolution of REST</p>
+<ul>
+<li>REST has been always event driven. </li>
+<li>Origin: HTTP is worst protocol ever (specially 0.9, 1.0). Synchronous request - response (both are events). To send multiple requests: one at a time. Request, wait for response, next request</li>
+<li>Web services. Improvement on http, they return ACK so you can do work while waiting for response. Synchronous request and response (on their ends) but somehow asynchronous request-response cycle</li>
+<li>Websocket. Focus on streaming. Sends http upgrade request (ala TLS), returns ACK on switch. Can get events from server and send to server from client. You can ingest many requests. Fully asynchronous request/response, bidirectional. But it is only a transport protocol, you need to define your own protocol on top for messages of your app. Think on full duplex &#39;tcp over web&#39;</li>
+<li>SPDY &amp; http/2 (drafts). Use channels, all asynchronous events, asynchronous request-response. Multiple streams, no stupid headers, &#39;binary&#39; encoding</li>
+<li>Websocket over http/2. The holy grail. Asynchronous request-response plus streaming/ingest. Fully asynchronous, full duplex, many channels and streams. Ideal for Internet of Things.</li>
+<li>Others: CoAP, MQTT, AMQP, SCADA (has limitations). All event driven, some blocking </li>
+</ul>
+<p>Asynchronous message passing</p>
+<ul>
+<li>Share state by passing messages, not by exposing mutable shared state</li>
+<li>Asynchronous message passing is very closely tied to the network</li>
+</ul>
+<p>Conceptual model</p>
+<ul>
+<li>A message is payload on wire, an event is what causes state transition</li>
+<li>Events are fire and forget</li>
+<li>This way you lower coupling (MASSIVELY)</li>
+<li>Errors are just events. Nothing special, another case to consider, no special boilerplate for them.</li>
+<li>This changes way you view the world</li>
+</ul>
+<p>Protocol</p>
+<ul>
+<li>A protocol is a set of conventions governing the treatment and formatting of data in electronic communications system</li>
+<li>Formatting is key word here</li>
+<li>Treatment is also key word</li>
+<li>Code prescribing strict adherence to correct etiquette and precedence</li>
+<li>By thinking about this upfront you make protocols easier to guess and work with</li>
+<li>Composability is all about protocol </li>
+</ul>
+<p>Event Driven: there is no spoon, we do it all the time, it&#39;s been there for long.</p>
+<h3 id="q-a-1">Q&amp;A 1</h3>
+<p>After the talks there were a series of Q&amp;A sessions with speakers in the conference (both for day 1 and day 2) so they could answer questions. I&#39;ve taken notes on the questions answered, I probably missed many things as the talk was pretty interactive with many people participating (despite a slow start) but I guess the core elements are in there. Errors in transcriptions are my own.</p>
+<p>The Q&amp;A I attended was about scalability.</p>
+<p>Q: you mentioned no in-place update, append only. Scenario: change password, log out, log in again.  How does it work?</p>
+<ul>
+<li>You decide what eventual consistency means, in this case you may favour consistency vs availability, but it&#39;s your call</li>
+<li>Full replication has a price, you choose guarantees on your scope, what are you willing to sacrifice.</li>
+<li>In Datomic the DB is snapshotted forever, you change password and old versions have old, newer have new. </li>
+<li>You can subscribe to notifications of receiving change password event</li>
+<li>How long of a delay can you tolerate on eventual consistency? Sometimes 100 ms is enough, sometimes you want more.</li>
+<li>Netflix does replication in sub-x00 ms times, usually this is a non-issue.</li>
+</ul>
+<p>Q: Rx frameworks, arguments in favour of Iteratees point to backpressure. What is the answer to backpressure for Rx programming?</p>
+<ul>
+<li>Currently developer has to code it</li>
+<li>Under development for Rx (exploring concepts) a way to add backpressure to Rx. Many options being considered, ETA at least 2 months</li>
+<li>You can use batches, drop data, buffer data</li>
+<li>They want for it to become 1st class support on Rx</li>
+<li>Rx has 3 cases where operators have unbounded queues, they want to fix it as app can blow up there</li>
+<li>Eric Mejer had mathematically pure description of observable on his slides, in practice is not so great, needs improvement</li>
+<li>Akka Reactive streams, same effort, something released soon</li>
+</ul>
+<p>Q I heard from the disruptor talk that less threads are better. But in Akka you have many threads that share objects which causes contention. Isn&#39;t it the opposite of what was said? Can be optimised? Memory efficiency?</p>
+<ul>
+<li>Akka multiplexes over full threadpools</li>
+<li>This points has been talked a lot internally</li>
+<li>Not clear cut, the most expensive thing is when the cpu doesn&#39;t know what to do. Depends on the core behaviour of your actor.</li>
+<li>It makes sense to have 1 actor in 1 cpu core and process as much as it can. </li>
+<li>Pipeline processing, if you process media across actors it may be cheaper to keep data local and swap actors, bring actors to data</li>
+<li>Which one is best? Depends on your case</li>
+<li>Current;y you can tune that yourself: actor with dedicated thread, or actors sharing thread, then use native libs to assign thread to cpu</li>
+<li>On project (future Akka development): smarter scheduling. No time to do it yet</li>
+<li>In some cases Disruptor model is better than Akka, use best tool for the job. Akka is more generic and for some people Akka is enough, for others Disruptor is better</li>
+<li>A case of understanding requirements before deciding</li>
+<li><p>Don&#39;t optimise before knowing it&#39;s not good enough, sometimes you get surprises with &#39;expected worse tools&#39;</p>
+</li>
+<li><p>How can &#39;normal people&#39; (aka not spending life reading papers) use these techniques? </p>
+</li>
+<li><p>Netflix showed 60-75 engineers in many languages migrating to use Rx across all these languages. All interfaces are reactive, Rx. All hard paths for every service are coded</p>
+</li>
+<li>Developers hate it at first. After 6 weeks they love it, can&#39;t go back to previous way. There is a learning curve. Higher upfront cost of learning</li>
+<li>Developers are knowledge workers, not blue collar workers, shouldn&#39;t be afraid of these things as complexity is growing and without sharing knowledge we can&#39;t solve the issues</li>
+<li>Yes, it took people time to convert, once they saw how we make complex things logic and simple to reason about they were converted. Once you cross the threshold is hard to go back to the old way</li>
+<li>You shouldn&#39;t use reactive at all if it doesn&#39;t simplify your problem</li>
+<li>You can&#39;t build a system that needs it without, you can get crazy. Futures (concurrent futures) in Java can be hard to use, gets insane really fast. That is why we have Scala future, Twitter future, etc. Once people sees how to solve problem in a sane way, they adopt it</li>
+<li>It is harder initially because is unfamiliar. But later on complexity flattens, as everything is broken down into pieces</li>
+<li>You can&#39;t get systems that constantly grow in complexity in your head, need to break problem in small manageable pieces, so you can reason about it</li>
+<li>Reactive has failure model built in, which means is easier to handle without the odd ways EJB and other models do it</li>
+<li>Are you trying to justify why things should be more complex? No, without these tools we can tackle some problems. Minor increase in complexity up-front to be able to build more complex systems</li>
+<li>Actor model is simple, makes concurrency much easier to understand, once it clicks simplifies life</li>
+</ul>
+<p>Q: Why futures in some cases?</p>
+<ul>
+<li>Futures are simpler to integrate with existing systems, Akka brings a full ecosystem which may make things more complex initially, maybe not needed. Small steps</li>
+<li>Separate how do we handle async vs concurrency model</li>
+<li>10+ years of code in Netflix, futures allow step by step transition</li>
+<li>(counterpoint) People are used to synchronous way of things, actors facilitate that transition as inside an actor everything is synchronous. Rx can be harder due to the parallelism implicit, slightly harder to reason. Actors may be simpler as you don&#39;t mix different execution scopes</li>
+<li>Akka streams because there is a need for both tools, some problems are better for Rx, some better for actors. Actors is more for long living concurrency, Rx for streams.</li>
+<li><p>Netflix has moved to fully stateless services, state in Memcached</p>
+</li>
+<li><p>With Memcached SiteOps people are interested in keeping 1 cache per machine, vs replication</p>
+</li>
+<li><p>Netflix replicates 1 key across many instances, but keys are ephemeral, if lost then they are lost, don&#39;t care. Currently working on system that uses Dynamo as front persistence layer. Aim: Dynamo style memcached</p>
+</li>
+<li>Values sent to SQS (queue) and replicated to many memcached</li>
+<li>Data persistence team looking at having a dynamo style front to handle efficiently storage</li>
+</ul>
+<p>Q: Why not cassandra?</p>
+<ul>
+<li>Early test seemed ok, in practice is worse than Memcached. Cassandra for persistence, Memcached for cache (ephemeral). Data is 99% cached, 1% hits Cassandra. </li>
+<li>Netflix uses 3 Amazon regions, all in sync (massive ring)</li>
+</ul>
+<p>Q: Could you implement Cassandra with Akka?</p>
+<ul>
+<li>It fits the model really well, it is possible. It&#39;s a good fit.</li>
+<li>Big liability if implementation has an error</li>
+<li>Akka does many things other systems do, they do half the things Dynamo does, it could be theoretically easy to extend to replicate some other systems as we already are half way. Others do it best, no point on wasting effort. We implemented these things because they were useful to us, not because it was NoSQL</li>
+</ul>
+<p>Q: Attitude towards redundant data? It is ok to replicate data across services to reduce temporal coupling?</p>
+<ul>
+<li>Depends, which kind of replication, etc. Everything has a price, how important is that on your system, etc?</li>
+<li>Long tail, when using many servers sometimes one will lag. Duplicate requests, discard duplicated responses, reduces total processing time on long tail. But it has a cost (note: that was duplicating services more than data)</li>
+<li>Duplicating data: life beyond distributing transactions paper. You have entities within which you are consistent, but entities don&#39;t need to be consistent between them</li>
+</ul>
+<h3 id="q-a-2">Q&amp;A 2</h3>
+<p>I wanted to attend the <em>Resilient Q&amp;A</em> but due to noise from neighbouring Q&amp;A and me being on last row (too slow!) I couldn&#39;t really follow. </p>
+<p>The only things I could write down:</p>
+<ul>
+<li>Fault tolerance needs at least 2 computers. 1 computer can&#39;t provide it</li>
+<li>For resilience you have to understand your distribution process and that it takes time for information to travel across the wire</li>
+<li>Human error happens, rely on automatic systems that prevent it</li>
+</ul>
+<p>All in all, I can only thanks the organisers. Great job, please repeat it next year. See you tomorrow for the second day (my last as I don&#39;t attend the workshops).</p>
+<p>Did I say the coffee is amazing?</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-04-08-React-conf-day-1.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-04-08-React-conf-day-1.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-04-08-React-conf-day-1.html';
+		window.disqus_identifier = '2014-04-08-React-conf-day-1';
+		window.disqus_title = 'React.conf - Day 1';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

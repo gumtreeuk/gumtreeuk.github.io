@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Creating a treeview using react.js - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Dec 12th, 2014</span>
+				<h1>Creating a treeview using react.js</h1>
+				<span class="author">By Alex Riolo</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>At Gumtree we decided to use facebook&#39;s <a target="_blank" href="http://facebook.github.io/react/">react.js</a> framework for some of our administrative tasks that we performed on a regular basis. For one of the task it was creating a system for modifying the categories that users post classifieds on. Being a fairly new framework creating this tree view proved a bit of a challenge, initially drawing out the whole tree on load and then collapsing everything proved to be a really slow task (even using react.js), possibly due to the size of Gumtree&#39;s category tree. We also knew that it would be a recursive call as a node may have children and they may have children etc.</p>
+<!-- Read more -->
+
+<p>Here we will assume that our tree structure looks something like this (simplified for our example):</p>
+<pre class="highlight"><code class="javascript">{
+  <span class="string">"id"</span>: <span class="number">1</span>,
+  <span class="string">"name"</span>: <span class="string">"All Categories"</span>,
+  <span class="string">"children"</span>: [
+    {
+      <span class="string">"id"</span>: <span class="number">2</span>,
+      <span class="string">"name"</span>: <span class="string">"For Sale"</span>,
+      <span class="string">"children"</span>: [
+        {
+          <span class="string">"id"</span>: <span class="number">3</span>,
+          <span class="string">"name"</span>: <span class="string">"Audio &amp; Stereo"</span>
+        },
+        {
+          <span class="string">"id"</span>: <span class="number">4</span>,
+          <span class="string">"name"</span>: <span class="string">"Baby &amp; Kids Stuff"</span>
+        },
+        {
+          <span class="string">"id"</span>: <span class="number">5</span>,
+          <span class="string">"name"</span>: <span class="string">"Music, Films, Books &amp; Games"</span>
+        }
+      ]
+    },
+    {
+      <span class="string">"id"</span>: <span class="number">6</span>,
+      <span class="string">"name"</span>: <span class="string">"Motors"</span>,
+      <span class="string">"children"</span>: [
+        {
+          <span class="string">"id"</span>: <span class="number">7</span>,
+          <span class="string">"name"</span>: <span class="string">"Car Parts &amp; Accessories"</span>
+        },
+        {
+          <span class="string">"id"</span>: <span class="number">8</span>,
+          <span class="string">"name"</span>: <span class="string">"Cars"</span>
+        },
+        {
+          <span class="string">"id"</span>: <span class="number">10016</span>,
+          <span class="string">"name"</span>: <span class="string">"Motorbike Parts &amp; Accessories"</span>
+        }
+      ]
+    },
+    {
+      <span class="string">"id"</span>: <span class="number">9</span>,
+      <span class="string">"name"</span>: <span class="string">"Jobs"</span>,
+      <span class="string">"children"</span>: [
+        {
+          <span class="string">"id"</span>: <span class="number">10</span>,
+          <span class="string">"name"</span>: <span class="string">"Accountancy"</span>
+        },
+        {
+          <span class="string">"id"</span>: <span class="number">11</span>,
+          <span class="string">"name"</span>: <span class="string">"Financial Services &amp; Insurance"</span>
+                },
+        {
+          <span class="string">"id"</span>: <span class="number">12</span>,
+          <span class="string">"name"</span>: <span class="string">"Bar Staff &amp; Management"</span>
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2 id="loading-the-data">Loading the data</h2>
+<p>First thing we want to do is load the tree (or at least have the tree stored somewhere in JSON or as an object).</p>
+<pre class="highlight"><code class="javascript"><span class="keyword">var</span> CategoryTree = React.createClass({
+    getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span> {data: {}};
+    },
+    componentWillMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        $.ajax({
+            url: <span class="keyword">this</span>.props.url,
+            dataType: <span class="string">'json'</span>,
+            success: <span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
+                <span class="keyword">this</span>.setState({data: data});
+            }.bind(<span class="keyword">this</span>)
+        });
+    },
+    render: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span> (
+            <span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"panel panel-default"</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"panel-body"</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">className</span>=<span class="value">"category-tree"</span>&gt;</span>
+                        <span class="comment">&lt;!--Tree nodes will go here--&gt;</span>
+                    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        );
+    }
+
+});
+</span></code></pre>
+<p>We load the category tree using <em>componentWillMount</em> and its called before the render method is. We inform react that the component needs to be redrawn by calling the <em>setState</em> method.</p>
+<h2 id="create-the-tree-nodes">Create the Tree Nodes</h2>
+<p>We want to create the tree nodes as needed and we want to start with a collapsed tree to start with.</p>
+<pre class="highlight"><code class="undefined">var TreeNode = React.createClass({
+    render: function () {
+        if (!this.state.children) this.state.children = [];
+        var classes = React.addons.classSet({
+            'has-children': (this.props.data.children ? true : false),
+            'open': (this.state.children.length ? true : false),
+            'closed': (this.state.children ? false : true),
+            'selected': (this.state.selected ? true : false)
+        });
+        return (
+            &lt;li ref="node" className={classes}&gt;
+                &lt;a data-id={this.props.data.id}&gt;
+                    {this.props.data.name}
+                &lt;/a&gt;
+                &lt;ul&gt;
+                    {this.state.children.map(function(child) {
+                        return &lt;TreeNode key={child.id} data={child}/&gt;;
+                    }.bind(this))}
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        );
+    }
+});
+</code></pre>
+<p>Here the render method needs to draw the state of the node. For each of the children in state.children a new treeNode is returned drawn with its data being the child data of the parent. This will continue till all children of children are done. Note that the <em>key=someId</em> is important for react to identify that object as there will be more than one of the same object.</p>
+<p>The classes that the node contains is where most of the work is done. The nodes children will be placed in <em>this.props.data.children</em>. If the node contains this then it means that there should be a small ‘+’ sign that appears next to it (done in the form of the class has-children). When the node is open (its displaying its children) then it will contain children in its state.children var (we will look in depth at how this works later). if its closed then it won&#39;t have any children set. A node is selected when it has the state of being selected.</p>
+<h2 id="tree-node-expansion">Tree Node expansion</h2>
+<p>We will need an onclick event placed on each of the tree nodes this will toggle the show/hide of each of the child nodes (if it contains some). </p>
+<pre class="highlight"><code class="undefined">var TreeNode = React.createClass({
+    onChildDisplayToggle: function (ev) {
+        if (this.props.data.children) {
+            if (this.state.children &amp;&amp; this.state.children.length) {
+                this.setState({children: null});
+            } else {
+                this.setState({children: this.props.data.children});
+            }
+        }
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
+    render: function () {
+        if (!this.state.children) this.state.children = [];
+        var classes = React.addons.classSet({
+            'has-children': (this.props.data.children ? true : false),
+            'open': (this.state.children.length ? true : false),
+            'closed': (this.state.children ? false : true),
+            'selected': (this.state.selected ? true : false)
+        });
+        return (
+            &lt;li ref="node" className={classes} 
+                    onClick={this.onChildDisplayToggle}&gt;
+                &lt;a data-id={this.props.data.id}&gt;
+                    {this.props.data.name}
+                &lt;/a&gt;
+                &lt;ul&gt;
+                    {this.state.children.map(function(child) {
+                        return &lt;TreeNode key={child.id} data={child}/&gt;;
+                    }.bind(this))}
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        );
+    }
+});
+</code></pre>
+<p>When the &lt;li&gt; is clicked the onChildDisplay method is called. Here we check if the children are not already set. If they are they are set to null and all child nodes are removed when redrawn otherwise they are added. An important thing to note is the stopPropagation call is necessary otherwise all parent nodes will toggle when clicked.</p>
+<h2 id="handling-node-selection">Handling node selection</h2>
+<p>Finally and most importantly we want to detect when a node has been selected. We need to show that it has been selected and we also are going to want to perform some action.</p>
+<p>We want to pass each node a function that stores the selected node and sets its selected state. Each node will have a pointer to this method and will pass it itself when called.</p>
+<pre class="highlight"><code class="undefined">var TreeNode = React.createClass({
+    onCategorySelect: function (ev) {
+        if (this.props.onCategorySelect) {
+            this.props.onCategorySelect(this);
+        }
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
+    onChildDisplayToggle: function (ev) {
+        if (this.props.data.children) {
+            if (this.state.children &amp;&amp; this.state.children.length) {
+                this.setState({children: null});
+            } else {
+                this.setState({children: this.props.data.children});
+            }
+        }
+        ev.preventDefault();
+        ev.stopPropagation();
+    },
+    render: function () {
+        if (!this.state.children) this.state.children = [];
+        var classes = React.addons.classSet({
+            'has-children': (this.props.data.children ? true : false),
+            'open': (this.state.children.length ? true : false),
+            'closed': (this.state.children ? false : true),
+            'selected': (this.state.selected ? true : false)
+        });
+        return (
+            &lt;li ref="node" className={classes} 
+                    onClick={this.onChildDisplayToggle}&gt;
+                &lt;a onClick={this.onCategorySelect} 
+                        data-id={this.props.data.id}&gt;
+                    {this.props.data.name}
+                &lt;/a&gt;
+                &lt;ul&gt;
+                    {this.state.children.map(function(child) {
+                        return &lt;TreeNode key={child.id} 
+                                data={child} 
+                                onCategorySelect={this.props.onCategorySelect}/&gt;;
+                    }.bind(this))}
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        );
+    }
+});
+</code></pre>
+<p>Finally in the category tree object we want to create the method that is being passed to on category select.</p>
+<pre class="highlight"><code class="javascript"><span class="keyword">var</span> CategoryTree = React.createClass({
+    onSelect: <span class="function"><span class="keyword">function</span> <span class="params">(node)</span> {</span>
+        <span class="keyword">if</span> (<span class="keyword">this</span>.state.selected &amp;&amp; <span class="keyword">this</span>.state.selected.isMounted()) {
+            <span class="keyword">this</span>.state.selected.setState({selected: <span class="literal">false</span>});
+        }
+        <span class="keyword">this</span>.setState({selected: node});
+        node.setState({selected: <span class="literal">true</span>});
+        <span class="keyword">if</span> (<span class="keyword">this</span>.props.onCategorySelect) {
+            <span class="keyword">this</span>.props.onCategorySelect(node);
+        }
+    },
+    render: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">return</span> (
+            <span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"panel panel-default"</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"panel-body"</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">className</span>=<span class="value">"category-tree"</span>&gt;</span>
+                        <span class="tag">&lt;<span class="title">TreeNode</span> <span class="attribute">key</span>=<span class="value">{this.state.data.id}</span> 
+                                <span class="attribute">data</span>=<span class="value">{this.state.data}</span> 
+                                <span class="attribute">onCategorySelect</span>=<span class="value">{this.onSelect}</span> /&gt;</span>
+                    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        );
+    }
+});
+</span></code></pre>
+<p>The onSelect method checks that there isn’t already a selected node and if so its deselected, the new node is set as the current selected node and its selected state is set to true. </p>
+<p>If you wish to see a demo of it all together please have a look <a target="_blank" href="http://codepen.io/anon/pen/Ftkln">here</a>.</p>
+<h2 id="unit-testing">Unit testing</h2>
+<p>How can all this be tested? React.js comes with some test utilities that make it really easy to test your code. The “react with addons” packages contains the React test utils. </p>
+<pre class="highlight"><code class="javascript"><span class="keyword">var</span> ReactTestUtils;
+
+describe(<span class="string">"Tree Node tests"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    beforeEach(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        ReactTestUtils = React.addons.ReactTestUtils;
+    });
+
+    <span class="comment">/* Tests go here */</span>
+
+});
+</code></pre>
+<p>Lets write a test to ensure that the tree structure is correctly generated. </p>
+<pre class="highlight"><code class="javascript">it(<span class="string">"Test treeNode structure to be generated correctly"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">var</span> data = {
+    <span class="string">"id"</span>: <span class="number">1</span>,
+    <span class="string">"name"</span>: <span class="string">"Healthcare"</span>
+    <span class="string">"children"</span>: [
+            {
+                <span class="string">"id"</span>: <span class="number">2</span>,
+                <span class="string">"name"</span>: <span class="string">"Biotechnology &amp; Pharmaceutical"</span>
+            },
+            {
+                <span class="string">"id"</span>: <span class="number">3</span>,
+                <span class="string">"name"</span>: <span class="string">"Doctors"</span>
+            },
+            {
+                <span class="string">"id"</span>: <span class="number">4</span>,
+                <span class="string">"name"</span>: <span class="string">"Occupational Therapy"</span>
+            }
+        ]
+    };
+    <span class="keyword">var</span> treeNode = <span class="xml"><span class="tag">&lt;<span class="title">TreeNode</span> <span class="attribute">data</span>=<span class="value">{data}</span> /&gt;</span>;</span>
+    ReactTestUtils.renderIntoDocument(treeNode);
+    <span class="keyword">var</span> li = ReactTestUtils.scryRenderedDOMComponentsWithTag(
+            treeNode, <span class="string">"li"</span>);
+    <span class="keyword">var</span> anchors = ReactTestUtils.scryRenderedDOMComponentsWithTag(
+            treeNode, <span class="string">"a"</span>);
+    expect(li.length).toEqual(<span class="number">1</span>);
+    expect(anchors.length).toEqual(<span class="number">1</span>);
+});
+</code></pre>
+<p>Here we create the structure and we can expect that there will only be one &lt;li&gt; and &lt;a&gt; as all the others will be closed </p>
+<p>Now lets write a test for when the tree is clicked</p>
+<pre class="highlight"><code class="javascript">it(<span class="string">"Check the tree opens child nodes when clicked"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">var</span> url = <span class="string">""</span>;
+    <span class="keyword">var</span> data = {
+    <span class="string">"id"</span>: <span class="number">1</span>,
+    <span class="string">"name"</span>: <span class="string">"Healthcare"</span>
+    <span class="string">"children"</span>: [
+            {
+                <span class="string">"id"</span>: <span class="number">2</span>,
+                <span class="string">"name"</span>: <span class="string">"Biotechnology &amp; Pharmaceutical"</span>
+            },
+            {
+                <span class="string">"id"</span>: <span class="number">3</span>,
+                <span class="string">"name"</span>: <span class="string">"Doctors"</span>
+            },
+            {
+                <span class="string">"id"</span>: <span class="number">4</span>,
+                <span class="string">"name"</span>: <span class="string">"Occupational Therapy"</span>
+            }
+        ]
+    };
+    <span class="keyword">var</span> treeNode = <span class="xml"><span class="tag">&lt;<span class="title">TreeNode</span> <span class="attribute">data</span>=<span class="value">{data}</span> /&gt;</span>;</span>
+    ReactTestUtils.renderIntoDocument(treeNode);
+
+    <span class="keyword">var</span> li = ReactTestUtils.findRenderedDOMComponentWithTag(
+            treeNode, <span class="string">'li'</span>);
+    expect(li).toBeDefined();
+    ReactTestUtils.Simulate.click(li);
+    <span class="keyword">var</span> allLi = ReactTestUtils.scryRenderedDOMComponentsWithTag(
+            li, <span class="string">"li"</span>);
+    expect(allLi.length).toEqual(<span class="number">4</span>);
+});
+</code></pre>
+<p>After clicking there should be 4 elements on the page</p>
+<p>Now to test that the correct callback is called when we select a node </p>
+<pre class="highlight"><code class="javascript">it(<span class="string">"Ensure callback is called when selected"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">var</span> obj = {
+        callback: <span class="function"><span class="keyword">function</span> <span class="params">(value)</span> {</span>
+            value;
+        }
+    };
+    <span class="keyword">var</span> data = {
+    <span class="string">"id"</span>: <span class="number">1</span>,
+    <span class="string">"name"</span>: <span class="string">"Healthcare"</span>
+    <span class="string">"children"</span>: [
+            {
+                <span class="string">"id"</span>: <span class="number">2</span>,
+                <span class="string">"name"</span>: <span class="string">"Biotechnology &amp; Pharmaceutical"</span>
+            },
+            {
+                <span class="string">"id"</span>: <span class="number">3</span>,
+                <span class="string">"name"</span>: <span class="string">"Doctors"</span>
+            },
+            {
+                <span class="string">"id"</span>: <span class="number">4</span>,
+                <span class="string">"name"</span>: <span class="string">"Occupational Therapy"</span>
+            }
+        ]
+    };
+    spyOn(obj, <span class="string">'callback'</span>);
+    <span class="keyword">var</span> treeNode = <span class="xml"><span class="tag">&lt;<span class="title">TreeNode</span> <span class="attribute">data</span>=<span class="value">{data}</span> 
+            <span class="attribute">onCategorySelect</span>=<span class="value">{obj.callback}</span> /&gt;</span>;</span>
+    ReactTestUtils.renderIntoDocument(treeNode);
+    <span class="keyword">var</span> anchor = ReactTestUtils.findRenderedDOMComponentWithTag(
+            treeNode, <span class="string">"a"</span>);
+    ReactTestUtils.Simulate.click(anchor);
+    expect(obj.callback).toHaveBeenCalledWith(treeNode);
+});
+</code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>So here you have some basic functionality for a tree display.</p>
+<p>A few problems that we learned the hard way was that react requires a key for each of its objects. Especially when the same object is repeated more than once.</p>
+<p>This functionality can be extended further to suit your needs. For example having an always open functionality or reloading parts of the tree without refreshing the whole display. Hopefully this gives an idea of how the basics work. I really quite liked the recursiveness of this method.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html';
+		window.disqus_identifier = '2014-12-12-creating-a-treeview-using-reactjs';
+		window.disqus_title = 'Creating a treeview using react.js';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="active">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

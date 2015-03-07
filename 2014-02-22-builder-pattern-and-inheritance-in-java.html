@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Builder Pattern and Inheritance in Java - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Feb 22nd, 2014</span>
+				<h1>Builder Pattern and Inheritance in Java</h1>
+				<span class="author">By Pere Villega</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-02-22-builder-pattern-and-inheritance-in-java.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-02-22-builder-pattern-and-inheritance-in-java.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>Something that we developers have to understand is that quite often things that we assume as obvious are not so. When you consider something as trivial or a fact that other developers must know (how could they not!) you are ignoring your own baggage: years of experience, projects, interactions with other people to solve specific issues... What has no value for you, may be very enlightening for a junior developer.
+<!-- Read more --></p>
+<p>Following my own advice, here you have a short article to spread the knowledge :). The background of the problem is very straightforward and I  outline it next to give context. In one of our applications, using <a target="_blank" href="http://projects.spring.io/spring-framework/">Spring MVC</a>, our controller packages are &#39;self-sufficient&#39;. What I mean with this is that a controller is located in a package along all support classes that controller needs which are not needed anywhere else. Services and common classes live in other packages. This allow us to remove a controller and any non-shared dependencies with minimal effort, and you know where to find all the code when trying to fix a bug.</p>
+<p>One of the elements a controller has to generate its model is a <a target="_blank" href="http://en.wikipedia.org/wiki/Builder_pattern">Builder</a> acting as a <a target="_blank" href="http://en.wikipedia.org/wiki/Fluent_interface">Fluent Interface</a>. The reason we have a builder per controller is to avoid clutter: each controller uses a minimal model that sends to front end only the necessary data, not a single bit more. This speeds up processing in both back end and front end, makes the code neater and facilitates locating issues as the model is easy to navigate.</p>
+<p>We are all for the <a target="_blank" href="http://en.wikipedia.org/wiki/Don&#39;t_repeat_yourself">DRY</a> principle and, as you would expect, we found some common code shared across builders. Time to refactor, create a parent class, recompile and... wait, that doesn&#39;t work. It turns out that, due to the way a builder works, if you want to preserve the fluent interface you need to put a bit of extra effort in.</p>
+<p>Depending on how you implement your builders, there are several approaches you can take. You can see an example in <a target="_blank" href="https://weblogs.java.net/blog/emcmanus/archive/2010/10/25/using-builder-pattern-subclasses">this post</a> from 2010. It is not a new or uncommon issue. Us, we chose a to solve this problem by having an abstract class that defines common methods along some abstract methods necessary to have the Fluent Interface. Most of the solutions we found use a builder embedded inside a class but we don&#39;t follow that pattern (our builders are standalone classes) which means we had to adapt the solutions we saw a bit to make this possible.  </p>
+<p>This approach has a downside if you use static methods in your builders, as you may need to reimplement them in each child. Not ideal, but generics and static methods don&#39;t seem to like each other too much, and Java doesn&#39;t have  <a target="_blank" href="http://en.wikipedia.org/wiki/Trait_(computer_programming">traits</a>), yet.</p>
+<p>The code of our abstract parent class follows:</p>
+<pre class="highlight"><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractModelAndViewBuilder</span>&lt;<span class="title">B</span> <span class="keyword">extends</span> <span class="title">AbstractModelAndViewBuilder</span>&lt;<span class="title">B</span>&gt;&gt; </span>{
+
+    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String REDIRECT = <span class="string">"redirect:"</span>;
+
+    <span class="comment">// private object, references the subtype we are building</span>
+    <span class="keyword">private</span> B thisObj;
+
+    <span class="comment">// abstract method so all children can define their own type and inherit methods defined here while</span>
+    <span class="comment">// behaving as a builder</span>
+    <span class="keyword">protected</span> <span class="keyword">abstract</span> B self();
+
+    <span class="comment">// model and view is defined here so all methods can access it, from both parent and child objects</span>
+    <span class="keyword">protected</span> ModelAndView mav;
+
+    <span class="comment">// default constructor, initialises thisObj variable accordingly</span>
+    <span class="keyword">protected</span> AbstractModelAndViewBuilder() {
+        thisObj = self();
+    }
+
+    <span class="comment">// initially a builder will set either a page or a path, which means calling one of these methods</span>
+    <span class="keyword">protected</span> B setPage(Page page) {
+        mav = <span class="keyword">new</span> ModelAndView(page.getTemplateName());
+        mav.addObject(ModelKeys.PAGE_NAME.key, page.getTemplateName());
+        <span class="keyword">return</span> self();
+    }
+
+    <span class="comment">// initially a builder will set either a page or a path, which means calling one of these methods</span>
+    <span class="keyword">protected</span> B setPath(Path path) {
+        mav = <span class="keyword">new</span> ModelAndView(REDIRECT + path.getPath());
+        <span class="keyword">return</span> self();
+    }
+
+    <span class="keyword">public</span> ModelAndView build() {
+        <span class="keyword">return</span> mav;
+    }
+
+    <span class="keyword">public</span> B withCore(Object core) {
+        mav.addObject(ModelKeys.CORE.key, core);
+        <span class="keyword">return</span> self();
+    }
+}
+</code></pre>
+<p>Yes, that&#39;s some ugly code right there, not the best Java I&#39;ve ever crafted. But it works, so let&#39;s skip looks for a moment and talk about how does it work. </p>
+<p>Starting from the class definition, the first thing we notice is the generic declaration <em>B extends AbstractModelAndViewBuilder&lt;B&gt;</em>. This is a trick so all children of this class can pass themselves as the generic element of the parent class. That way any reference to a generic in the parent class is automatically converted to a reference to the child type when using the Builder, maintaining the fluent interface across classes.</p>
+<p>Unfortunately that declaration is not enough. We need something else, provided by this fragment of code:</p>
+<pre class="highlight"><code class="java"><span class="comment">// private object, references the subtype we are building</span>
+<span class="keyword">private</span> B thisObj;
+
+<span class="comment">// abstract method so all children can define their own type and inherit methods defined here while</span>
+<span class="comment">// behaving as a builder</span>
+<span class="keyword">protected</span> <span class="keyword">abstract</span> B self();
+
+<span class="comment">// default constructor, initialises thisObj variable accordingly</span>
+<span class="keyword">protected</span> AbstractModelAndViewBuilder() {
+    thisObj = self();
+}
+</code></pre>
+<p>The parent class contains a private object <em>thisObj</em> of type B, which references an instance of the children because, as we just saw, <em>B</em> is a trick to match the type of the child of this builder. We also have an abstract method <em>self</em> which must be implemented by every child. This method, when implemented, returns an instance of the child builder. The protected constructor assigns to <em>thisObj</em> the result of calling <em>self</em>, ensuring we have a valid reference before we start using the builder. </p>
+<p>All this plumbing is necessary to enable a fluent interface that can use methods from both parent and children. Methods to add information to the model shared across builders can be added to the parent, while other methods can be added to the specific builder while maintaining this functionality.</p>
+<p>Having explained that, we can next see how simple it is to implement a new builder that can inherit all the functionality of the parent builder:</p>
+<pre class="highlight"><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ModelAndViewBuilder</span> <span class="keyword">extends</span> <span class="title">AbstractModelAndViewBuilder</span>&lt;<span class="title">ModelAndViewBuilder</span>&gt;</span>{
+
+    <span class="comment">// override to inherit all model builder methods and be able to use them in this class</span>
+    <span class="annotation">@Override</span>
+    <span class="keyword">protected</span> ModelAndViewBuilder self(){
+        <span class="keyword">return</span> <span class="keyword">this</span>;
+    }
+
+    <span class="comment">// any other children of AbstractModelAndViewBuilder that want view or redirect will have to duplicate a bit of code</span>
+    <span class="keyword">public</span> <span class="keyword">static</span> ModelAndViewBuilder view(Page page) {
+        <span class="keyword">if</span> (page == <span class="keyword">null</span>) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> ModelException(<span class="string">"Missing page"</span>);
+        }
+        <span class="keyword">return</span> <span class="keyword">new</span> ModelAndViewBuilder().setPage(page);
+    }
+
+    <span class="keyword">public</span> <span class="keyword">static</span> ModelAndViewBuilder redirect(Path path) {
+        <span class="keyword">if</span> (path == <span class="keyword">null</span>) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> ModelException(<span class="string">"Missing path"</span>);
+        }
+        <span class="keyword">return</span> <span class="keyword">new</span> ModelAndViewBuilder().setPath(path);
+    }
+
+    <span class="keyword">public</span> ModelAndViewBuilder withQ(String q) {
+        mav.addObject(ModelKeys.QUERY.key, q);
+        <span class="keyword">return</span> <span class="keyword">this</span>;
+    }
+
+}
+</code></pre>
+<p>As you can see, we only override one method: <em>self</em>. The other two methods are static methods that we want to use, but we don&#39;t need to add in every child if we don&#39;t want to. </p>
+<p>The method <em>withQ</em> shows how we can add additional builder methods. If you try to chain methods from both the parent and the child, you can see that this works as expected.</p>
+<p>Success! Now we can have inheritance in builders and avoid code duplication (mostly, let&#39;s ignore static methods by now). Hope that&#39;s been useful and, as always, feel free to contact us for feedback or questions.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-02-22-builder-pattern-and-inheritance-in-java.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-02-22-builder-pattern-and-inheritance-in-java.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-02-22-builder-pattern-and-inheritance-in-java.html';
+		window.disqus_identifier = '2014-02-22-builder-pattern-and-inheritance-in-java';
+		window.disqus_title = 'Builder Pattern and Inheritance in Java';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

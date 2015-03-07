@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Optimising JavaScript performances with asynchronous loops - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Feb 25th, 2014</span>
+				<h1>Optimising JavaScript performances with asynchronous loops</h1>
+				<span class="author">By Paolo Tozzo</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-02-25-js-performance-with-async-loops.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-02-25-js-performance-with-async-loops.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>At Gumtree we want to offer the best user experience to our customers, and we believe that one of the first steps is not
+ to make the user wait for something. Performance is definitely a feature, and we want to provide the fastest user
+ experience, both during and after the page has been loaded.</p>
+<p>What does that mean exactly? It means that while often most of the focus in terms of performance optimisation is on the
+page load, by reducing the number of requests and the page weight, we forget what happens after the page has been loaded.
+<!-- Read more -->
+When our UI is being shown to the user, the browser can end up doing more work than it is supposed to, and this means a
+sloppy interface that could definitely have an impact on the user engagement.</p>
+<p>And with the Mobile traffic expanding rapidly this is even more important.</p>
+<h2 id="javascript-performance">JavaScript Performance</h2>
+<p>Now, performance problems are rarely caused by raw Javascript, far more often is the interacting with the DOM through
+Javascript that causes the issue.</p>
+<p>However, especially when dealing with complex UIs or data structures, avoiding long running scripts is of paramount
+importance.</p>
+<h2 id="loops-in-javascript">Loops in JavaScript</h2>
+<p>Loops are often a performance bottleneck in Javascript applications.
+That&#39;s because loop iterations happen in a synchronous way, so, the more iterations you have, the more it&#39;ll take to
+execute your code. If the loop is doing too much (especially updating the DOM) the risk is to freeze the UI, with the
+risk even to display the dreaded &#39;unresponsive script&#39;  browser dialog pop-up.</p>
+<p>If you don&#39;t need your loop to be executed synchronously, and the order in which the elements of your
+collection are processed is not important, splitting the collection analysis into smaller and more manageable chunks can
+make a HUGE difference in terms of perceived performance of your UI.</p>
+<p>Today we are going to use Javascript timers in order to free up the browser from the risk of long-running loop. This
+pattern is explained by Nicholas C. Zakas in his
+book <a target="_blank" href="http://www.amazon.com/Professional-JavaScript-Developers-Nicholas-Zakas/dp/1118026691">Professional Javascript for Web Developers</a>
+in the chapter on Advanced techniques.</p>
+<h2 id="an-important-consideration-before-starting">An Important Consideration Before Starting</h2>
+<p>Before using the pattern I&#39;m going to show you have to ask yourself how much is happening inside the loop. The more work
+you do outside the loop, the better is. A lot of time it&#39;s a poor design that is causing the problem. If you&#39;ve done as
+much as you could to optimise your loop, but you still need to handle a large volume of data in the browser, and that is
+causing you some headache, this article will help you.</p>
+<h2 id="let-s-code-">Let&#39;s code!</h2>
+<p>Let&#39;s have a look at a typical loop</p>
+<pre class="highlight"><code class="javascript"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; collection.length; i++) {
+    <span class="comment">//do something</span>
+}
+</code></pre>
+<p>Now, if after your loop has been executed there is nothing that needs to deal with its outcome, and each iteration is
+treated separately from the others, it means that your loop can run asynchronously.</p>
+<p>First, let&#39;s create the helper we need</p>
+<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">splitLoop</span><span class="params">(items, process, context)</span> {</span>
+    <span class="keyword">var</span> todo = items.concat(); <span class="comment">//create a clone of the original</span>
+    setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">do</span> {
+            process.call(context, todo.shift());
+        } <span class="keyword">while</span> (todo.length &gt; <span class="number">0</span>);
+            setTimeout(arguments.callee, <span class="number">25</span>);
+    }, <span class="number">25</span>);
+}
+</code></pre>
+<p>First of all, we clone the original array. This shouldn&#39;t be always needed, but since the collection is passed by reference
+we want to be safe that we are not altering it, so we are going to work with the clone.</p>
+<p>Then we use the <a target="_blank" href="http://www.w3schools.com/jsref/met_win_settimeout.asp">setTimeout</a> function to delay the execution of
+each iteration.</p>
+<p>On each iteration we use Array&#39;s <a target="_blank" href="http://www.w3schools.com/jsref/jsref_shift.asp">shift</a> method in order to remove the first
+element of the collection and we carry on until we processed all items. We use <a target="_blank" href="http://www.w3schools.com/js/js_loop_while.asp">do...while</a>
+in order to execute the loop at least once.
+Then provide a context in order to set the value of this inside our loop.</p>
+<p>Let&#39;s see now how we can use it with a test case.</p>
+<pre class="highlight"><code class="javascript"><span class="comment">// test data</span>
+<span class="keyword">var</span> items = [];
+<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) items[i] = i;
+
+splitLoop(items, <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+    console.log(item)
+}, <span class="keyword">this</span>);
+</code></pre>
+<p>That was easy... and of course, not really useful!</p>
+<p>Let&#39;s now say we want to process a collection of dom elements and we are using <a target="_blank" href="http://jquery.com">jQuery</a>.</p>
+<pre class="highlight"><code class="javascript">splitLoop(  $(<span class="string">".items"</span>).toArray(),
+            <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+                $(item)
+                    .processItem();
+            },
+            <span class="keyword">this</span>
+);
+</code></pre>
+<p>Presto! We converted the the object jquery is returning to an array, and we are now able to execute dom operations asynchronously.</p>
+<p>Since we are working with asynchronous programming you need a callback function to pass since you don&#39;t know the point at which
+it will complete. Let&#39;s improve our helper!</p>
+<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">splitLoop</span><span class="params">(items, process, context, callback)</span> {</span>
+    <span class="keyword">var</span> todo = items.concat(); <span class="comment">//create a clone of the original</span>
+
+    setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        <span class="keyword">var</span> start = +<span class="keyword">new</span> Date();
+
+        <span class="keyword">do</span> {
+            process.call(context, todo.shift());
+
+        } <span class="keyword">while</span> (todo.length &gt; <span class="number">0</span>);
+
+        <span class="keyword">if</span> (todo.length &gt; <span class="number">0</span>) {
+            setTimeout(arguments.callee, <span class="number">25</span>);
+        } <span class="keyword">else</span> {
+            callback(items);
+        }
+    }, <span class="number">25</span>);
+};
+</code></pre>
+<p>On each iteration now we check if we&#39;ve reached the end of the collection, and when this happens the callback function is executed.
+Let&#39;s see it in action with the following code</p>
+<pre class="highlight"><code class="javascript"><span class="comment">// test data</span>
+<span class="function"><span class="keyword">function</span> <span class="title">todo</span><span class="params">(item)</span> {</span>
+    console.log(item);
+};
+
+<span class="function"><span class="keyword">function</span> <span class="title">done</span><span class="params">()</span> {</span>
+    console.log(<span class="string">'done'</span>);
+}
+
+<span class="keyword">var</span> items = [];
+<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) items[i] = i;
+
+splitLoop(items, <span class="function"><span class="keyword">function</span> <span class="params">(item)</span> {</span>
+        todo(item);
+    }, <span class="keyword">this</span>, done);
+</code></pre>
+<p>A further improvement could be to make sure that each chunk won&#39;t take longer than a specific amount of milliseconds.</p>
+<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">splitLoop</span><span class="params">(items, process, context, callback)</span> {</span>
+    <span class="keyword">var</span> todo = items.concat(); <span class="comment">//create a clone of the original</span>
+
+    setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+
+        <span class="keyword">var</span> start = +<span class="keyword">new</span> Date();
+
+        <span class="keyword">do</span> {
+            process.call(context, todo.shift());
+
+        } <span class="keyword">while</span> (todo.length &gt; <span class="number">0</span> &amp;&amp; (+<span class="keyword">new</span> Date() - start &lt; <span class="number">50</span>));
+
+        <span class="keyword">if</span> (todo.length &gt; <span class="number">0</span>) {
+            setTimeout(arguments.callee, <span class="number">25</span>);
+        } <span class="keyword">else</span> {
+            callback(items);
+        }
+    }, <span class="number">25</span>);
+}
+</code></pre>
+<p>Now we check than each iteration lasts less than 50 milliseconds.</p>
+<p>Feel free to alter both 25 and 50 milliseconds, or if you prefer, to pass them as a further arguments for the function,
+I&#39;ve never needed to change them, so I prefer to hard code them.</p>
+<p>I hope you&#39;ll find the article helpful, feel free to comment and let us know any suggestion to further improve the technique.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-02-25-js-performance-with-async-loops.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-02-25-js-performance-with-async-loops.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-02-25-js-performance-with-async-loops.html';
+		window.disqus_identifier = '2014-02-25-js-performance-with-async-loops';
+		window.disqus_title = 'Optimising JavaScript performances with asynchronous loops';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

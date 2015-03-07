@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>React.conf - Day 2 - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Apr 9th, 2014</span>
+				<h1>React.conf - Day 2</h1>
+				<span class="author">By Pere Villega</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-04-08-React-conf-day-2.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-04-08-React-conf-day-2.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>Day 2 of <a target="_blank" href="http://reactconf.com/">React.conf</a> is over. Pretty good day although personally I&#39;ve not liked all the talks. As I did <a target="_blank" href="./2014-04-08-React-conf-day-1.html">yesterday</a>, what follows is a quick and dirty summary of the talks. I&#39;ll write a follow up post with comments on the event and content later on this week.</p>
+<!-- Read more -->
+
+<h2 id="the-good">The Good</h2>
+<ul>
+<li>The level of the speakers has been very high all the event</li>
+<li>The post-event party after day 1. Nice atmosphere </li>
+<li>The coffee!</li>
+</ul>
+<h2 id="the-bad">The Bad</h2>
+<ul>
+<li>The chairs have been really uncomfortable for the event. First day I didn&#39;t notice so much, but at the end of the second day it was sore.</li>
+<li>I missed a second Q&amp;A round after day 2. I understand the schedule constraints, but the idea was very good and 1 talk less wouldn&#39;t have mattered much</li>
+</ul>
+<h2 id="the-talks">The Talks</h2>
+<p>This second day there were 6 talks. Let&#39;s summarise the main points about the talks.</p>
+<h3 id="talk-1">Talk 1</h3>
+<p>First talk was by <em>Dean Wampler</em> (@deanwamplerr), who commented on how appropriate may some paradigms be for reactive applications. Good talk. </p>
+<p>The title was: (Reactive) Design, Language, and Paradigms</p>
+<p>He started with a disclaimer: good people can make any approach work, even if it is suboptimal</p>
+<p>4 pillars of reactive programming:</p>
+<ul>
+<li>responsive</li>
+<li>resilient</li>
+<li>scalable</li>
+<li>event driven </li>
+</ul>
+<p>The 4 pillars we want systems:</p>
+<ul>
+<li>asynchronous, non blocking, facts as events are pushed</li>
+<li>loose coupled, composable, distributed, that consider network problems first class citizens</li>
+<li>must respond when errors occur</li>
+<li>redefine errors, isolates components for exceptions, considers failure as a first class concept, recovery is an event</li>
+</ul>
+<p>Reactive Manisfesto calls out some relevant points. Importantly: networks. They are unreliable. We must redefine known problems in the system, raise awareness of these elements (network, etc)</p>
+<p>Object Oriented Programming</p>
+<ul>
+<li>OOP is good for event driven, bad for scalability and resilience, ok for responsive</li>
+<li>in OOP state and behaviour are joined</li>
+<li>you end up mapping the world in code. That is a big mistake: the implicit notion that you should implement your domain model is wrong. Not the simplest thing that can work</li>
+<li>simplest way: just transform data, don&#39;t care about &quot;person&quot; or &quot;domain concepts&quot;. Sometimes domain concepts are useful, but many times are drawbacks, it impacts scalability due to overhead</li>
+<li>state mutation is considered good in OOP. A bad idea when running in parallel, think thread safety. Bad parallelism means bad scalability, state mutation makes it harder to achieve resiliency</li>
+<li>mutation happens, but the idea is to Share Nothing, hide mutation. UI/services/processes don&#39;t mutate, modules have hidden mutation, persistence makes  mutations visible</li>
+<li>There are OOP reactive systems (20 years old example already called reactive programming at that time) AI robotics</li>
+<li>Alan Keys: OOP to me means only messaging, local retention and protection, hiding state process and extreme late binding of all things. Note: this defines the actor model!</li>
+<li>Alan Kay: I made up the term OOP and I can tell you I didn&#39;t have C++ in mind</li>
+</ul>
+<p>DDD</p>
+<ul>
+<li>system level design of OOP</li>
+<li>improves a little bit, but not optimal. Better at resilience than OOP as they model errors/recovery</li>
+<li>First idea: model your domain. But then implement the model, which may be overhead.</li>
+<li>Anti-pattern: anemic model (in DDD). Counter claim: models should be anemic. FP gives you better flexibility when you separate data and behaviour</li>
+<li>(off side - in big data you can afford the overhead of turning rows of numbers into objects)</li>
+<li>Claim: many of the DDD terms can be replaced by better FP concepts</li>
+<li>Claim: some terms are helpful, other are ill-defined or encourage the wrong emphasis</li>
+<li>Ubiquitous language: seems a great idea for communication. But we should not implement that language, as it bloats and increases coupling instead of giving us minimal working thing</li>
+<li>DDD does something important: forces to understand domain, but you should not implement the model but the minimal thing that will work</li>
+</ul>
+<p>FP</p>
+<ul>
+<li>Perfect fit for reactive programming</li>
+<li>Mathematics. Gives us structures and tools to reason about problems with rigour</li>
+<li>FP builds a state machine, each event changes state</li>
+<li>Function composition: OO was supposed to give us reusable components. It failed. Objects are at a too high abstraction level, which makes reusability hard. Function composition solves that. But needs modules to limit what we expose for public consumption.</li>
+<li>Immutability. Avoid concurrency issues, Easier to scale, more resilient</li>
+<li>Referential transparency. Lack of side effects. Easier to test.</li>
+<li>Separate state and behaviour. Implement some domain object, with some minimal validation. The rest is data transformation. </li>
+<li>Claim: Sw systems are just data processing systems. </li>
+<li>Example: word count in hadoop map reduce. In Java aPI, lot of boilerplate and ceremony. On Spark, just 10 lines of code. Spark doesn&#39;t use intermediate objects, just transforms data</li>
+<li>By turning it into a data transform process we can just unit test, no need to have a full QA acceptance process for it.</li>
+<li>Most compelling argument: World is a data processing world, FP is the perfect match</li>
+</ul>
+<p>Functional reactive programming</p>
+<ul>
+<li>Supports time-varying values as first class</li>
+<li>Derived expressions are automatically updated</li>
+<li>Deterministic, fine grained, concurrent</li>
+<li>It&#39;s a data-flow system</li>
+<li>Scala.React (paper: <a target="_blank" href="http://infoscience.epfl.ch/record/176887/files/DeprecatingObservers2012.pdf">Deprecating observer pattern with scala.react</a>)</li>
+<li>Solves a lot of issues with callback programming</li>
+<li>Currently FRP mostly used in Js UI event loop</li>
+<li>Not so great for scalability due to focus on 1 single event loop</li>
+<li>Not good facilities for error handling</li>
+<li>Encapsulates evolving mutations of state</li>
+<li>Single thread, non sustainable</li>
+</ul>
+<p>Rx</p>
+<ul>
+<li>Composable, event based</li>
+<li>Observables, asynchronous data streams</li>
+<li>Schedulers, parameterize concurrency in streams</li>
+<li>Example: LINQ</li>
+<li>Observable consumes events from stream, operates on data consumed, and sends them to destination</li>
+<li>Quite good for reactive/event driven programming. Slightly lacking on error handling.</li>
+</ul>
+<p>Callbacks</p>
+<ul>
+<li>imperative</li>
+<li>On 2008 Adobe said 1/3 of the code in their desktop apps was devoted to event handling, 1/2 of errors in that area</li>
+<li>Rx vs Callbacks: Rx inverses control</li>
+</ul>
+<p>Reactive streams</p>
+<ul>
+<li>Rx with back pressure. Bounded queues (see notes on day 1, they are critical).</li>
+<li>Back pressure is important missing piece in Rx</li>
+<li>Help responsiveness, still slightly lacking on resilience due to error management</li>
+</ul>
+<p>Futures</p>
+<ul>
+<li>Scatter/Gather, a data flow model</li>
+<li>Futures are great for scalability and responsive, but not extremely resilient by themselves (need external recovery method)</li>
+</ul>
+<p>Actors</p>
+<ul>
+<li>best of breed error handling via supervisors</li>
+<li>a first class concept in Erlang!</li>
+<li>Fits perfectly reactive, stronger fit due to great error handling. Best option?</li>
+</ul>
+<p>Conclusions</p>
+<ul>
+<li>perfection achieved not when there is nothing left to add, but when there is nothing left to remove</li>
+<li>do minimal working implementation</li>
+</ul>
+<h3 id="talk-2">Talk 2</h3>
+<p>Second talk was by <em>Greg Young</em> (@gregyoung). Personally, I didn&#39;t like the talk must. It started ok, but at some point it stopped resonating and didn&#39;t like it much.</p>
+<p>The talk was: Querying Event Streams For Fun and Profit </p>
+<p>Core idea: saving and querying events is valuable. </p>
+<p>CEP (complex event processing) is the big new things. Querying events needs to consider time as a factor in the query. We want real time querying too.</p>
+<p>Stream DB: takes events from a point in time and tries to turn them into SQL. Not a good idea</p>
+<p>Event Sourcing</p>
+<ul>
+<li>rebuild state by replaying events</li>
+<li>only store events</li>
+</ul>
+<p>Data and event rate has grown a lot, still growing. On 2006 (year) doing 2000 tps was a lot, nowadays is trivial.</p>
+<p>Conceptually</p>
+<ul>
+<li>Our event stream starts at event 0 and we play events from there</li>
+<li>Many queries are hard to do. But if you consider series of events, things are simpler.</li>
+<li>Example: user that does X, then later at some point does Y, then later does Z with some outcome. SQL for that is non manageable</li>
+<li>Querying events is a time machine, you can go forward and backwards in time</li>
+<li>Append model, traverse the road</li>
+<li>An event is a function: f(state, event) -&gt; state</li>
+<li>A stream of events is stream of function calls</li>
+<li>A query on events is defining the body of what the function means.</li>
+<li>You ask for the event that given an event returns a certain state</li>
+</ul>
+<p>Querying events is doing a left fold on previous behaviours</p>
+<p>Move code to data, not data to code. Use queries where my events live, not the other way. Better performance.</p>
+<h3 id="talk-3">Talk 3</h3>
+<p>Third talk was by <em>Lee Campbell</em> and <em>Matt Barrett</em>. Their talk was mostly a demo of a reactive application they have built. The talk had some insightful ideas, but I found it a bit too long for a demo.</p>
+<p>The title was: Event Driven User Interfaces</p>
+<p>Managing reactive ui complexity is hard. UI are shared mutable state, clashes with reactive core concepts</p>
+<p>Reactive trader (code in github)</p>
+<ul>
+<li>Forex trading platform, want fast and accurate trade response, real time trade history</li>
+<li>challenges: responsive, resilient, predictable latency (even more important than just low latency), consistent</li>
+</ul>
+<p>How to stream data</p>
+<ul>
+<li>request-response cycle not good enough</li>
+<li>long polling is wasteful</li>
+<li>push solutions the only reasonable way</li>
+<li>choice: <a target="_blank" href="http://signalr.net">signalR</a></li>
+</ul>
+<p>Single threaded UI</p>
+<ul>
+<li>don&#39;t block UI, it&#39;s bad</li>
+<li>multicore has 0 impact, is still 1 thread</li>
+<li>as app grows more contention on thread</li>
+<li>avoid I/O</li>
+<li>avoid complex computation</li>
+<li>avoid enumerating long lists of data</li>
+<li>avoid mapping/translating</li>
+</ul>
+<p>Concurrency is not free</p>
+<ul>
+<li>creating threads is not free</li>
+<li>moving stack context has a cost</li>
+<li>threadpool starvation can hurt</li>
+<li>single thread is simpler, too much concurrency can hurt performance, raise bugs</li>
+</ul>
+<p>Favour functional</p>
+<ul>
+<li>immutable</li>
+<li>side effects free</li>
+<li>framework support for monadic programming (async/await, Rx)</li>
+</ul>
+<p>Non-happy path</p>
+<ul>
+<li>server failures: errors, network timeouts, etc.</li>
+<li>turn technical failure into non-technical events</li>
+</ul>
+<p>How many updates can your server produce, UI show, users handle? User needs less data, reduce events!</p>
+<p>Conflation: price has a delay between ui receiving price and it being shown to user. In the meantime price 2 and 3 have arrived. After showing price 1, should I start processing price 2 or 3? Explicitly limit throughput, introduces predictable latency.</p>
+<p>Latency</p>
+<ul>
+<li>congestion on UI</li>
+<li>on the wire (physics)</li>
+<li>not all old data is the same, some old data is better than another</li>
+</ul>
+<p>Games have a good solution: constant refresh rating (60 fps) rendering is driven by UI at fixed rate, doesn&#39;t matter how many events you get</p>
+<p>Error conditions:</p>
+<ul>
+<li>assume silence in channel as an error, UI automatically updates showing &quot;data not available&quot;. Once stream restored, show data again.</li>
+<li>server replays events on client crash so client shows the exact same state as before crash</li>
+<li>UI waits for server if server crashes, once server is up UI picks up where it was and continues rendering events. Failure as an event</li>
+</ul>
+<p>Asynchrony</p>
+<ul>
+<li>introduce concurrency via api. makes it testable, discoverable, teachable</li>
+<li>querying with concurrency: use observable to observe the threadpool and subscribe to the threadpool so we get the error/result wen done</li>
+</ul>
+<p>Single model of async</p>
+<ul>
+<li>force async into that model asap, to avoid different api and be observable asap</li>
+<li>any interaction with user is async </li>
+<li>user and i/o events should be observable</li>
+<li>functional types work to you stream advantage</li>
+</ul>
+<p>Async everywhere</p>
+<ul>
+<li>system initialisation</li>
+<li>eager or lazy loading of data</li>
+<li>system availability and health</li>
+</ul>
+<p>Everything is a stream</p>
+<ul>
+<li>Static data doesn&#39;t really exist, data usually changes at some point in live</li>
+<li>config, reference data, data entry... all streams</li>
+<li>the status of the app (on/off) is part of the stream of events. No need to check a flag in a loop to wait for a condition to do something, just listen to the stream</li>
+</ul>
+<p>Rich domain models</p>
+<ul>
+<li>makes a complex api discoverable</li>
+<li>can present errors at proper times and locations</li>
+<li>difficult to implement over unsympathetic API</li>
+</ul>
+<h3 id="talk-4">Talk 4</h3>
+<p>Fourth talk was by <em>Andrew Stewart</em>. He gave relevant insights on a real time trading platform and how do they classify data. Classifying data is important to work with it in the correct way.</p>
+<p>The title was: Reactive Data Management </p>
+<p>He started by describing his product, LMAX (a forex platform). In 1 week they have:</p>
+<ul>
+<li>1000s client</li>
+<li>100,000s trades</li>
+<li>100,000,000 million price updates</li>
+<li>10 billion price updates to clients forced because tcp/ip has no multicast, enforces use of parallel unicast</li>
+</ul>
+<p>Reliable latency is better than low latency, but you want both</p>
+<p>Early life data</p>
+<ul>
+<li>bursts of frantic activity that most of the time results in nothing</li>
+<li>you have expectations about response time, accuracy</li>
+<li>working set: highly reactive, mutating</li>
+<li>millions data points</li>
+<li>milliseconds lifetime</li>
+<li>highly contended</li>
+<li>most aggressive reactive requirements</li>
+<li>custom persistence solution due to requirements at that time</li>
+</ul>
+<p>Managing data through early life</p>
+<ul>
+<li>single thread for persistence, all deterministic, data broken into pieces (kinda messages)</li>
+<li>potentially processing millions of events per second</li>
+<li>being in memory is not enough: memory contention, GC, thread wake up, etc. More things impact performance.</li>
+</ul>
+<p>Post-mortem data</p>
+<ul>
+<li>immediately after early life</li>
+<li>you die. once data is processed, it&#39;s a fact it&#39;s history. done</li>
+<li>looking at static data that won&#39;t change anymore</li>
+<li>different model that for early life, as requirements (amount of data, speed  of queries) are quite different</li>
+<li>highly structured, analysis is exact</li>
+<li>search/partition keys are predictable</li>
+<li>model evolves at similar pace than behaviour</li>
+<li>access to arbitrary and unlimited history</li>
+<li>you could use 1 single db for this, no need for much more. Data doesn&#39;t change, is an archive, just an index. Insert/select, nothing else needed</li>
+</ul>
+<p>Ageing gracefully</p>
+<ul>
+<li>need to move from one state to the other</li>
+<li>transactions are a way to do this</li>
+<li>we have been spoiled by managed transactions, we don&#39;t reason about them properly</li>
+</ul>
+<p>History</p>
+<ul>
+<li>analysis is statistical but exact</li>
+<li>abstracted, structured, aggregated</li>
+<li>search keys less predictable but contained</li>
+<li>model evolves at similar pace than domain</li>
+</ul>
+<p>Difficult data (audit trail)</p>
+<ul>
+<li>large to huge volumes</li>
+<li>loosely structured</li>
+<li>analysis statistical, approximate</li>
+<li>search key unpredictable</li>
+<li>model evolves and mutates rapidly</li>
+<li>migration unaffordable</li>
+<li>NoSQL - my data is not in table shape, not the solution</li>
+<li>3 approaches: time series problems, document shaped data and frenzy data (time series meet media)</li>
+<li>document problems: loosely structured, content sensitive, structure evolves faster than pattern of use, data loss is negotiable</li>
+<li>time series: faults, gauges, performance metrics. Volumes can be staggering. Need to capture enough to know what you don&#39;t need to capture</li>
+</ul>
+<p>Forensics</p>
+<ul>
+<li>TIVO for data. play, rewind, go back, fast forwards, etc</li>
+<li>time series meet video</li>
+<li>fire hose data feed, 150k/s</li>
+<li>analysis is complex, but after the fact</li>
+<li>data lose is business damaging</li>
+<li>analysis running continually plus adhoc analysis</li>
+</ul>
+<p>Problems are never the ones we are looking for. Ask yourself how are you going to measure things in your system before development. Will influence your design.</p>
+<h3 id="talk-5">Talk 5</h3>
+<p>Fifth talk was by <em>Ben Christensen</em> (@benjchristensen) from Netflix, who showed us how Netflix uses reactive.</p>
+<p>The title was: Reactive Service Levels </p>
+<p>Explosive growth of software has added greatly to systems interactive complexity. With software, all possible states a system can be at are countless</p>
+<p>Netflix</p>
+<ul>
+<li>3 regions of AWS, USA east, USA west, Europe</li>
+<li>decoupled of each other</li>
+<li>each region has X00s of clusters</li>
+<li>each cluster has dozens-hundreds of machines</li>
+</ul>
+<p>Chaos Monkey</p>
+<ul>
+<li>tool to ensure reliability</li>
+<li>in prod environment goes to cluster, picks a box, kills it</li>
+<li>ensures software reacts to failure and is resilient</li>
+</ul>
+<p>Chaos Gorilla</p>
+<ul>
+<li>wipes out a full AWS availability zone</li>
+<li>ensures we fallback to another zone without problem, traffic redirected</li>
+<li>resilience to network spikes, network partitions, etc</li>
+</ul>
+<p>Chaos Kong</p>
+<ul>
+<li>tests disaster recovery plan by removing a full AWS region</li>
+<li>more on the tools <a target="_blank" href="http://techblog.netflix.com/2011/07/netflix-simian-army.html">here</a></li>
+</ul>
+<p>Internal tools</p>
+<ul>
+<li>Eureka - instance discovery</li>
+<li>Karyon - base server with instance registration, metrics, heartbeat, etc</li>
+<li>Ribbon - rpc client with load balancing</li>
+</ul>
+<p>User request blocked by latency in single network call. At high volume all request threads can block in seconds due to this latency.</p>
+<p>With dozen of dependencies, one going bad takes everything down. Compounding 99,9% reliabilities reduces the global reliability, easily 2+ hours downtime per month</p>
+<p>Constraints to fix issues mentioned above</p>
+<ul>
+<li>speed of iteration</li>
+<li>client libraries, optimise for consumers of libraries</li>
+<li>mixed environment, polyglot (jvm, python, etc)</li>
+</ul>
+<p>We want to isolate failing requests, at least share load. Network traffic interaction points are isolated.</p>
+<p>Overt catastrophic failure occurs when small failures join to create a systemic accident. Can&#39;t comprehend complex systems, trying is a waste of time. </p>
+<p>Systems operations are dynamic, failing and being replaced continually. Embrace it. Let things fail and move forward.</p>
+<p>Options</p>
+<ul>
+<li>restrict input via tryable semaphore</li>
+<li>rejects calls it cannot fulfil</li>
+<li>timeouts on network calls</li>
+<li>Tryable semaphores for non blocking clients and fallbacks</li>
+<li>separate threads for blocking clients</li>
+<li>aggressive timeouts</li>
+<li>circuit breakers as release valve. In the time that this activates you are saturated and toast, is just to relieve pressure, not a fix</li>
+</ul>
+<p>System degradation</p>
+<ul>
+<li>better to make experience slightly worse but process critical path than to say &#39;come back later&#39;</li>
+<li>basic thing - log errors and notify user</li>
+<li>next best thing: fail silently (empty list of videos, etc)</li>
+<li>static fallback: default value when can process value</li>
+<li>stubbed fallback: give default representation of interface to allow command to process</li>
+<li>fallback via network: fallback to most recently cached data in same group</li>
+<li>fallback via network then local - more external cache</li>
+<li>fail fast</li>
+</ul>
+<p>In complex systems, decision maker is local rather than globally rational. Local actions can have global results</p>
+<p>Auditing via simulation. </p>
+<ul>
+<li>inject latency to a service artificially to find side effects</li>
+<li>do tests in controlled times and environment so we can find bugs</li>
+<li>another test, increase latency from 125ms to 1500m. Massive increase of fallbacks, just 1 exception per second to user -&gt; good issue management</li>
+</ul>
+<p>Constantly changing</p>
+<ul>
+<li>Zuul routing layer (Netflix tool)</li>
+<li>routes traffic according to properties of traffic/user</li>
+<li>some traffic to test environments other to production</li>
+<li>phased deployment</li>
+</ul>
+<p>Full tracking in Github and commits/releases. Each commit: tests failed, passed, gone to production, etc</p>
+<p>Canary </p>
+<ul>
+<li>is a prerelease environment, if a box metrics are ok then is pushed to production</li>
+<li>In this environment test is meaningless to ensure production ready due to so many factors, only way is to use real traffic in controlled manner as test</li>
+</ul>
+<p>Squeeze</p>
+<ul>
+<li>another environment, like Canary, behind Zuul</li>
+<li>forces boxes until they break, so we know if performance is degrading or not</li>
+<li>we know how many rps can a machine handle, info can be used to resize production environment</li>
+<li>can we decide is machine should be fixed or we will pay extra temporally until fixed</li>
+</ul>
+<p>Coalmine</p>
+<ul>
+<li>different type of canary</li>
+<li>same code as production fleet</li>
+<li>additional monitoring via java agents</li>
+<li>captures NIO, IO, etc</li>
+<li>displays non expected network traffic</li>
+</ul>
+<p>Production</p>
+<ul>
+<li>main target of traffic from Zuul</li>
+<li>traffic is very predictable, 6x peak to low</li>
+<li>weekends higher peaks</li>
+<li>huge spikes</li>
+</ul>
+<p>Scryer</p>
+<ul>
+<li>as model is so predictive, this tool resizes fleet periodically to match demand</li>
+<li>better than reactive traffic as prediction can cover anomalies and ignore them</li>
+<li>reduces average load as we have resources we need in advance</li>
+<li>more accurate allocation, saves money in PaaS</li>
+</ul>
+<p>100s of customers A/B tests</p>
+<ul>
+<li>tiring for engineers</li>
+<li>become platform of web services, UI teams build their own endpoints</li>
+<li>code comes from Cassandra, it was already there and gives cluster replication for free</li>
+<li>all code is asynchronous, UI engineers shouldn&#39;t worry about concurrency, threads, etc</li>
+<li>we adopt RxJava</li>
+<li>move from blocking api to observable</li>
+<li>this model allows us to optimise endpoints</li>
+<li>every device custom builds their own WS to what they need, they deploy their own endpoints</li>
+</ul>
+<p>Failure happens</p>
+<ul>
+<li>monitoring in real time via Hystrix (failure management service)</li>
+<li>isolate failure, cluster adapts</li>
+<li>have massive dashboard that shows real state of all services in near real time</li>
+<li>dashboards are mission critical</li>
+<li>a team devoted to real time metrics</li>
+<li>aim: at any point in time, inspect anywhere across the globe and interact/react </li>
+</ul>
+<p>Complex systems work as broken systems, they work due to the redundancies it contains, despite the presence of many flaws</p>
+<h3 id="talk-6">Talk 6</h3>
+<p>Sixth and last talk was by <em>Dave Thomas</em>. He did a bit of summary and commented on some of the ideas exposed during the conference.</p>
+<p>The title was: Oh! It&#39;s reactive! May I touch it?</p>
+<p>Seeds of reactive computing</p>
+<ul>
+<li>the idea is quite old</li>
+<li>with more machines, newer cpu, now is more viable</li>
+<li>decision tables, transition tables, etc very flexible and powerful.</li>
+</ul>
+<p>Reactive - a traits perspective</p>
+<ul>
+<li>comments on previous talks in the conference</li>
+<li>Erik - reactive is just dual enumerable + futures for push/pull + high order futures</li>
+<li>Martin - responsive design is essential successful reactive solutions, batching, no share state, mechanical sympathy non optional</li>
+<li>Jonas - scalability, scale up, out, actors, reactive can help, no shared state</li>
+<li>Joe - resilience requires isolation, messaging, protocols and simple out of band handling of failure, wire format is essential, protocol is stronger than message type</li>
+<li>Todd - protocols are essential to composable systems, protocols best defined by state machines,  http evolving beyond sync text to two way async binary</li>
+<li>Dean - overview on reactive computing</li>
+<li>Greg - event sourcing as alternative model, support for pushing streams of data</li>
+<li>Lee and Matt - example and design practices, offload ui thread, conflation, streams</li>
+<li>Andrew - responsive and reliable data, data life cycle, journaling (event source)</li>
+<li>Ben - use of reactive to provide a common interface to 800 different services at scale</li>
+</ul>
+<p>How do I design reactive apps?</p>
+<ul>
+<li>reactive design patterns book</li>
+<li>introduction to rx book</li>
+<li>state machines</li>
+</ul>
+<p>Protocol/Sessions types are not just API</p>
+<ul>
+<li>they specify content and wire format of data</li>
+<li>specify message content and types</li>
+<li>specify behaviour (FSM)</li>
+<li>protocols are much harder than API and most people can&#39;t do API...</li>
+<li>REST is so easy anyone can do it wrong</li>
+</ul>
+<p>Debugging of reactive apps?</p>
+<ul>
+<li>can&#39;t use normal debugging way</li>
+<li>reactive debugging requires reactive debugger, new tools</li>
+<li>query the event stream</li>
+<li>future computing will be writing queries, most programs will be queries. Use map, select, project, etc. </li>
+</ul>
+<p>Hazards</p>
+<ul>
+<li>actors, hidden queues, reasoning and structures around them</li>
+<li>state machines are very good but can grow a lot easily</li>
+<li>protocols: services often most easily consumed as simple calls</li>
+<li>large STM very difficult</li>
+<li>reactive cost less than value it provides?</li>
+<li>reactive UI challenging due to broken browser model</li>
+<li>lazy pull not always ideal, mix of eager and lazy challenging to deal with</li>
+<li>STM and thread safe implementations need to be isolated from &#39;normal&#39; app code</li>
+</ul>
+<p>Actors comes from economic theory of contracts</p>
+<ul>
+<li>Known since 1977. Lots of work on them</li>
+<li>sharing, supervisors, async messages, etc</li>
+<li>Coordination: Erlang OTP, critical for correct usage of actors</li>
+</ul>
+<p>Batch</p>
+<ul>
+<li>RDB + HDB</li>
+<li>Ticker plant: listens at the frequency you want, useful for realtime alerts or reports at specific intervals</li>
+<li>batch processing and pub-sub for certain things </li>
+</ul>
+<p>Hostage to the UI event model</p>
+<ul>
+<li>Callbacks...</li>
+<li>Let the app handle the events</li>
+<li>Elements should be active objects that react to events</li>
+<li>current architecture comes from legacy badly designed architecture that has been copied and replicated</li>
+<li>UI should be all actor objects, all event driven</li>
+</ul>
+<p>Data dependencies are still complicated</p>
+<ul>
+<li>Streams help a lot</li>
+<li>Smalltalk mvc used broadcasting, not enough</li>
+<li>reactive addresses ability to push/pull data but leaves the challenge of complex dependencies which are essential to reactive UIs</li>
+<li>FB React.js may help to fix issue, as can Clojure OM</li>
+</ul>
+<p>Long term costs of no schema and text</p>
+<ul>
+<li>every query becomes a program</li>
+<li>every query requires a parser</li>
+<li>can&#39;t detect schema changes</li>
+<li>object serialisation sucks</li>
+<li>blobs are wrong</li>
+</ul>
+<p>What about HW</p>
+<ul>
+<li>device drivers have been a plague of OS devs for years</li>
+<li>IO programming could be mapped to memory, simplifying the abstraction</li>
+<li>do FSM and queue support belong to HW? </li>
+<li>we can transfer data from network card to memory, why do we need OS to interfere?</li>
+<li>Do we always need Paxos? How much do you need consistency? </li>
+</ul>
+<p>And that&#39;s all. I&#39;m not attending the workshop today, so there will be no report. I believe hte best compliment I can give to the conference is that I&#39;m eagerly waiting for the next edition. A &#39;must attend&#39;.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-04-08-React-conf-day-2.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-04-08-React-conf-day-2.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-04-08-React-conf-day-2.html';
+		window.disqus_identifier = '2014-04-08-React-conf-day-2';
+		window.disqus_title = 'React.conf - Day 2';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Java 8 is coming - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Mar 5th, 2014</span>
+				<h1>Java 8 is coming</h1>
+				<span class="author">By Pere Villega</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-03-05-java-8-is-coming.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-03-05-java-8-is-coming.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>It&#39;s March 2014 and, at last, it is happening. Barring any last minute surprise, Java 8 <a target="_blank" href="https://blogs.oracle.com/java/entry/java_se_8_schedule">will be released</a> this month after 3 years of delays and spec changes. Java 7 was released on 2011 and some of the promised functionality in that version was moved to Java 8. In that note, this release doesn&#39;t start too well with more features being <a target="_blank" href="http://mreinhold.org/blog/on-the-next-train">dropped</a>, mainly <a target="_blank" href="http://openjdk.java.net/projects/jigsaw/">Project Jigsaw</a> which adds a module system to the Java platform and was initially scheduled for Java 7.</p>
+<p>Personally, I&#39;m not a big fan of this release. Given what you can currently do with alternate JVM languages like <a target="_blank" href="http://www.scala-lang.org/">Scala</a> or <a target="_blank" href="http://clojure.org/">Clojure</a>, not to mention <a target="_blank" href="http://kotlin.jetbrains.org/">Kotlin</a> and others, I feel that it is too little too late. People are excited about <a target="_blank" href="http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">lambda expressions</a> but, given the rise (and benefits) of <a target="_blank" href="http://en.wikipedia.org/wiki/Functional_programming">functional programming</a>, it feels like an opportunity has been missed.
+<!-- Read more --></p>
+<p>The fact is that Java 8 has arrived, so we can as well see what&#39;s new in this release. </p>
+<h2 id="nashorn">Nashorn</h2>
+<p>Let&#39;s start with Javascript. JVM had <a target="_blank" href="http://en.wikipedia.org/wiki/Rhino_(JavaScript_engine">Rhino</a>), a Javascript engine to run Javascript in the JVM. <a target="_blank" href="http://en.wikipedia.org/wiki/Nashorn_(JavaScript_engine">Nashorn</a>) is a new implementation that takes advantage of new Java 8 byte code and is potentially much faster. It even includes a command line tool (<em>jjs</em>) to run scripts directly.</p>
+<p>Personally, I&#39;ll stay with <a target="_blank" href="http://www.scala-js.org/">Scala-js</a>.</p>
+<h2 id="new-date-and-time-api">New Date and Time API</h2>
+<p>Let&#39;s face it, the current Date/Time API in Java is worse than coding in VB. <a target="_blank" href="http://www.joda.org/joda-time/">Joda-Time</a> is the de-facto library to work with dates and time for a reason, not only its quality but also because of the native API being so bad. Luckily, Java 8 introduces some changes in the area which may turn using Joda-Time something optional. </p>
+<p>Don&#39;t take it wrong, I like Joda-Time. But I believe that every additional dependency is one more point of failure introduced in the application. Reliable as they may be, more moving parts mean more potential sources of error. I like simplicity, and using a native API included by the language (if it is not vastly inferior) is, in my book, the correct choice. </p>
+<p>There are 4 main classes in the new API: </p>
+<ul>
+<li>LocalDate: stores a date with day, month and year. No Timezone information.</li>
+<li>LocalTime: displays the current time. No Timezone information.</li>
+<li>LocalDateTime: displays both Date and Time. No Timezone information.</li>
+<li>ZonedDateTime: displays Date and Time and contains Timezone information.</li>
+</ul>
+<p>Working with the API is simpler, too. For example, to modify a stored time object you do:</p>
+<pre class="highlight"><code class="java">LocalTime current = LocalTime.now();
+LocalTime CoB = current.plus(<span class="number">9</span>, HOURS);
+</code></pre>
+<p>Another neat addition is the introduction of <a target="_blank" href="http://download.java.net/jdk8/docs/api/java/time/Clock.html">Clock</a>, a class that provides access to the current time including Timezone information. A replacement for <em>System.currentTimeMillis()</em> that may facilitate working with timed tests due to its integration with DateTime API.</p>
+<p>One example of its use:</p>
+<pre class="highlight"><code class="java">Clock.systemDefaultZone();
+</code></pre>
+<h2 id="optional">Optional</h2>
+<p>In Java 8 <a target="_blank" href="http://download.java.net/jdk8/docs/api/java/util/Optional.html">Optional</a> is a standard class available in <em>java.util</em>. For those not familiar with the construct, <em>Optional</em> is a way to avoid propagating <em>null</em> values across the application. <em>Optional</em> uses generics and can have two values: empty or non-empty. In scenarios where you may or may not get a result, you return an <em>Optional</em> of a type and work around the presence of the element. </p>
+<p>For example:</p>
+<pre class="highlight"><code class="java">Optional&lt;String&gt; opt = toBeOrNotToBe();
+
+<span class="keyword">if</span>(opt.isPresent())    
+  <span class="keyword">return</span> opt.get();
+<span class="keyword">else</span>
+  <span class="keyword">return</span> <span class="string">""</span>;
+</code></pre>
+<p>You may argue that using <em>null</em> gives similar code. The advantage of <em>Optional</em> is not saving keystrokes, but making the possibility of an empty value explicit. Instead of having to check for nulls every time you call a method you can rely that a method that doesn&#39;t implement <em>Optional</em> will return a value, even if that value is an empty list. Also, Optional provides some collection-like methods, such as <em>filter</em> or <em>map</em>, which facilitates treating Optional as a collection and merging it in stream processing.</p>
+<p>Those used to work with Optional in Scala or by using Guava will be glad of this change. Hopefully this will propagate soon to libraries, making them easier to use and reducing the amount of Null Pointer Exceptions in our applications.</p>
+<h2 id="annotations-on-java-types">Annotations on Java Types</h2>
+<p>Annotations are ubiquitous in Java. Love them or hate them, they are used in most frameworks. Java 8 allows you to use annotations in several new places where you couldn&#39;t before. Rumour has it that this will allow frameworks to check for common errors like null values, race conditions or some other tests. One example is <a target="_blank" href="http://types.cs.washington.edu/checker-framework/">Checker</a>, a type system enhancer for Java.</p>
+<p>Let&#39;s see some self-explanatory examples:</p>
+<pre class="highlight"><code class="java"><span class="comment">// Type cast</span>
+mustExist = (<span class="annotation">@NotNull</span> Integer) choice;
+
+<span class="comment">// Object creation</span>
+<span class="keyword">new</span> <span class="annotation">@NoSQLInjection</span> LittleBobbyTables(String input);
+
+<span class="comment">// Adding interfaces</span>
+<span class="class"><span class="keyword">class</span> <span class="title">MySetWrapper</span>&lt;<span class="title">T</span>&gt; <span class="keyword">implements</span> @<span class="title">Immutable</span> <span class="title">Set</span>&lt;@<span class="title">Immutable</span> <span class="title">T</span>&gt; 
+
+// <span class="title">Declaring</span> <span class="title">exceptions</span>
+<span class="title">void</span> <span class="title">crossTheBridge</span>() <span class="title">throws</span> @<span class="title">RunYouFools</span> <span class="title">BalrogException</span>
+</span></code></pre>
+<p>Now, call me biased but if you can&#39;t use Scala I&#39;d rather suggest you to look at <a target="_blank" href="https://code.google.com/p/guava-libraries/">Guava</a> before getting too excited with these annotations. Right now the aim of <a target="_blank" href="http://types.cs.washington.edu/checker-framework/">Checker</a> and similar tools can be achieved via constructs like Optional, <a target="_blank" href="https://code.google.com/p/guava-libraries/wiki/PreconditionsExplained">Preconditions</a> or <a target="_blank" href="https://code.google.com/p/guava-libraries/wiki/ImmutableCollectionsExplained">Immutable Collections</a>. Annotations may provide similar behaviour but are harder to track by a developer using your code, while the aforementioned alternatives are more intuitive and visible wherever that code is used.</p>
+<p>That said, I&#39;m pretty sure having this functionality may allow new frameworks to take advantage of it and provide very useful behaviour. But, as far as I&#39;m aware, we are not there yet.</p>
+<h2 id="lambda-expressions">Lambda Expressions</h2>
+<p>We get to the big feature of Java 8. Developed as <a target="_blank" href="http://openjdk.java.net/projects/lambda/">Project Lambda</a>. A <a target="_blank" href="http://en.wikipedia.org/wiki/Lambda_(programming">Lambda Expression</a>) is an anonymous function that can be defined and called &quot;on the fly&quot;, capable capturing values of variables in scope when defined. They are extremely useful when passing arguments to <a target="_blank" href="http://en.wikipedia.org/wiki/Higher-order_function">higher-order functions</a> or for some other functional operations.</p>
+<p>A typical example is a lambda expression used to sort an Array by length of its elements:</p>
+<pre class="highlight"><code class="java">Arrays.sort(words, 
+(String w1, String w2) -&gt; { w2.length() - w1.length() });
+</code></pre>
+<p>As you can see in the example lambdas reduce clutter. Instead of declaring a <a target="_blank" href="http://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html">Comparator</a> class and adding all that boilerplate, we provide the criteria to use as an argument. Note that we could store that lambda in a variable.</p>
+<p>Alternatively, you can pass existing methods instead of a lambda. Through <em>Method References</em> (syntax: ::) you can access a method in a class an use it as the parameter. You can use for this purpose static methods, instance methods and constructors. Basically, almost anything you can declare in Java. For example, to use <em>println</em> as a lambda:</p>
+<pre class="highlight"><code class="java">myList.forEach(System.out::println);
+</code></pre>
+<p>The snippet above will print all elements of the list to <em>System.out</em>. </p>
+<h2 id="functional-interfaces">Functional Interfaces</h2>
+<p>Functional interfaces are interfaces with exactly one non-default method. The package <a target="_blank" href="http://download.java.net/jdk8/docs/api/java/util/function/package-summary.html">java.util.function</a> declares several functional interfaces but you can define your own, for example:</p>
+<pre class="highlight"><code class="java"><span class="annotation">@FunctionalInterface</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyFunctionalInterface</span> </span>{
+
+  <span class="keyword">public</span> <span class="keyword">int</span> theQuestion();
+
+}
+</code></pre>
+<p>The annotation <em>FunctionalInterface</em> indicates to the compiler that this is a functional interface. They behave like interfaces and can extend other interfaces assuming this will not break the contract of having only one non-default method.</p>
+<p>From the point of view of the compiler the interface defines a template for a lambda. This means that the type of a functional interface can be used as the type for a lambda. For example:</p>
+<pre class="highlight"><code class="java">MyFunctionalInterface deepThought = () -&gt; <span class="keyword">return</span> <span class="number">42</span>; 
+
+<span class="keyword">public</span> <span class="keyword">void</span> answerMe(MyFunctionalInteface calculator) { ... }
+
+answerMe(deepThought);
+answerMe(() -&gt; <span class="keyword">return</span> <span class="number">42</span>;)
+</code></pre>
+<p>In the snippet above we first see a lambda stored as a variable whose type is a functional interface. Next we see a method, <em>doSomething</em>, that accepts a functional interface as a parameter. The following two lines show two valid ways of using the method, either by providing an instance of the functional interface or by passing a valid lambda that matches the definition of the interface as a parameter.</p>
+<h2 id="default-methods">Default methods</h2>
+<p>You may have heard of <em>Default Methods</em> as <em>Defender Methods</em> or <em>Virtual Extensions</em>. You can think of them as a way to turn interfaces into <a target="_blank" href="http://en.wikipedia.org/wiki/Mixin">mixins</a>. You can add as many default methods as you want to an interface and, if not overridden, the default implementation in the interface will be used. You can also add them to functional interfaces: remember that default methods don&#39;t count towards the limit in this type of interfaces.</p>
+<p>Be aware that if a class implements two default methods with the same name but belonging to different interfaces you will get a compiler error. This helps avoiding issues like <a target="_blank" href="http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem">diamond  problem</a>.</p>
+<p>An example:</p>
+<pre class="highlight"><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>{
+  <span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">int</span> rollD6() {
+    <span class="keyword">return</span> <span class="number">4</span>; <span class="comment">//guaranteed random by roll of dice</span>
+  }
+}
+</code></pre>
+<p>Similarly, now you can add static methods to your interfaces:</p>
+<pre class="highlight"><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>{
+
+  <span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">int</span> rollD20() {
+    <span class="keyword">return</span> Constants.thaco;
+  }
+}
+</code></pre>
+<p>This may be the most useful addition to Java in this release, even more than lambdas. Lambdas are something akin to a patch as Java is not a functional language. On the other hand <em>default methods</em> help developers favour <a target="_blank" href="http://en.wikipedia.org/wiki/Composition_over_inheritance">composition over inheritance</a> by providing the necessary tools. This can have a direct impact over code stability and refactoring while, at the same time, removing the main drawback of having to reimplement all methods of a given interface in each implementer. </p>
+<h2 id="collections-enhancements">Collections enhancements</h2>
+<p>A couple of handy enhancements have been added to Java collections, all of them available by default. The first one is the addition of functions <em>map</em>, <em>filter</em> and <em>reduce</em> to the standard collections. You could have access to then in Java 7 via <a target="_blank" href="https://code.google.com/p/guava-libraries/">Guava</a>, but having them in the standard API is an improvement. </p>
+<p>For example, we could read a stream of posts and add the number of comments on each one to see how many comments we have in total:</p>
+<pre class="highlight"><code class="java">reddit.stream()
+  .map(post -&gt; <span class="keyword">if</span>(post.isCatPost) <span class="keyword">return</span> post.getComments(); <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;)
+  .reduce(<span class="number">0.0</span>, (c1, c2) -&gt; c1 + c2);
+</code></pre>
+<p>From the point of view of a Scala developer, this is another proof that Java is playing catch-up with modern languages. This was a necessary addition to simplify working with collections, but again it fails short when you see there is no <em>fold</em> or any of the other helper methods commonly used in other languages.</p>
+<p>Another enhancement to collections is the <em>Stream</em> interface. Many core library classes can now return a stream of its contents, either in a sequential or parallel way. The stream is populated lazily, which facilitates working with large collections of data. They support <em>sorting</em> and other methods like <em>limit</em>. And, of course, you can create your own stream. We can, for example, create a stream from a list of numbers, sort it and get the first 10 elements:</p>
+<pre class="highlight"><code class="java">Stream.of(aListOfNumbers)
+    .sorted() 
+    .limit(<span class="number">10</span>)
+</code></pre>
+<p>Streams work well with <a target="_blank" href="http://download.java.net/jdk8/docs/api/java/util/stream/Collectors.html">Collectors</a>, a set of classes intended to amalgamate the contents of a stream into a unique result, be it a collection or a result. You can use a default collector to obtain the average of the values in a stream, as seen in the official documentation: </p>
+<pre class="highlight"><code class="java">Map&lt;Person.Sex, Double&gt; averageAgeByGender = roster
+    .stream()
+    .collect(
+        Collectors.groupingBy(
+            Person::getGender,                      
+            Collectors.averagingInt(Person::getAge)));
+</code></pre>
+<h2 id="that-s-it">That&#39;s it</h2>
+<p>That&#39;s the list. Some interesting additions that will benefit software stability and some half-hearted changes. If you are already using a more modern language you will hardly go back, but they are steps in the right direction. Now, the countdown for Java 9 starts: Currency API, Project Jigsaw and more. In the meantime, enjoy your shiny JVM.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2014-03-05-java-8-is-coming.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2014-03-05-java-8-is-coming.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2014-03-05-java-8-is-coming.html';
+		window.disqus_identifier = '2014-03-05-java-8-is-coming';
+		window.disqus_title = 'Java 8 is coming';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

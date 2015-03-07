@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Sessions, not that sticky - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Nov 21st, 2013</span>
+				<h1>Sessions, not that sticky</h1>
+				<span class="author">By Andy Summers</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2013-11-21-sticky-sessions.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2013-11-21-sticky-sessions.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>Like many other websites with a large number of concurrent users, parts of our architecture have to be scaled horizontally. In doing this, we have a load balancer in front of many running instances of the same web application, and user requests will be spread across these instances. It is common and convenient in web development to store temporary user data in session for use between requests. Most of our architecture is written using Spring MVC which has great support for this via the use of session-scoped beans and flash attributes. Session data is, however, all in-memory and only available within the scope of a single running application. Any time a developer programs an application to write some data to the session, he/she is making the assumption that subsequent requests whom require access to this data, will come to that same instance. With the load balancer setup described at the start - it becomes difficult to pre-determine which instance is going to get any one request. One way to deal with this is to use &#39;sticky sessions&#39; whereby a particular cookie is dropped in the user&#39;s browser, holding the session ID. The load balancer can then look for this cookie and maintain a mapping from this ID to the instance who is serving this particular user&#39;s session.
+<!-- Read more --></p>
+<p><img src="./sticky-sessions/sticky-session-67429.png" alt="User is working with a dedicated server node" title="User is working with a dedicated server node"></p>
+<p>All well and good? But what if a particular instance of the application was misbehaving and needed to be restarted, or what if there was a new release of the application? Anytime you shut down a running application, it loses all its in-memory data. Any user whose session was being held by one instance, will have all their session data thrown away and this could be a very bad experience indeed.</p>
+<p><img src="./sticky-sessions/session-broken-91627.png" alt="User session is broken if the node is restarted" title="User session is broken if the node is restarted"></p>
+<p>Readers who use Gumtree to sell things will be familiar with the multi-step flow involved when posting an advert. On our desktop site such an activity involves 3 pages: one to pick a category; one to pick a location; and one to fill out all the details about their advert such as title, description, etc. Only when the user hits &#39;Post my ad&#39; after filling out the form, is anything submitted to our API and saved to database. Until recently, before this button was clicked all the advert data was being built up in session. The entire Post Ad flow was reliant on sticky sessions and a resilient application. Other user flows, such as paying for features, or interacting with the Manage Ads page, were also implemented this way.</p>
+<p>This meant any restart or release of this particular application had to be performed, where possible, at a time of minimal traffic so as to disrupt the lowest number of users - generally the early hours of the morning. As we strive for continuous deployment we are often ready with potentially many new releases of this component a day, so coordinating these was a nightmare whilst we had these restrictions in place. Sticky sessions had proved to be more trouble that they were worth, and something had to be done.</p>
+<p>Tomcat 7 has support for multiple instances within the same container (see <a target="_blank" href="http://tomcat.apache.org/tomcat-7.0-doc/introduction.html">http://tomcat.apache.org/tomcat-7.0-doc/introduction.html</a>). This means a new release of the application can be started whilst the old version is still running - any user who had a session on the old version will be stuck to that instance until their session expires. Once all such sessions have expired, the old instance can be safely shut down, leaving only the new version running. This would solve the problem of doing releases without user impact, however we would still need session stickiness in the load balancer and restarting any misbehaving instance would still kill off any user sessions attached to it.</p>
+<p>In the end we opted to try Redis (<a target="_blank" href="http://redis.io">http://redis.io</a>) for storing all session data. Redis is essentially a simple key-value store with support for data types &amp; collections, as well as supporting database-y concerns such as failover, sharding, monitoring etc. One concept that is very useful is that each key can be given a time-to-live (TTL), so any data written can behave in the same way as session data by expiring itself after a set period of time. Redis comes with client libraries for most common programming languages. As we are java, we used the Jedis library (<a target="_blank" href="https://github.com/xetorthio/jedis">https://github.com/xetorthio/jedis</a>).</p>
+<p>The application has now been enhanced such that for all places where we use session beans for writing data, we serialize the java object to JSON and write this to Redis too. Reads will come from Redis (values deserialized back into objects), but in the event of a failure the session will be called instead. Via configuration we can turn this off, or make it so that reads/writes are only done against Redis rather than session.</p>
+<p>The keys are based on the &#39;editorId&#39; for Post Ad flows (as seen in the URL which is of the form /postad/{editorId}/category). We have a similar concept for other flows - see checkouts for example. To prevent cross-pollination of user data - i.e. what if user1 manages to copy user2&#39;s editorId and uses it to take over their post ad flow - we prefix all a user&#39;s keys with a unique id that is generated when they first log in. This is stored in a cookie so that any request the user makes will have the same prefix.</p>
+<p>The code is all abstracted such that anywhere that needs to read or write such data goes through the same service. Said service is not aware of the underlying storage - a &#39;SessionPersistenceStrategy&#39; interface has the implementations for Redis, in-memory, and both. The actual write operations are done via a callback handler object. Another separate service takes responsibility for generating/retrieving the unique id from the user&#39;s cookies, this is initialized via a Spring HandlerInterceptor at the start of the request.</p>
+<p>Jedis <code>writeOperation</code>:</p>
+<pre class="highlight"><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisPersistenceStrategy</span> <span class="keyword">implements</span> <span class="title">SessionPersistenceStrategy</span> </span>{
+    <span class="keyword">private</span> JedisPool jedisPool;
+    <span class="keyword">private</span> SessionIdService sessionIdService;
+
+    ….
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> <span class="keyword">void</span> writeOperation(
+                        WriteOperationCallback writeOperationCallback) {
+        Jedis jedis = <span class="keyword">null</span>;
+        <span class="keyword">try</span> {
+            jedis = jedisPool.getResource();
+
+            <span class="keyword">if</span> (jedis == <span class="keyword">null</span>) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> JedisConnectionException
+                                    (<span class="string">"Cannot connect to Redis."</span>);
+            }
+
+            writeOperationCallback.doWriteOperation(
+                        <span class="keyword">new</span> JedisWriteOperationHandler(
+                                jedis,
+                                sessionIdService.getUniqueSessionId()
+                                <span class="comment">// uniqueSessionId comes from a cookie</span>
+            ));
+        } <span class="keyword">catch</span> (JedisException je) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> SessionDataAccessException(je);
+        } <span class="keyword">catch</span> (Exception je) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> SessionDataAccessException(je);
+        } <span class="keyword">finally</span> {
+            jedisPool.returnResource(jedis);
+        }
+    }
+
+
+    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisWriteOperationHandler</span>
+                        <span class="keyword">implements</span> <span class="title">WriteOperationHandler</span> </span>{
+        <span class="keyword">private</span> Jedis jedis;
+        <span class="keyword">private</span> String keyPrefix;
+
+        <span class="keyword">public</span> JedisWriteOperationHandler(Jedis jedis,
+                                          String keyPrefix) {
+            this.jedis = jedis;
+            this.keyPrefix = keyPrefix;
+        }
+
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="keyword">void</span> set(String key, String value, <span class="keyword">int</span> ttl) {
+            <span class="comment">// formatKey is concatenating with '-' or something arbitrary</span>
+            String fullKey = formatKey(keyPrefix, key);
+            jedis.set(fullKey, value);
+            jedis.expire(fullKey, ttl);
+        }
+
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="keyword">void</span> expire(String key, <span class="keyword">int</span> ttl) {
+            String fullKey = formatKey(keyPrefix, key);
+            jedis.expire(fullKey, ttl);
+        }
+
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="keyword">void</span> del(String key) {
+            String fullKey = formatKey(keyPrefix, key);
+            jedis.del(fullKey);
+        }
+    }
+}
+</code></pre>
+<p>Using <code>writeOperation</code>:</p>
+<pre class="highlight"><code class="java"><span class="annotation">@Override</span>
+<span class="keyword">public</span> <span class="keyword">void</span> setPostAdData(<span class="keyword">final</span> String editorId,
+                          PostAdDetail postAdDetail) {
+    <span class="comment">// writeToString is a utility method to turn a POJO into Json</span>
+    <span class="keyword">final</span> String json = writeToString(mapper, postAdDetail);
+    sessionPersistenceStrategy.writeOperation(
+        <span class="keyword">new</span> WriteOperationCallback() {
+            <span class="annotation">@Override</span>
+            <span class="keyword">public</span> <span class="keyword">void</span> doWriteOperation(WriteOperationHandler handler) {
+                handler.set(editorId, json, timeToLiveSeconds);
+            }
+    });
+}
+
+<span class="annotation">@Override</span>
+<span class="keyword">public</span> <span class="keyword">void</span> removePostAdData(<span class="keyword">final</span> String editorId) {
+    sessionPersistenceStrategy.writeOperation(
+        <span class="keyword">new</span> WriteOperationCallback() {
+            <span class="annotation">@Override</span>
+            <span class="keyword">public</span> <span class="keyword">void</span> doWriteOperation(WriteOperationHandler handler) {
+                handler.del(editorId);
+            }
+        });
+}
+</code></pre>
+<p>Jedis <code>readOperation</code>:</p>
+<pre class="highlight"><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JedisPersistenceStrategy</span>
+                <span class="keyword">implements</span> <span class="title">SessionPersistenceStrategy</span> </span>{
+    <span class="keyword">private</span> JedisPool jedisPool;
+    <span class="keyword">private</span> SessionIdService sessionIdService;
+
+    ….
+
+    <span class="annotation">@Override</span>
+    <span class="keyword">public</span> String readOperation(String key) {
+        String fullKey =
+                    formatKey(sessionIdService.getUniqueSessionId(), key);
+        String value;
+        Jedis jedis = <span class="keyword">null</span>;
+        <span class="keyword">try</span> {
+            jedis = jedisPool.getResource();
+
+            <span class="keyword">if</span> (jedis == <span class="keyword">null</span>) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> JedisConnectionException
+                                (<span class="string">"Cannot connect to Redis."</span>);
+            }
+
+            value = jedis.get(fullKey);
+        } <span class="keyword">catch</span> (JedisException je) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> SessionDataAccessException(je);
+        } <span class="keyword">catch</span> (Exception je) {
+            <span class="comment">// Having to do this is a bit rubbish</span>
+            <span class="keyword">throw</span> <span class="keyword">new</span> SessionDataAccessException(je);
+        } <span class="keyword">finally</span> {
+            jedisPool.returnResource(jedis);
+        }
+
+        <span class="keyword">return</span> value;
+    }
+}
+</code></pre>
+<p>Using <code>readOperation</code>:</p>
+<pre class="highlight"><code class="java"><span class="annotation">@Override</span>
+<span class="keyword">public</span> PostAdDetail getPostAdData(String editorId) {
+    String json = sessionPersistenceStrategy.readOperation(editorId);
+
+    <span class="keyword">return</span> readFromString(mapper, json, PostAdDetail.<span class="class"><span class="keyword">class</span>);
+}
+</span></code></pre>
+<p>In terms of our infrastructure, we have so far gone with a simple master to handle all reads &amp; writes, plus two slaves which simply sync from the master and are only there as backups.</p>
+<p>You may be wondering why we still write the data to the in-memory store as well as Redis, when the overall aim was to eliminate sticky sessions. You will have spotted that reads are done from Redis primarily, but only where this fails will the sessions be called upon. Sticky sessions are still on so as to make this possible. The reason why this has been done is as a safeguard for the possibility that Redis does not work properly. So far however, after 3 months in production, we have had no failures from Redis even with the single master handling everything. The best news though is that restarting or releasing a new version of the application now has zero user impact. Any session that was &#39;stuck&#39; to a restarted instance will now be reassigned, and all the user&#39;s data will be retrievable from Redis.</p>
+<p>The next steps will be to beef up the Redis infrastructure - Redis Sentinel (<a target="_blank" href="http://redis.io/topics/sentinel">http://redis.io/topics/sentinel</a>) is a common tool for this and this is an example setup <a target="_blank" href="https://github.com/noise/redis-sentinel-tests">https://github.com/noise/redis-sentinel-tests</a>. Once we are confident that Redis can be our single point of failure, all mention of sessions within the application can be eliminated and stickiness can well and truly be turned off.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2013-11-21-sticky-sessions.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2013-11-21-sticky-sessions.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2013-11-21-sticky-sessions.html';
+		window.disqus_identifier = '2013-11-21-sticky-sessions';
+		window.disqus_title = 'Sessions, not that sticky';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>

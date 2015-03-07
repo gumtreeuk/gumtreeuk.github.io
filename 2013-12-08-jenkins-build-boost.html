@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Our site title and description -->
+	<title>Jenkins build boost - Gumtree Dev Team</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<meta name="description" content="The Gumtree Dev Team." />
+	<meta name="keywords" content="Gumtree, technology, development, team, engineering, web, product development" />
+	<meta name="author" content="Gumtree" />
+
+	<!-- Output DocPad produced meta elements -->
+	<meta name="generator" content="DocPad v6.55.9" />
+
+    <link href="http://www.gumtree.com/devteam/atom.xml" rel="alternate" title="Gumtree DevTeam" type="application/atom+xml">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+    <link rel="shortcut icon" href="http://www.gumtree.com/devteam/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://www.gumtree.com/devteam/icons/apple-touch-icon-57-precomposed.png">
+
+	<!-- Styles -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Maven+Pro' rel='stylesheet' type='text/css'>
+	<link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/zurb-foundation.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/highlightjs-obsidian.css" /><link  rel="stylesheet" href="http://www.gumtree.com/devteam/styles/main.css" />
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!-- GTM dataLayer -->
+	<script type="text/javascript">
+        var dataLayer = [{
+            "p": {
+                "t": "BlogArticle",
+                "pl": "DevBlog",
+                "v": "0.1",
+            }
+        }];
+    </script>
+    <!-- GTM Pt1 -->
+    <script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MDWG89');</script>
+    <!-- End GTM Pt1 -->
+    <script type="text/javascript">
+        var mpx_custom = {
+           new_mpcl:'blog;;;;;;;;;;;' + document.URL,
+           new_mpvl:document.referrer
+        }
+    </script>
+</head>
+
+<body>
+    <!-- GTM Pt2 -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MDWG89" height="0" width="0" style="display:none;visibility:hidden"></iframe> 
+    </noscript>
+    <!-- End GTM Pt2 -->
+    <div id='layout'>
+        <nav class="container top-bar" style="">
+        <div class="row">
+            <a href="http://www.gumtree.com" class="header-logo">
+                <img src="https://sa.gumtree.com/responsive/images/orphans/logo_@2x.png">
+            </a>
+            
+                <div class="blog-title"><a href="http://www.gumtree.com/devteam/">Dev<span class="team">Team_</span></a></div>
+            
+			</div>
+        </nav>
+		<div role="main">
+			<article id="post" class="post">
+
+	<div class="row">
+		<section class="columns post-content small-12 large-8">
+	        	<header>
+	            		<span class="post-date">Dec 8th, 2013</span>
+				<h1>Jenkins build boost</h1>
+				<span class="author">By Tomas Bezdek</span>
+                <section class="social-buttons-wrap">
+                    <div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2013-12-08-jenkins-build-boost.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2013-12-08-jenkins-build-boost.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+                </section>
+	        	</header>
+			<p>In the last couple of years agile development has become very popular across the industry. Who wouldn&#39;t like agile. Abandoning obsolete and protracted methodologies like waterfall or prototyping and delivering code in short release cycles, less likely to introduce major bugs. But honestly, when you develop a functionality, do you really want to be waiting till the end of the sprint to see your code in production? Well in Gumtree we don&#39;t like waiting. We want to be able to deliver our customers new functionality and better experience not withing weeks or days, but within hours. And to achieve this, we need not only fully automated, but also extremely fast release process.
+<!-- Read more --></p>
+<p>One of the key problems we were struggling with was build pipeline in our CI (<a target="_blank" href="http://jenkins-ci.org/">Jenkins</a>). The pipeline is configured to build the whole stack of projects we have and has about 25 jobs, some of them running in parallel. Passing the pipeline usually took about 45 to 60 minutes and sometimes even longer when multiple pipelines were executed simultaneously. Surprisingly building most of the pipeline&#39;s jobs locally and sequentially didn&#39;t usually take more than 20 minutes, which was giving me nightmares and eventually made me to look closer on what&#39;s happening during the build and what&#39;s causing this slowlyness.</p>
+<h2 id="timestamper-plugin">Timestamper plugin</h2>
+<p>Good logging is essential when you are trying to detect application issues. Jenkins is no exception and default installation provides pretty good logging for jobs executions. Unfortunately the logs don&#39;t contain any timestamps which makes revealing bottlenecks quite difficult. But there is a solution - <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Timestamper">Timestamper plugin</a>, which can for each log entry display either system time or time elapsed since job was triggered. Each of the formats is handy in different situation, I&#39;ve usually used <code>time elapsed</code> to compare builds with different build times to see where the difference comes from.</p>
+<h2 id="internal-networks-and-proxies">Internal networks and proxies</h2>
+<p>Having timestamps, first delay was very easy to discover. By simply following sequence of timestamps on each line I&#39;ve noticed there&#39;s long delay when executing jaxws-maven-plugin. Our CI infrastructure is running on private network with no direct access to Internet and communication with outer networks is handled by proxy server. We are obviously no amateurs and maven was configured to honor the proxy, but we didn&#39;t realize this plugin is executing separate JVM and doesn&#39;t automatically pass proxy settings. It took a while to figure out correct configuration, but I&#39;ve succeeded and maven was no more timing out for 30 seconds each time the plugin was executed. Later on, the generated classes were moved to separate, out of pipeline project and build time was improved again.</p>
+<h2 id="artifact-publishing-and-fingerprinting">Artifact publishing and fingerprinting</h2>
+<p>No matter how useful feature might <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/Fingerprint+Plugin">fingerprinting</a> be, it should be carefully chosen which jobs needs the fingerprinting and these jobs shouldn&#39;t keep too long build history. Otherwise it can easily happen that many gigabytes of your Jenkins master will be occupied by couple millions of small fingerprint files and when <code>Fingerprint clenup job</code> is executed, heavy I/O load will make the master pretty unresponsive. And even if the GUI itself might still behave quite ok, it surely will slow down slave jobs which would be trying to send files back to master. In our case, fingerprinting was just leftover obsolete plugin and could be safely uninstalled.</p>
+<p>I came across the fingerprinting plugin by trying to solve different issue - sometimes copying build artifacts back on master for archiving took ages. Fingerprinting was the reason, but after talking to other developers and site operations, it turned out that since we are storing all the artifacts in <a target="_blank" href="http://freecode.com/projects/sonatype-nexus">Nexus</a>, we don&#39;t really need them on Jenkins and this feature could be turned off as well.</p>
+<h2 id="slave-instances-performance">Slave instances performance</h2>
+<p>As I mentioned at the beginning, building projects locally took much less time than running them in Jenkins. But even after resolving previous two blockers, maven still reported per-project build time significantly higher than on my localhost. There were no more obvious delays during the build, so I tried to login to slave, manually checkout longest lasting project and execute build manually to see if problem is in job configuration of somewhere else. The pure maven build lasted longer than running same command on my local environment and I finally realized, the problem is not job setup, but slave performance itself. Reducing number of slaves and assigning gained resources to remaining machines made the pipeline perform much better again.</p>
+<p>Unfortunately reducing number of slaves resulted in jobs having to queue when building multiple pipelines simultaneously. This still has to be fixed, but since not all jobs require powerful hardware, the solution is easy. We just need to sacrifice one of the big slave machines, turn it into several smaller instances and assign jobs to instances using labels.</p>
+<h2 id="dependent-on-services-performance">Dependent-on services performance</h2>
+<p>After speeding up maven build itself, there were still mysterious differences when building same job multiple times. When Jenkins finishes maven build phase, it executes publishers, reporters and notifications. In our case publishers were the issue.</p>
+<p>Except for deploying jar artifacts to nexus, we are also building deb packages and use <a target="_blank" href="https://wiki.jenkins-ci.org/display/JENKINS/SCP+plugin">SCP plugin</a> to copy them to apt-like repository from which they are later on used for deploying to QA and production environments. Each environment used to have separate repository and packages had to be copied twice. This was solved by building another pipeline which (in a nutshell) takes care of deploying modified packages to pre-release environment, running
+regression tests and if everything passes, copying these packages to production repository. However this wasn&#39;t the main problem with repositories and to make things more interesting, each repository had different kind of problem.</p>
+<p>First problem was caused by two independent and mis-configured <a target="_blank" href="http://puppetlabs.com/">puppet</a> instances. First, long forgotten and locally configured instance was set to keep the repository as home of user <code>jenkins</code>. Second, newer and remotely configured instance was trying to keep it as home for user <code>repo</code>. Every now and then when puppets were checking permissions for user&#39;s home directories, they discovered permissions do not match and decided to restore law&amp;order in their jurisdiction. To achieve this, puppet is running <code>usermod</code> command which also takes care of changing file permissions for all files in given directory. Unfortunately directory containing ~12k files and being mounted using NFS caused incredible I/O load and resulted in new files upload being utterly slow.</p>
+<p>Second, much easier to discover and solve, problem was caused by a bash script. Script which was extracting all packages, indexing their metadata and creating genuine apt repository that we used to install packages using pure <code>apt-get update/install</code>. Doing this on ~120 GB of packages every time you upload new one is something you really want to avoid. Luckily we didn&#39;t have to look for more efficient way of indexing, because we just replaced last service using this repository by more efficient solution and we could simply remove the script from cron.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Not only when you&#39;re experiencing issues with your CI environment, but every now and then try to look at <code>Build Time Trend</code> of your jobs and if you see increasing build duration, spend some time investigating why has that happened and if it&#39;s really necessary. Also when introducing new features to the build, spend few seconds thinking about the other steps and consider if they are still needed. Most of the mentioned problems didn&#39;t cause significant delay, but given the number of jobs in the pipeline the result was amazing. Pipeline is now usually being built in less than 15 minutes and the only problem when building multiple pipelines simultaneously is lack of slaves.</p>
+<p>The next step for speeding up the pipeline is using parallel build introduced in Maven 3. Test runs seems very promising, about 7 minutes from pulling the trigger to last artifact copied to repository. Groovy, let&#39;s roll it out, what are we waiting for? Unfortunately we are still using plugins which are not compatible with parallel build and sometimes makes it fail. But we work hard when we don&#39;t play and hopefully we will be able to fix or replace all incompatible plugins soon.</p>
+<p>Thanks you for reading, hope it was useful and if you have any tips how to increase build speed in Jenkins, please share in comments.</p>
+
+            <section class="social-buttons-wrap">
+				<div class="social-buttons"><div class="facebook-like-button service-button">
+	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//www.gumtree.com/devteam/2013-12-08-jenkins-build-boost.html&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=206144109506296" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
+</div><div class="google-plus-one-button service-button">
+	<div class="g-plusone" data-size="medium" data-href="http%3A//www.gumtree.com/devteam/2013-12-08-jenkins-build-boost.html"></div>
+	<script>
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div><div class="twitter-tweet-button service-button">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="GumtreeDevTeam" data-related="GumtreeDevTeam">Tweet</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div></div>
+			</section>
+            <section class="comments">
+				<div id="disqus_thread"></div>
+<script>
+	(function(){
+		window.disqus_shortname = 'gumtreedevteam';
+		window.disqus_developer = '1';
+		window.disqus_url = 'http://www.gumtree.com/devteam/2013-12-08-jenkins-build-boost.html';
+		window.disqus_identifier = '2013-12-08-jenkins-build-boost';
+		window.disqus_title = 'Jenkins build boost';
+		if ( window.DISQUS ) {
+			return DISQUS.reset({
+				reload: true,
+				config: function () {
+					this.page.identifier = window.disqus_identifier;
+					this.page.url = window.disqus_url;
+					this.page.title = window.disqus_title;
+				}
+			});
+		}
+		else {
+		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		}
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			</section>
+		</section>
+
+		<div class="columns small-12 large-4">
+			
+			<nav class="side-info">
+	<h3>Recent Posts</h3>
+    <ul class="posts-list">
+        
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-03-07-qcon-london-day-3.html" property="dc:title">QCon London 2015 - Day 3</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-06-integrating-hystrix.html" property="dc:title">Integrating Hystrix</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2015-01-05-pull-requests-good-process.html" property="dc:title">Pull Requests (what could be a good process)</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-12-12-creating-a-treeview-using-reactjs.html" property="dc:title">Creating a treeview using react.js</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-11-07-jax-london-day3.html" property="dc:title">The closing day of JAX London 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-29-Jax-London.html" property="dc:title">Jax London summary</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-27-big-data-analytics-summit-london.html" property="dc:title">Big Data &amp; Analytics Innovation Summit</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-13-hackathon-2014.html" property="dc:title">Hackathon 2014</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-10-06-Mind-the-product-best-bits.html" property="dc:title">Building Badass Products – Mind the Product Best Bits</a>
+                </li>
+        
+                
+                <li class="">
+                        <a href="http://www.gumtree.com/devteam/2014-08-19-safely-running-bulk-operations-on-redis-with-lua-scripts.html" property="dc:title">Safely running bulk operations on Redis with lua scripts</a>
+                </li>
+        
+    </ul>
+</nav>
+        	<section class="contact-info side-info">
+    <p>GitHub <a href="https://github.com/gumtreeuk">github.com/gumtreeuk</a></p>
+    <p>LinkedIn <a href="http://www.linkedin.com/company/gumtree.com/">Gumtree.com</a></p>
+</section>
+
+        	<section id="work-for-us-banner">
+    <a href="http://www.linkedin.com/company/gumtree.com/careers"><img src="http://www.gumtree.com/devteam/images/work-with-us-tank.jpeg"></a>
+</section>
+
+			<section id="blogroll" class="side-info">
+	<h3>Blog Roll</h3>
+	<ul class="posts-list">
+	    <li><a href="http://www.technology-ebay.de/">eBay Germany Dev Blog</a></li>
+        <li><a href="http://www.ebaytechblog.com/">eBay Technology Blog</a></li>
+    </ul>
+</section>
+
+        </div>
+	</div>
+</article>
+		</div>
+	    <div id='layout_footer'></div>
+    </div>
+	<footer id='footer' class="panel">
+		<div class="row">
+			<p id="copyright">&copy; Gumtree.com 2000-2015</p>
+		</div>
+	</footer>
+	<!-- Scripts -->
+
+	<!-- Depending on browser support load the zepto-pack or the jquery-pack.
+		As configured (see grunt-config.json) this includes:
+		 - modernizr,
+		 - zepto OR jquery
+		 - foundation.topbar.js
+
+		condition jquery or zepto adapted from:
+		http://foundation.zurb.com/docs/javascript.html
+	-->
+	<script>
+	  document.write('<script src="http://www.gumtree.com/devteam/scripts/'
+	    + ('__proto__' in {} ? 'zepto' : 'jquery')
+	    + '-pack.min.js"><\/script>');
+	</script>
+	<script>
+		//init all foundation plugins.
+		//Currently this only includes foundation.topbar.js
+		//See http://foundation.zurb.com/docs/javascript.html
+		$(document).foundation();
+	</script>
+	<script defer="defer"  src="http://www.gumtree.com/devteam/scripts/app.js"></script>
+
+	<a href="http://www.gumtree.com/devteam/sitemap.xml"></a>
+	<div id="mediaplex_tracking"></div>
+    <script type="text/javascript">
+        (function () {
+            var mpxtag = document.createElement('script');
+            mpxtag.type = 'text/javascript';
+            mpxtag.async = true;
+            mpxtag.src = ('https:' == document.location.protocol ? 'https://secure.' : 'http://') + 'img-cdn.mediaplex.com/0/6092/39890/Kijiji-Gumtree-UK_mp_pvt_brand_landing_ns_2013-03-15.js';
+            var smpx = document.getElementsByTagName('script')[0];
+            smpx.parentNode.insertBefore(mpxtag, smpx);
+        })();
+    </script>
+</body>
+</html>
